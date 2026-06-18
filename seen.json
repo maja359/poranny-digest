@@ -1,0 +1,26 @@
+{
+  "_note": "Persistent anti-repeat memory for Poranny Digest. The publishing script appends to this every day; the agent reads it (raw public URL) before choosing book/brand/topics. Keep lists trimmed if they grow huge.",
+  "books": [
+    "Zachowuj się — Robert Sapolsky",
+    "Outlive — Peter Attia",
+    "Twój umysł na detoksie",
+    "Umysł ponad nastrojem — Padesky",
+    "Śpij, jedz, ruszaj się — Panda",
+    "Pułapki myślenia — Kahneman",
+    "Jelita wiedzą lepiej — Mosley",
+    "Homo Deus — Harari"
+  ],
+  "beauty": [
+    "Charlotte Tilbury"
+  ],
+  "topics": [
+    "SpaceX IPO na Nasdaq",
+    "OpenAI poufne dokumenty IPO",
+    "Microsoft modele MAI",
+    "Brain longevity (Nature, Palermo)",
+    "Levi's Stadium FIFA cover-up"
+  ],
+  "rynek": [
+    "IPO"
+  ]
+}
