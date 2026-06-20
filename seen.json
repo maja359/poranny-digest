@@ -12,14 +12,16 @@
     "Dynamiczny mózg. Historia nieustannych przeobrażeń — David Eagleman",
     "Jak powstają emocje. Sekretne życie mózgu — Lisa Feldman Barrett",
     "Niespokojne pokolenie — Jonathan Haidt",
-    "Jak żyć długo. Dlaczego się starzejemy i czy naprawdę musimy — David Sinclair, Matthew LaPlante"
+    "Jak żyć długo. Dlaczego się starzejemy i czy naprawdę musimy — David Sinclair, Matthew LaPlante",
+    "Strach ucieleśniony — Bessel van der Kolk"
   ],
   "beauty": [
     "Charlotte Tilbury",
     "Tatcha",
     "Glossier",
     "Drunk Elephant",
-    "Rare Beauty"
+    "Rare Beauty",
+    "Fenty Beauty"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -42,13 +44,18 @@
     "Snap sprzedaje okulary AR za 2195 dolarów i mówi, że to jest przyszłość komputerów",
     "Mózg może poprawiać się w każdym wieku - nawet w dziewiątej dekadzie życia",
     "Związek miedzi wyczyścił 42% toksycznych białek Alzheimera. Droga do badań klinicznych może być krótsza",
-    "Charlotte Tilbury nakręciła kampanię z Kate Moss, żeby walczyć z własnym dupkiem. To dobre podsumowanie 2026."
+    "Charlotte Tilbury nakręciła kampanię z Kate Moss, żeby walczyć z własnym dupkiem. To dobre podsumowanie 2026.",
+    "Wystarczy 13 słów w komentarzu na Reddicie, żeby nakłonić AI do polecenia scamu",
+    "Samoreplikujący się robak napędzany przez lokalny LLM przejął 74% sieci testowej w 7 dni",
+    "Siedzisz ponad 8 godzin dziennie? Ryzyko demencji rośnie o prawie 30%",
+    "'Dupe' to już nie wstyd. Jak tania alternatywa stała się wyborem, a nie kompromisem"
   ],
   "rynek": [
     "IPO",
     "stopy procentowe",
     "inflacja",
     "obligacje",
-    "wycena spółki"
+    "wycena spółki",
+    "kurs walutowy"
   ]
 }
