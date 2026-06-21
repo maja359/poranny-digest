@@ -13,7 +13,8 @@
     "Jak powstają emocje. Sekretne życie mózgu — Lisa Feldman Barrett",
     "Niespokojne pokolenie — Jonathan Haidt",
     "Jak żyć długo. Dlaczego się starzejemy i czy naprawdę musimy — David Sinclair, Matthew LaPlante",
-    "Strach ucieleśniony — Bessel van der Kolk"
+    "Strach ucieleśniony — Bessel van der Kolk",
+    "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -21,7 +22,8 @@
     "Glossier",
     "Drunk Elephant",
     "Rare Beauty",
-    "Fenty Beauty"
+    "Fenty Beauty",
+    "Byredo"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -48,7 +50,11 @@
     "Wystarczy 13 słów w komentarzu na Reddicie, żeby nakłonić AI do polecenia scamu",
     "Samoreplikujący się robak napędzany przez lokalny LLM przejął 74% sieci testowej w 7 dni",
     "Siedzisz ponad 8 godzin dziennie? Ryzyko demencji rośnie o prawie 30%",
-    "'Dupe' to już nie wstyd. Jak tania alternatywa stała się wyborem, a nie kompromisem"
+    "'Dupe' to już nie wstyd. Jak tania alternatywa stała się wyborem, a nie kompromisem",
+    "Chatbot zamiast gazety: Reuters Institute policzył, ile ruchu AI zabrało wydawcom",
+    "Prąd dla AI: rząd USA nakazał sieciom energetycznym stworzyć szybki pas dla centrów danych",
+    "3000 białek we krwi zdradzają, który organ starzeje się szybciej niż reszta",
+    "Amazon skasował film o Samie Altmanie. Dzień po tym, jak zainwestował w OpenAI 50 miliardów."
   ],
   "rynek": [
     "IPO",
@@ -56,6 +62,7 @@
     "inflacja",
     "obligacje",
     "wycena spółki",
-    "kurs walutowy"
+    "kurs walutowy",
+    "fuzja i przejęcie"
   ]
 }
