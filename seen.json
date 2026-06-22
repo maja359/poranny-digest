@@ -1,5 +1,5 @@
 {
-  "_note": "Persistent anti-repeat memory for Poranny Digest. Appended automatically each day; the agent reads it before choosing book/brand/topics.",
+  "_note": "Persistent anti-repeat memory for Poranny Digest. Appended automatically each day; the agent reads it before choosing book/brand/person/topics.",
   "books": [
     "Zachowuj się — Robert Sapolsky",
     "Outlive — Peter Attia",
@@ -14,7 +14,8 @@
     "Niespokojne pokolenie — Jonathan Haidt",
     "Jak żyć długo. Dlaczego się starzejemy i czy naprawdę musimy — David Sinclair, Matthew LaPlante",
     "Strach ucieleśniony — Bessel van der Kolk",
-    "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor"
+    "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor",
+    "Mózg zmienia się sam — Norman Doidge"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -23,7 +24,8 @@
     "Drunk Elephant",
     "Rare Beauty",
     "Fenty Beauty",
-    "Byredo"
+    "Byredo",
+    "CeraVe"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -54,7 +56,11 @@
     "Chatbot zamiast gazety: Reuters Institute policzył, ile ruchu AI zabrało wydawcom",
     "Prąd dla AI: rząd USA nakazał sieciom energetycznym stworzyć szybki pas dla centrów danych",
     "3000 białek we krwi zdradzają, który organ starzeje się szybciej niż reszta",
-    "Amazon skasował film o Samie Altmanie. Dzień po tym, jak zainwestował w OpenAI 50 miliardów."
+    "Amazon skasował film o Samie Altmanie. Dzień po tym, jak zainwestował w OpenAI 50 miliardów.",
+    "Człowiek za transformerem porzucił Google dla OpenAI. Google wydało na niego 2,7 mld dolarów.",
+    "Google na I/O poprosiło deweloperów o cierpliwość do czerwca. Czerwiec dobiega końca.",
+    "Mózg ma pięć er, a szczyt osiąga w wieku 32 lat. To jeden z czterech punktów zwrotnych.",
+    "Czechy wygrały swoje pierwsze Grand Prix w Cannes. Czekoladą i bez żadnego AI."
   ],
   "rynek": [
     "IPO",
@@ -63,6 +69,10 @@
     "obligacje",
     "wycena spółki",
     "kurs walutowy",
-    "fuzja i przejęcie"
+    "fuzja i przejęcie",
+    "hawkish/dovish"
+  ],
+  "osoby": [
+    "Fei-Fei Li"
   ]
 }
