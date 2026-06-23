@@ -15,7 +15,8 @@
     "Jak żyć długo. Dlaczego się starzejemy i czy naprawdę musimy — David Sinclair, Matthew LaPlante",
     "Strach ucieleśniony — Bessel van der Kolk",
     "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor",
-    "Mózg zmienia się sam — Norman Doidge"
+    "Mózg zmienia się sam — Norman Doidge",
+    "Dlaczego śpimy. Odkrywanie potęgi snu i marzeń sennych — Matthew Walker"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -25,7 +26,8 @@
     "Rare Beauty",
     "Fenty Beauty",
     "Byredo",
-    "CeraVe"
+    "CeraVe",
+    "YSL Beauté"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -60,7 +62,11 @@
     "Człowiek za transformerem porzucił Google dla OpenAI. Google wydało na niego 2,7 mld dolarów.",
     "Google na I/O poprosiło deweloperów o cierpliwość do czerwca. Czerwiec dobiega końca.",
     "Mózg ma pięć er, a szczyt osiąga w wieku 32 lat. To jeden z czterech punktów zwrotnych.",
-    "Czechy wygrały swoje pierwsze Grand Prix w Cannes. Czekoladą i bez żadnego AI."
+    "Czechy wygrały swoje pierwsze Grand Prix w Cannes. Czekoladą i bez żadnego AI.",
+    "SpaceX kupił Cursor za 60 miliardów i staje się kręgosłupem całej ery AI",
+    "Fable 5 od dziś jest płatny. Koniec trzynastodniowego okna",
+    "Twój mózg decyduje, jak długo pożyjesz. Nowe badanie to mierzy z zaskakującą precyzją",
+    "Gillette przykryło własne logo kremem do golenia. Najlepszy ruch brandingowy na mundialu."
   ],
   "rynek": [
     "IPO",
@@ -70,9 +76,11 @@
     "wycena spółki",
     "kurs walutowy",
     "fuzja i przejęcie",
-    "hawkish/dovish"
+    "hawkish/dovish",
+    "ETF"
   ],
   "osoby": [
-    "Fei-Fei Li"
+    "Fei-Fei Li",
+    "Jensen Huang"
   ]
 }
