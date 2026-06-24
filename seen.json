@@ -16,7 +16,8 @@
     "Strach ucieleśniony — Bessel van der Kolk",
     "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor",
     "Mózg zmienia się sam — Norman Doidge",
-    "Dlaczego śpimy. Odkrywanie potęgi snu i marzeń sennych — Matthew Walker"
+    "Dlaczego śpimy. Odkrywanie potęgi snu i marzeń sennych — Matthew Walker",
+    "Złodzieje. Co okrada nas z uwagi — Johann Hari"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -27,7 +28,8 @@
     "Fenty Beauty",
     "Byredo",
     "CeraVe",
-    "YSL Beauté"
+    "YSL Beauté",
+    "Chanel"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -66,7 +68,11 @@
     "SpaceX kupił Cursor za 60 miliardów i staje się kręgosłupem całej ery AI",
     "Fable 5 od dziś jest płatny. Koniec trzynastodniowego okna",
     "Twój mózg decyduje, jak długo pożyjesz. Nowe badanie to mierzy z zaskakującą precyzją",
-    "Gillette przykryło własne logo kremem do golenia. Najlepszy ruch brandingowy na mundialu."
+    "Gillette przykryło własne logo kremem do golenia. Najlepszy ruch brandingowy na mundialu.",
+    "Chiny zamknęły Nvidię na dworze. 295 miliardów dolarów na własny internet AI",
+    "Anthropic złożył papiery do giełdy. Wycena: prawie bilion dolarów",
+    "Naukowcy znaleźli coś, co starzeje twoje komórki. I da się to odwrócić w dwa dni.",
+    "Guess wstawiło sztuczny model do Vogue. Nowy Jork odpowiedział prawem."
   ],
   "rynek": [
     "IPO",
@@ -77,10 +83,12 @@
     "kurs walutowy",
     "fuzja i przejęcie",
     "hawkish/dovish",
-    "ETF"
+    "ETF",
+    "dźwignia finansowa"
   ],
   "osoby": [
     "Fei-Fei Li",
-    "Jensen Huang"
+    "Jensen Huang",
+    "Dario Amodei"
   ]
 }
