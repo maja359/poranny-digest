@@ -17,7 +17,8 @@
     "Oddech. Naukowe poszukiwania utraconej sztuki - James Nestor",
     "Mózg zmienia się sam — Norman Doidge",
     "Dlaczego śpimy. Odkrywanie potęgi snu i marzeń sennych — Matthew Walker",
-    "Złodzieje. Co okrada nas z uwagi — Johann Hari"
+    "Złodzieje. Co okrada nas z uwagi — Johann Hari",
+    "Pieśń komórki — Siddhartha Mukherjee"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -29,7 +30,9 @@
     "Byredo",
     "CeraVe",
     "YSL Beauté",
-    "Chanel"
+    "Chanel",
+    "Tower 28",
+    "Le Labo"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -72,7 +75,11 @@
     "Chiny zamknęły Nvidię na dworze. 295 miliardów dolarów na własny internet AI",
     "Anthropic złożył papiery do giełdy. Wycena: prawie bilion dolarów",
     "Naukowcy znaleźli coś, co starzeje twoje komórki. I da się to odwrócić w dwa dni.",
-    "Guess wstawiło sztuczny model do Vogue. Nowy Jork odpowiedział prawem."
+    "Guess wstawiło sztuczny model do Vogue. Nowy Jork odpowiedział prawem.",
+    "GPT-5.6 jest. Ale rząd USA mówi: jeszcze nie dla ciebie",
+    "OpenAI zrobiło własny chip. Nazywa się Jalapeño",
+    "Sen naprawdę sprząta mózg z Alzheimera. Teraz wiemy to z ludzkich danych",
+    "Krzywe litery i chwiejące się logo jako drogi wybór"
   ],
   "rynek": [
     "IPO",
@@ -84,11 +91,13 @@
     "fuzja i przejęcie",
     "hawkish/dovish",
     "ETF",
-    "dźwignia finansowa"
+    "dźwignia finansowa",
+    "stablecoin"
   ],
   "osoby": [
     "Fei-Fei Li",
     "Jensen Huang",
-    "Dario Amodei"
+    "Dario Amodei",
+    "Sam Altman"
   ]
 }
