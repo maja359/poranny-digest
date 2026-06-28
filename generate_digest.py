@@ -200,10 +200,19 @@ seen["_note"] = "Persistent anti-repeat memory for Poranny Digest. Appended auto
 json.dump(seen, open(seen_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
 url = PAGES + page
-# Hand the URL + Polish date to the workflow (for the Slack step)
-gh_out = os.environ.get("GITHUB_OUTPUT")
-if gh_out:
-    with open(gh_out, "a", encoding="utf-8") as f:
-        f.write("published_url=%s\n" % url)
-        f.write("date_pl=%s\n" % date_pl)
+
+# Write the Slack payload to a temp file; the workflow posts it after push.
+slack = {
+    "text": "<@ULYLZE1KQ> Poranny digest — %s → %s" % (date_pl, url),
+    "blocks": [
+        {"type": "section", "text": {"type": "mrkdwn",
+            "text": "<@ULYLZE1KQ>\n*Poranny digest — %s*\nPełne wydanie z obrazkami:" % date_pl}},
+        {"type": "actions", "elements": [
+            {"type": "button", "text": {"type": "plain_text", "text": "☕ Otwórz digest"},
+             "url": url, "style": "primary"}]},
+    ],
+}
+tmp = os.environ.get("RUNNER_TEMP", "/tmp")
+open(os.path.join(tmp, "slack_payload.json"), "w", encoding="utf-8").write(json.dumps(slack, ensure_ascii=False))
+
 print("PUBLISHED_URL=" + url)
