@@ -1,0 +1,63 @@
+name: Poranny Digest
+
+on:
+  schedule:
+    - cron: "0 7 * * *"   # 07:00 UTC = 09:00 Europe/Warsaw (summer); 08:00 (winter)
+  workflow_dispatch: {}    # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write          # GITHUB_TOKEN can commit to this repo — no PAT needed
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install anthropic
+
+      - name: Generate + render digest
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate_digest.py
+
+      - name: Commit & push
+        run: |
+          git config user.name  "poranny-digest-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "digest ${{ github.run_id }}"
+          git push
+
+      - name: Post link to Slack
+        if: steps.gen.outputs.published_url != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -fsS -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            --data "$(python - <<'PY'
+import json, os
+url = "${{ steps.gen.outputs.published_url }}"
+date_pl = "${{ steps.gen.outputs.date_pl }}"
+print(json.dumps({
+  "text": f"<@ULYLZE1KQ> Poranny digest — {date_pl} → {url}",
+  "blocks": [
+    {"type": "section", "text": {"type": "mrkdwn",
+      "text": f"<@ULYLZE1KQ>\n*Poranny digest — {date_pl}*\nPełne wydanie z obrazkami:"}},
+    {"type": "actions", "elements": [
+      {"type": "button", "text": {"type": "plain_text", "text": "☕ Otwórz digest"},
+       "url": url, "style": "primary"}]}
+  ]
+}))
+PY
+)"
