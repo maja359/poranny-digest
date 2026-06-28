@@ -25,7 +25,6 @@ jobs:
       - run: pip install anthropic
 
       - name: Generate + render digest
-        id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python generate_digest.py
@@ -39,25 +38,9 @@ jobs:
           git push
 
       - name: Post link to Slack
-        if: steps.gen.outputs.published_url != ''
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           curl -fsS -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
-            --data "$(python - <<'PY'
-import json, os
-url = "${{ steps.gen.outputs.published_url }}"
-date_pl = "${{ steps.gen.outputs.date_pl }}"
-print(json.dumps({
-  "text": f"<@ULYLZE1KQ> Poranny digest — {date_pl} → {url}",
-  "blocks": [
-    {"type": "section", "text": {"type": "mrkdwn",
-      "text": f"<@ULYLZE1KQ>\n*Poranny digest — {date_pl}*\nPełne wydanie z obrazkami:"}},
-    {"type": "actions", "elements": [
-      {"type": "button", "text": {"type": "plain_text", "text": "☕ Otwórz digest"},
-       "url": url, "style": "primary"}]}
-  ]
-}))
-PY
-)"
+            --data @"$RUNNER_TEMP/slack_payload.json"
