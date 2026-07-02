@@ -15,7 +15,7 @@ Env: ANTHROPIC_API_KEY (required). Run from the repo root.
 import os, sys, json, re, datetime, urllib.parse
 import anthropic
 
-MODEL = "claude-opus-4-8"
+MODEL = "claude-sonnet-4-6"
 PAGES = "https://maja359.github.io/poranny-digest/"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
