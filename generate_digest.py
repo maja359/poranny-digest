@@ -95,12 +95,19 @@ tools = [
 messages = [{"role": "user", "content": "Wygeneruj dzisiejszy Poranny Digest jako JSON zgodnie z instrukcją."}]
 
 resp = None
+container_id = None
 for _ in range(8):  # server-tool loop: re-send on pause_turn
-    resp = client.messages.create(
+    kwargs = dict(
         model=MODEL, max_tokens=16000,
         thinking={"type": "adaptive"},
         system=SYSTEM, tools=tools, messages=messages,
     )
+    if container_id:  # web_search/web_fetch run in a code-exec container; reuse it on continuation
+        kwargs["container"] = container_id
+    resp = client.messages.create(**kwargs)
+    c = getattr(resp, "container", None)
+    if c is not None:
+        container_id = c.id
     if resp.stop_reason == "pause_turn":
         messages.append({"role": "assistant", "content": resp.content})
         continue
