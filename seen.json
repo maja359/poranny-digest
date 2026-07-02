@@ -19,7 +19,8 @@
     "Dlaczego śpimy. Odkrywanie potęgi snu i marzeń sennych — Matthew Walker",
     "Złodzieje. Co okrada nas z uwagi — Johann Hari",
     "Pieśń komórki — Siddhartha Mukherjee",
-    "Dlaczego pamiętamy? — Charan Ranganath"
+    "Dlaczego pamiętamy? — Charan Ranganath",
+    "Nexus. Krótka historia informacji od epoki kamienia do sztucznej inteligencji — Yuval Noah Harari"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -34,7 +35,8 @@
     "Chanel",
     "Tower 28",
     "Le Labo",
-    "Aesop"
+    "Aesop",
+    "Tom Ford Beauty"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -85,7 +87,11 @@
     "Apple i Microsoft podnoszą ceny. Winna pamięć, którą pożera AI",
     "Kalifornia jako pierwsza liczy, ile miejsc pracy zabiera AI",
     "Żyjemy nie tylko dłużej, ale i zdrowiej, niemal do końca",
-    "Proteiny w kawie, CBD w oranżadzie: jak wellness stał się półką w sklepie"
+    "Proteiny w kawie, CBD w oranżadzie: jak wellness stał się półką w sklepie",
+    "Fable 5 wrócił, a przy okazji Anthropic cicho wypuścił model, który zmienia reguły",
+    "Największy rządowy kontrakt AI w historii USA. Newsom podpisał z Anthropic",
+    "Dwa egzemplarze genu ryzyka Alzheimera nie wyrokują. Liczy się wiek jednej konkretnej komórki",
+    "Cannes Lions odebrało 12 nagród jednej agencji. AI sfałszowało dowody kampanii, która nigdy nie istniała"
   ],
   "rynek": [
     "IPO",
@@ -99,13 +105,15 @@
     "ETF",
     "dźwignia finansowa",
     "stablecoin",
-    "bańka spekulacyjna"
+    "bańka spekulacyjna",
+    "raport o zatrudnieniu"
   ],
   "osoby": [
     "Fei-Fei Li",
     "Jensen Huang",
     "Dario Amodei",
     "Sam Altman",
-    "Geoffrey Hinton"
+    "Geoffrey Hinton",
+    "Andrej Karpathy"
   ]
 }
