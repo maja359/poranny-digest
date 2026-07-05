@@ -15,7 +15,17 @@ Env: ANTHROPIC_API_KEY (required). Run from the repo root.
 import os, sys, json, re, datetime, urllib.parse
 import anthropic
 
-MODEL = "claude-sonnet-4-6"
+MODEL = "claude-haiku-4-5"
+
+# Hard cost controls (the 2026-07 blowup: Sonnet + unlimited adaptive thinking +
+# uncapped web_fetch = ~$25/run). Every knob below exists to keep one run in cents.
+MAX_ROUNDS = 6                 # pause_turn continuations
+MAX_SEARCHES = 8               # web_search $10/1000
+MAX_FETCHES = 10               # web_fetch is free per-call but its content bills as input tokens
+FETCH_TOKEN_CAP = 5000         # truncate every fetched page
+COST_GUARD_USD = 1.00          # abort the run outright if estimate crosses this
+# Haiku 4.5 pricing per MTok
+PRICE_IN, PRICE_OUT, PRICE_CACHE_W, PRICE_CACHE_R = 1.00, 5.00, 1.25, 0.10
 PAGES = "https://maja359.github.io/poranny-digest/"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -43,6 +53,8 @@ SYSTEM = """You are the "Poranny Digest" agent — you write a daily morning new
 Audience: Maja follows AI news casually. She knows OpenAI, Google, Anthropic, Meta, Apple, what a language model / ChatGPT is — do NOT explain these. No finance background — the Rynek section is her daily financial education in plain language with every concept explained. Never patronize.
 
 You have web_search and web_fetch. Use them to research everything fresh. Today's date is %(date_pl)s. Images are loaded by Maja's BROWSER from direct URLs you provide — you do not download them.
+
+RESEARCH BUDGET (hard): you have at most 8 searches and 10 fetches for the WHOLE digest. Plan them: ~1 search per news section, reserve fetches for the photo gates (Wikipedia REST summaries) and the book check. Never fetch a page when the search snippet already tells you enough. If the budget runs out, finish with what you have rather than skipping the JSON.
 
 ## ANTI-REPEAT (hard rules)
 Do NOT repeat anything already used. Already used:
@@ -89,22 +101,43 @@ Use null for any image you cannot confirm. osoba.image_url and beauty.image_urls
 # ---------------------------------------------------------------- API call
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 tools = [
-    {"type": "web_search_20260209", "name": "web_search"},
-    {"type": "web_fetch_20260209", "name": "web_fetch"},
+    {"type": "web_search_20260209", "name": "web_search", "max_uses": MAX_SEARCHES},
+    {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": MAX_FETCHES,
+     "max_content_tokens": FETCH_TOKEN_CAP},
 ]
+# cache_control: on continuation rounds the system prompt + prior turns are read
+# from prompt cache at 0.1x instead of being re-billed at full input price
+system_blocks = [{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}]
 messages = [{"role": "user", "content": "Wygeneruj dzisiejszy Poranny Digest jako JSON zgodnie z instrukcją."}]
+
+cost = 0.0
+searches_used = 0
+def add_usage(u):
+    global cost, searches_used
+    stu = getattr(u, "server_tool_use", None)
+    ws = getattr(stu, "web_search_requests", 0) or 0 if stu else 0
+    searches_used += ws
+    cost += (
+        (getattr(u, "input_tokens", 0) or 0) * PRICE_IN
+        + (getattr(u, "output_tokens", 0) or 0) * PRICE_OUT
+        + (getattr(u, "cache_creation_input_tokens", 0) or 0) * PRICE_CACHE_W
+        + (getattr(u, "cache_read_input_tokens", 0) or 0) * PRICE_CACHE_R
+    ) / 1_000_000 + ws * 0.01
 
 resp = None
 container_id = None
-for _ in range(8):  # server-tool loop: re-send on pause_turn
+for _ in range(MAX_ROUNDS):  # server-tool loop: re-send on pause_turn
     kwargs = dict(
-        model=MODEL, max_tokens=16000,
-        thinking={"type": "adaptive"},
-        system=SYSTEM, tools=tools, messages=messages,
+        model=MODEL, max_tokens=10000,
+        system=system_blocks, tools=tools, messages=messages,
     )
     if container_id:  # web_search/web_fetch run in a code-exec container; reuse it on continuation
         kwargs["container"] = container_id
     resp = client.messages.create(**kwargs)
+    add_usage(resp.usage)
+    if cost > COST_GUARD_USD:
+        print("COST_GUARD_TRIPPED est=$%.2f — aborting instead of burning money" % cost)
+        sys.exit(1)
     c = getattr(resp, "container", None)
     if c is not None:
         container_id = c.id
@@ -112,6 +145,7 @@ for _ in range(8):  # server-tool loop: re-send on pause_turn
         messages.append({"role": "assistant", "content": resp.content})
         continue
     break
+print("RUN_COST_EST=$%.3f searches=%d" % (cost, searches_used))
 
 if resp.stop_reason == "refusal":
     print("REFUSAL", getattr(resp, "stop_details", None)); sys.exit(1)
@@ -217,6 +251,8 @@ slack = {
         {"type": "actions", "elements": [
             {"type": "button", "text": {"type": "plain_text", "text": "☕ Otwórz digest"},
              "url": url, "style": "primary"}]},
+        {"type": "context", "elements": [
+            {"type": "mrkdwn", "text": "koszt API tego wydania: ~$%.2f" % cost}]},
     ],
 }
 tmp = os.environ.get("RUNNER_TEMP", "/tmp")
