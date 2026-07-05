@@ -21,7 +21,7 @@ MODEL = "claude-haiku-4-5"
 # uncapped web_fetch = ~$25/run). Every knob below exists to keep one run in cents.
 MAX_ROUNDS = 6                 # pause_turn continuations
 MAX_SEARCHES = 8               # web_search $10/1000
-MAX_FETCHES = 10               # web_fetch is free per-call but its content bills as input tokens
+MAX_FETCHES = 8                # web_fetch is free per-call but its content bills as input tokens
 FETCH_TOKEN_CAP = 5000         # truncate every fetched page
 COST_GUARD_USD = 1.00          # abort the run outright if estimate crosses this
 # Haiku 4.5 pricing per MTok
@@ -54,7 +54,7 @@ Audience: Maja follows AI news casually. She knows OpenAI, Google, Anthropic, Me
 
 You have web_search and web_fetch. Use them to research everything fresh. Today's date is %(date_pl)s. Images are loaded by Maja's BROWSER from direct URLs you provide — you do not download them.
 
-RESEARCH BUDGET (hard): you have at most 8 searches and 10 fetches for the WHOLE digest. Plan them: ~1 search per news section, reserve fetches for the photo gates (Wikipedia REST summaries) and the book check. Never fetch a page when the search snippet already tells you enough. If the budget runs out, finish with what you have rather than skipping the JSON.
+RESEARCH BUDGET (hard): you have at most 8 searches and 8 fetches for the WHOLE digest. Plan them: ~1 search per news section, reserve fetches for the book's Polish-translation check. Images cost you NOTHING — they are resolved automatically after you answer; never spend searches or fetches on photos or covers. Never fetch a page when the search snippet already tells you enough. If the budget runs out, finish with what you have rather than skipping the JSON.
 
 ## ANTI-REPEAT (hard rules)
 Do NOT repeat anything already used. Already used:
@@ -68,9 +68,9 @@ Do NOT repeat anything already used. Already used:
 1. **rynek** — daily financial-literacy mini-lesson (NOT a market report). Search the most-talked-about financial story of the last 24h (IPO, acquisition, earnings, central-bank decision, USD/PLN or EUR/PLN move, inflation). Flowing prose, three parts no labels: (1) the news in 1-2 plain sentences; (2) the ONE concept inside it explained in 2-4 sentences with an everyday analogy; (3) "więc ta wiadomość oznacza, że..." what follows for the company / ordinary people / Poland. 5-8 sentences, one concept. Also output rynek_concept (short label). Plain language ("giełda w USA mocno spadła", not "S&P 500 odnotowało korektę").
 2. **ai** — 1-3 AI stories from the last 24h (`newer_than:1d`): launches, big company moves, what's going viral / debated. Lead with what happened, then needed context, then why it matters. 1-2 source links each.
 3. **nauka** — 1-2 longevity/neuroscience stories from the last 24h: human clinical results, aging/brain/Alzheimer's, evidence-based sleep/exercise/diet. Skip supplement marketing and weak single studies.
-4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. GATED ON A PHOTO: web_fetch `https://en.wikipedia.org/api/rest_v1/page/summary/<Exact_Article_Title>`, read originalimage.source; if present (a https://upload.wikimedia.org/... URL) use it verbatim as image_url; if absent pick someone else. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, wrap it in a story/quote/quirk so it sticks. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
-5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** Use the Polish title (original in parentheses if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). cover_url: find the book's English-original ISBN-13 and set cover_url = `https://covers.openlibrary.org/b/isbn/<ISBN13>-L.jpg`; if you can confirm an Open Library cover id, you may instead use `https://covers.openlibrary.org/b/id/<id>-L.jpg`. May be null if no cover.
-6. **beauty** (Beauty Brand) — ONE well-known beauty brand (skip seen). GATED ON A PHOTO exactly like osoba: web_fetch the brand's Wikipedia REST summary, use originalimage.source as image_urls[0]; if absent pick another brand. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ". Brands confirmed to have a Wikipedia photo: Glossier, Fenty Beauty, Rare Beauty, Byredo, Le Labo, Dior, Chanel, YSL, Tom Ford, Tower 28, CeraVe — but verify whichever you pick.
+4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT research their photo — just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, wrap it in a story/quote/quirk so it sticks. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
+5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** Use the Polish title (original in parentheses if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only) — the cover is fetched automatically from it; null if unknown.
+6. **beauty** (Beauty Brand) — ONE well-known beauty brand (skip seen), well-known enough to have its own English Wikipedia article. Do NOT research its photo — just output wiki_title = the exact English Wikipedia article title (e.g. "Byredo", "Glossier"); the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
 7. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
 
 ## STYLE (all sections)
@@ -84,12 +84,12 @@ Respond with EXACTLY ONE JSON object and NOTHING else (no prose before or after,
   "rynek": "...", "rynek_concept": "...",
   "ai": [{"headline":"...","body":"para\\n\\npara","sources":[["Name","https://..."]],"image_url":null}],
   "nauka": [{"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}],
-  "osoba": {"name":"...","rola":"...","body":"...","image_url":"https://upload.wikimedia.org/...","sources":[["Name","https://..."]]},
-  "ksiazka": {"title":"Polski tytuł — Autor","body":"...","cover_url":"https://covers.openlibrary.org/b/isbn/...-L.jpg"},
-  "beauty": {"name":"...","styl":"k · k · k","body":"...","image_urls":["https://upload.wikimedia.org/..."]},
+  "osoba": {"name":"...","wiki_title":"Exact_Wikipedia_Title","rola":"...","body":"...","sources":[["Name","https://..."]]},
+  "ksiazka": {"title":"Polski tytuł — Autor","body":"...","isbn13":"9780000000000"},
+  "beauty": {"name":"...","wiki_title":"Exact_Wikipedia_Title","styl":"k · k · k","body":"..."},
   "inn": {"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}
 }
-Use null for any image you cannot confirm. osoba.image_url and beauty.image_urls[0] should almost always be a real Wikipedia upload.wikimedia.org URL (sections 4 and 6 are gated on it). A quiet news day (1 item each) is fine — do not pad.""" % {
+Images for osoba/beauty/ksiazka are resolved automatically from wiki_title/isbn13 — never spend searches or fetches on them. news image_url: only if you happened to see a direct image URL, else null. A quiet news day (1 item each) is fine — do not pad.""" % {
     "date_pl": date_pl, "date_file": date_file,
     "books": "; ".join(seen["books"]) or "(none)",
     "beauty": "; ".join(seen["beauty"]) or "(none)",
@@ -166,6 +166,62 @@ if not isinstance(c, dict):
     print("NO_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
 c.setdefault("date_pl", date_pl)
 c.setdefault("date_file", date_file)
+
+# ------------------------------------------------- resolve images server-side
+# The Actions runner has full network access (unlike the old cloud sandbox), so
+# photos come from deterministic lookups here, not from the model's budget.
+import urllib.request
+
+def http_json(u):
+    try:
+        req = urllib.request.Request(u, headers={"User-Agent": "poranny-digest/1.0 (github.com/maja359/poranny-digest)"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            return json.load(r)
+    except Exception:
+        return None
+
+def url_is_image(u):
+    try:
+        req = urllib.request.Request(u, method="HEAD", headers={"User-Agent": "poranny-digest/1.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            return r.status == 200 and r.headers.get("Content-Type", "").startswith("image/")
+    except Exception:
+        return False
+
+def wiki_image(title):
+    if not title: return None
+    j = http_json("https://en.wikipedia.org/api/rest_v1/page/summary/"
+                  + urllib.parse.quote(str(title).replace(" ", "_")))
+    if not j: return None
+    for k in ("originalimage", "thumbnail"):
+        src = (j.get(k) or {}).get("source")
+        if src and url_is_image(src): return src
+    return None
+
+def cover_from_isbn(isbn):
+    isbn = re.sub(r"\D", "", str(isbn or ""))
+    if len(isbn) not in (10, 13): return None
+    u = "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" % isbn
+    return u if url_is_image(u) else None
+
+o0, k0, b0 = c.get("osoba"), c.get("ksiazka"), c.get("beauty")
+if o0 and not (o0.get("image_url") and url_is_image(o0["image_url"])):
+    o0["image_url"] = wiki_image(o0.get("wiki_title") or o0.get("name"))
+if k0 and not (k0.get("cover_url") and url_is_image(k0["cover_url"])):
+    k0["cover_url"] = cover_from_isbn(k0.get("isbn13"))
+if b0:
+    urls = [u for u in (b0.get("image_urls") or []) if url_is_image(u)]
+    if not urls:
+        w = wiki_image(b0.get("wiki_title") or b0.get("name"))
+        urls = [w] if w else []
+    b0["image_urls"] = urls
+# drop dead model-provided news images too
+for sec in (c.get("ai") or []) + (c.get("nauka") or []) + ([c["inn"]] if c.get("inn") else []):
+    if sec.get("image_url") and not url_is_image(sec["image_url"]):
+        sec["image_url"] = None
+print("IMAGES: osoba=%s ksiazka=%s beauty=%s" % (
+    bool(o0 and o0.get("image_url")), bool(k0 and k0.get("cover_url")),
+    bool(b0 and b0.get("image_urls"))))
 
 # ---------------------------------------------------------------- render HTML
 def esc(s):
