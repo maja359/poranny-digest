@@ -91,7 +91,10 @@
     "Fable 5 wrócił, a przy okazji Anthropic cicho wypuścił model, który zmienia reguły",
     "Największy rządowy kontrakt AI w historii USA. Newsom podpisał z Anthropic",
     "Dwa egzemplarze genu ryzyka Alzheimera nie wyrokują. Liczy się wiek jednej konkretnej komórki",
-    "Cannes Lions odebrało 12 nagród jednej agencji. AI sfałszowało dowody kampanii, która nigdy nie istniała"
+    "Cannes Lions odebrało 12 nagród jednej agencji. AI sfałszowało dowody kampanii, która nigdy nie istniała",
+    "OpenAI pokazał GPT-5.6 Sol — kolejny skok w możliwościach",
+    "Apple szykuje M7 na 2027 — bez AI to już wstyd",
+    "Trendem jest celowa brzydota: \"scribbly\" AI images"
   ],
   "rynek": [
     "IPO",
@@ -106,7 +109,8 @@
     "dźwignia finansowa",
     "stablecoin",
     "bańka spekulacyjna",
-    "raport o zatrudnieniu"
+    "raport o zatrudnieniu",
+    "reklasyfikacja giełdy"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -114,6 +118,7 @@
     "Dario Amodei",
     "Sam Altman",
     "Geoffrey Hinton",
-    "Andrej Karpathy"
+    "Andrej Karpathy",
+    "Yoshua Bengio"
   ]
 }
