@@ -69,8 +69,8 @@ Do NOT repeat anything already used. Already used:
 2. **ai** — 1-3 AI stories from the last 24h (`newer_than:1d`): launches, big company moves, what's going viral / debated. Lead with what happened, then needed context, then why it matters. 1-2 source links each.
 3. **nauka** — 1-2 longevity/neuroscience stories from the last 24h: human clinical results, aging/brain/Alzheimer's, evidence-based sleep/exercise/diet. Skip supplement marketing and weak single studies.
 4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT research their photo — just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, wrap it in a story/quote/quirk so it sticks. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
-5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** Use the Polish title (original in parentheses if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only) — the cover is fetched automatically from it; null if unknown.
-6. **beauty** (Beauty Brand) — ONE well-known beauty brand (skip seen), well-known enough to have its own English Wikipedia article. Do NOT research its photo — just output wiki_title = the exact English Wikipedia article title (e.g. "Byredo", "Glossier"); the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
+5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** Use the Polish title (original in parentheses if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only, null if unknown) PLUS orig_title (English original title) and author — the cover is fetched automatically from these.
+6. **beauty** (Beauty Brand) — ONE beauty brand, picked from this photo-verified pool ONLY (skip seen); wiki_title must be copied EXACTLY as written here: "Glossier", "Fenty Beauty", "Rare Beauty", "Le Labo", "Aesop (brand)", "Lush (company)", "Estée Lauder Companies", "Shiseido", "NARS Cosmetics", "Kiehl's", "Tom Ford (brand)", "CeraVe", "Byredo", "The Body Shop", "Guerlain", "Weleda", "Dior", "Chanel". Do NOT research its photo — output wiki_title verbatim from the pool; the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
 7. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
 
 ## STYLE (all sections)
@@ -85,7 +85,7 @@ Respond with EXACTLY ONE JSON object and NOTHING else (no prose before or after,
   "ai": [{"headline":"...","body":"para\\n\\npara","sources":[["Name","https://..."]],"image_url":null}],
   "nauka": [{"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}],
   "osoba": {"name":"...","wiki_title":"Exact_Wikipedia_Title","rola":"...","body":"...","sources":[["Name","https://..."]]},
-  "ksiazka": {"title":"Polski tytuł — Autor","body":"...","isbn13":"9780000000000"},
+  "ksiazka": {"title":"Polski tytuł — Autor","body":"...","isbn13":"9780000000000","orig_title":"English Title","author":"Author Name"},
   "beauty": {"name":"...","wiki_title":"Exact_Wikipedia_Title","styl":"k · k · k","body":"..."},
   "inn": {"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}
 }
@@ -170,15 +170,18 @@ c.setdefault("date_file", date_file)
 # ------------------------------------------------- resolve images server-side
 # The Actions runner has full network access (unlike the old cloud sandbox), so
 # photos come from deterministic lookups here, not from the model's budget.
-import urllib.request
+import urllib.request, time
 
 def http_json(u):
-    try:
-        req = urllib.request.Request(u, headers={"User-Agent": "poranny-digest/1.0 (github.com/maja359/poranny-digest)"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            return json.load(r)
-    except Exception:
-        return None
+    for attempt in (0, 1, 2):  # Wikipedia REST rate-limits bursts; back off and retry
+        if attempt: time.sleep(3 * attempt)
+        try:
+            req = urllib.request.Request(u, headers={"User-Agent": "poranny-digest/1.0 (github.com/maja359/poranny-digest)"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return json.load(r)
+        except Exception:
+            continue
+    return None
 
 def url_is_image(u):
     try:
@@ -190,12 +193,13 @@ def url_is_image(u):
 
 def wiki_image(title):
     if not title: return None
-    j = http_json("https://en.wikipedia.org/api/rest_v1/page/summary/"
-                  + urllib.parse.quote(str(title).replace(" ", "_")))
-    if not j: return None
-    for k in ("originalimage", "thumbnail"):
-        src = (j.get(k) or {}).get("source")
-        if src and url_is_image(src): return src
+    for lang in ("en", "fr", "de", "pl"):
+        j = http_json("https://%s.wikipedia.org/api/rest_v1/page/summary/" % lang
+                      + urllib.parse.quote(str(title).replace(" ", "_")))
+        if not j: continue
+        for k in ("originalimage", "thumbnail"):
+            src = (j.get(k) or {}).get("source")
+            if src and url_is_image(src): return src
     return None
 
 def cover_from_isbn(isbn):
@@ -204,11 +208,22 @@ def cover_from_isbn(isbn):
     u = "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" % isbn
     return u if url_is_image(u) else None
 
+def cover_from_search(q):
+    if not q: return None
+    j = http_json("https://openlibrary.org/search.json?limit=5&fields=cover_i&q="
+                  + urllib.parse.quote(str(q)))
+    for doc in (j or {}).get("docs", []):
+        if doc.get("cover_i"):
+            u = "https://covers.openlibrary.org/b/id/%s-L.jpg?default=false" % doc["cover_i"]
+            if url_is_image(u): return u
+    return None
+
 o0, k0, b0 = c.get("osoba"), c.get("ksiazka"), c.get("beauty")
 if o0 and not (o0.get("image_url") and url_is_image(o0["image_url"])):
     o0["image_url"] = wiki_image(o0.get("wiki_title") or o0.get("name"))
 if k0 and not (k0.get("cover_url") and url_is_image(k0["cover_url"])):
-    k0["cover_url"] = cover_from_isbn(k0.get("isbn13"))
+    k0["cover_url"] = (cover_from_isbn(k0.get("isbn13"))
+                       or cover_from_search("%s %s" % (k0.get("orig_title") or "", k0.get("author") or "")))
 if b0:
     urls = [u for u in (b0.get("image_urls") or []) if url_is_image(u)]
     if not urls:
