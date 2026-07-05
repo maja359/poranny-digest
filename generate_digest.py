@@ -101,9 +101,10 @@ Use null for any image you cannot confirm. osoba.image_url and beauty.image_urls
 # ---------------------------------------------------------------- API call
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 tools = [
-    {"type": "web_search_20260209", "name": "web_search", "max_uses": MAX_SEARCHES},
+    {"type": "web_search_20260209", "name": "web_search", "max_uses": MAX_SEARCHES,
+     "allowed_callers": ["direct"]},  # Haiku has no programmatic tool calling
     {"type": "web_fetch_20260209", "name": "web_fetch", "max_uses": MAX_FETCHES,
-     "max_content_tokens": FETCH_TOKEN_CAP},
+     "max_content_tokens": FETCH_TOKEN_CAP, "allowed_callers": ["direct"]},
 ]
 # cache_control: on continuation rounds the system prompt + prior turns are read
 # from prompt cache at 0.1x instead of being re-billed at full input price
