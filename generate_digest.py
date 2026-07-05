@@ -152,10 +152,18 @@ if resp.stop_reason == "refusal":
     print("REFUSAL", getattr(resp, "stop_details", None)); sys.exit(1)
 
 text = "".join(b.text for b in resp.content if b.type == "text").strip()
-m = re.search(r"\{.*\}", text, re.S)  # tolerate stray prose / fences
-if not m:
+# tolerate stray prose / fences / trailing junk: decode the first valid JSON object
+c = None
+dec = json.JSONDecoder()
+pos = text.find("{")
+while pos != -1:
+    try:
+        c, _ = dec.raw_decode(text, pos)
+        break
+    except json.JSONDecodeError:
+        pos = text.find("{", pos + 1)
+if not isinstance(c, dict):
     print("NO_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
-c = json.loads(m.group(0))
 c.setdefault("date_pl", date_pl)
 c.setdefault("date_file", date_file)
 
