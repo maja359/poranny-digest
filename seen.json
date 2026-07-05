@@ -20,7 +20,8 @@
     "Złodzieje. Co okrada nas z uwagi — Johann Hari",
     "Pieśń komórki — Siddhartha Mukherjee",
     "Dlaczego pamiętamy? — Charan Ranganath",
-    "Nexus. Krótka historia informacji od epoki kamienia do sztucznej inteligencji — Yuval Noah Harari"
+    "Nexus. Krótka historia informacji od epoki kamienia do sztucznej inteligencji — Yuval Noah Harari",
+    "Połącz się — Chris Rein (Connect)"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -36,7 +37,8 @@
     "Tower 28",
     "Le Labo",
     "Aesop",
-    "Tom Ford Beauty"
+    "Tom Ford Beauty",
+    "Biologique Recherche"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -94,7 +96,11 @@
     "Cannes Lions odebrało 12 nagród jednej agencji. AI sfałszowało dowody kampanii, która nigdy nie istniała",
     "OpenAI pokazał GPT-5.6 Sol — kolejny skok w możliwościach",
     "Apple szykuje M7 na 2027 — bez AI to już wstyd",
-    "Trendem jest celowa brzydota: \"scribbly\" AI images"
+    "Trendem jest celowa brzydota: \"scribbly\" AI images",
+    "Fable 5 wraca do użytkowników z całego świata po 19-dniowej blokadzie rządowej",
+    "Cursor uruchamia natywną aplikację na iOS z agentami AI w chmurze",
+    "Psilocybina wydłuża żywotność ludzkich komórek o 50 procent - badania preklin",
+    "Imperfection by Design: 2026 jest rokiem kiedy kreatywni nauczyli się nie bać bałaganu"
   ],
   "rynek": [
     "IPO",
@@ -110,7 +116,8 @@
     "stablecoin",
     "bańka spekulacyjna",
     "raport o zatrudnieniu",
-    "reklasyfikacja giełdy"
+    "reklasyfikacja giełdy",
+    "Złotemporium - kiedy osłabnienie rynku pracy wzmacnia pozycję pożyczkobiorców"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -119,6 +126,7 @@
     "Sam Altman",
     "Geoffrey Hinton",
     "Andrej Karpathy",
-    "Yoshua Bengio"
+    "Yoshua Bengio",
+    "Yann LeCun"
   ]
 }
