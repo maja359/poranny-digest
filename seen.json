@@ -23,7 +23,8 @@
     "Nexus. Krótka historia informacji od epoki kamienia do sztucznej inteligencji — Yuval Noah Harari",
     "Połącz się — Chris Rein (Connect)",
     "Mózg za przepięciami — Robert M. Sapolsky",
-    "Jak Zmienić Wspomnienie — Steve Ramirez"
+    "Jak Zmienić Wspomnienie — Steve Ramirez",
+    "Przeciążony mózg — Romie Mushtaq"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -41,7 +42,8 @@
     "Aesop",
     "Tom Ford Beauty",
     "Biologique Recherche",
-    "Shiseido"
+    "Shiseido",
+    "Lush (company)"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -112,7 +114,11 @@
     "<cite index=\"3-19\">Fable 5 powrócił do wszystkich użytkowników na świecie 1 lipca 2026 o 15:31 ET po 19-dniowej blokadzie rządowej.</cite>",
     "<cite index=\"4-20,4-21\">Qualcomm negocjuje przejęcie Tenstorrent za 8-10 miliardów dolarów, projektanta chipów AI opartego na otwartym standardzie RISC-V z doświadczonym inżynierem Jim Kellerem.</cite>",
     "<cite index=\"16-1,16-6\">Naukowcy odkryli, że brainspan kształtowany jest ciągle przez cały cykl życia, a nie tylko maleje w późniejszych latach, a wczesna identyfikacja może pomóc regulować brainspan dla lepszych wyników.</cite>",
-    "<cite index=\"71-2,71-3\">Pozew antymonopolowy został wznowiony w Kalifornii, w którym twierdzą, że trzej producenci chipów zaangażowali się w koluzję i zmowę cenową, w środku globalnego braku chipów pamięci, które podnoszą ceny dla producentów i konsumentów.</cite>"
+    "<cite index=\"71-2,71-3\">Pozew antymonopolowy został wznowiony w Kalifornii, w którym twierdzą, że trzej producenci chipów zaangażowali się w koluzję i zmowę cenową, w środku globalnego braku chipów pamięci, które podnoszą ceny dla producentów i konsumentów.</cite>",
+    "<cite index=\"10-26\">Rząd USA zniesie blokadę Fable 5. Model Anthropica wraca do użytkowników na całym świecie</cite>",
+    "<cite index=\"12-2,12-3\">Meta przyznaje: agenci AI nie przyspeszyli research jak obiecywano</cite>",
+    "<cite index=\"18-10,18-11\">Sen, stres i relacje społeczne mogą odmłodzić mózg nawet o osiem lat</cite>",
+    "Memy przejmują kontrolę nad rzeczywistością. Internet znowu pokonał swoją logikę"
   ],
   "rynek": [
     "IPO",
@@ -131,7 +137,8 @@
     "reklasyfikacja giełdy",
     "Złotemporium - kiedy osłabnienie rynku pracy wzmacnia pozycję pożyczkobiorców",
     "szok cenowy i transmisja inflacji",
-    "Bańka pamięci — monopol na potrzebę"
+    "Bańka pamięci — monopol na potrzebę",
+    "polityka czekaj i patrz"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -141,6 +148,7 @@
     "Geoffrey Hinton",
     "Andrej Karpathy",
     "Yoshua Bengio",
-    "Yann LeCun"
+    "Yann LeCun",
+    "Andrew Ng"
   ]
 }
