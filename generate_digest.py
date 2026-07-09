@@ -37,6 +37,13 @@ today = datetime.date.today()
 date_file = today.isoformat()
 date_pl = f"{today.day} {PL_MONTHS[today.month-1]} {today.year}"
 
+# Idempotency: if today's page already exists with real content, don't burn an
+# API call (covers manual dispatch + delayed cron firing on the same day).
+_page_path = os.path.join(ROOT, date_file + ".html")
+if os.path.exists(_page_path) and os.path.getsize(_page_path) > 3000:
+    print("ALREADY_PUBLISHED " + date_file + " — skipping (no Slack payload written)")
+    sys.exit(0)
+
 seen = {}
 seen_path = os.path.join(ROOT, "seen.json")
 if os.path.exists(seen_path):
@@ -146,24 +153,33 @@ for _ in range(MAX_ROUNDS):  # server-tool loop: re-send on pause_turn
         messages.append({"role": "assistant", "content": resp.content})
         continue
     break
-print("RUN_COST_EST=$%.3f searches=%d" % (cost, searches_used))
+print("RUN_COST_EST=$%.3f searches=%d stop_reason=%s" % (cost, searches_used, resp.stop_reason))
 
 if resp.stop_reason == "refusal":
     print("REFUSAL", getattr(resp, "stop_details", None)); sys.exit(1)
 
 text = "".join(b.text for b in resp.content if b.type == "text").strip()
+# Haiku leaks literal <cite index="..."> tags into its text. The unescaped quotes
+# inside them break the JSON (2026-07-08: empty page shipped as success), and when
+# the JSON survives they show up as visible junk on the page. Strip them first.
+text = re.sub(r'</?cite[^>]*>', '', text)
 # tolerate stray prose / fences / trailing junk: decode the first valid JSON object
+# that actually looks like a digest (a bare inner fragment must not pass)
+DIGEST_KEYS = {"rynek", "ai", "nauka", "osoba", "ksiazka", "beauty", "inn"}
 c = None
 dec = json.JSONDecoder()
 pos = text.find("{")
 while pos != -1:
     try:
-        c, _ = dec.raw_decode(text, pos)
-        break
+        cand, _ = dec.raw_decode(text, pos)
+        if isinstance(cand, dict) and DIGEST_KEYS & set(cand):
+            c = cand
+            break
     except json.JSONDecodeError:
-        pos = text.find("{", pos + 1)
+        pass
+    pos = text.find("{", pos + 1)
 if not isinstance(c, dict):
-    print("NO_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
+    print("NO_DIGEST_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
 c.setdefault("date_pl", date_pl)
 c.setdefault("date_file", date_file)
 
@@ -296,6 +312,12 @@ if b:
 i = c.get("inn")
 if i:
     P.append('<section><div class="tag">Inn</div><h2>%s</h2>%s%s%s</section>' % (esc(i["headline"]), img(i.get("image_url"), i["headline"]), md(i.get("body","")), sources(i.get("sources"))))
+
+# Never ship a hollow page as success: header-only output means the model's
+# answer was lost upstream — fail loudly so the workflow alert fires.
+n_sections = len(P) - 1  # P[0] is the header
+if n_sections < 3:
+    print("TOO_FEW_SECTIONS n=%d — refusing to publish" % n_sections); sys.exit(1)
 
 CSS = "*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;max-width:680px;margin:0 auto;padding:28px 20px 80px;color:#1d1d1f;line-height:1.62;font-size:17px;background:#fafaf8}header{margin:8px 0 28px}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9b8d7a;font-weight:700}h1{font-size:30px;margin:.15em 0 0;font-weight:700}section{padding:26px 0;border-top:1px solid #ece8e1}.tag{display:inline-block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:#fff;background:#b59a7d;padding:3px 9px;border-radius:99px;margin-bottom:10px}h2{font-size:21px;margin:.1em 0 .45em;line-height:1.3}h3{font-size:17px;margin:1.1em 0 .3em}p{margin:.55em 0}a{color:#9a6f3f;text-decoration:underline;text-underline-offset:2px}.src{font-size:14px;color:#8a8278;margin-top:.7em}.styl{font-style:italic;color:#8a8278;margin-top:-.2em}.gallery{display:flex;flex-direction:column;gap:12px;margin:14px 0}img{max-width:100%;max-height:340px;width:auto;height:auto;border-radius:14px;display:block;background:#efece6;margin:14px auto}.gallery img{margin:0 auto}footer{margin-top:40px;font-size:13px;color:#b3a89a;text-align:center}"
 

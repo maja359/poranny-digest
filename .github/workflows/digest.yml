@@ -2,7 +2,9 @@ name: Poranny Digest
 
 on:
   schedule:
-    - cron: "0 7 * * *"   # 07:00 UTC = 09:00 Europe/Warsaw (summer); 08:00 (winter)
+    # 05:45 UTC = 07:45 Europe/Warsaw (summer). Off the full hour on purpose:
+    # the old "0 7" cron queued behind everyone else's and fired 2-4.5h late.
+    - cron: "45 5 * * *"
   workflow_dispatch: {}    # lets you run it manually from the Actions tab
 
 permissions:
@@ -41,6 +43,20 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
+          # the script writes the payload only when it actually generated a new edition
+          if [ -f "$RUNNER_TEMP/slack_payload.json" ]; then
+            curl -fsS -X POST "$SLACK_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              --data @"$RUNNER_TEMP/slack_payload.json"
+          else
+            echo "no payload — nothing new published, skipping Slack"
+          fi
+
+      - name: Alert Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
           curl -fsS -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
-            --data @"$RUNNER_TEMP/slack_payload.json"
+            --data "{\"text\":\"<@ULYLZE1KQ> ⚠️ Poranny digest NIE wygenerował się dziś. Logi: https://github.com/maja359/poranny-digest/actions/runs/${{ github.run_id }}\"}"
