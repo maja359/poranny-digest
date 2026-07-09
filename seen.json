@@ -24,7 +24,8 @@
     "Połącz się — Chris Rein (Connect)",
     "Mózg za przepięciami — Robert M. Sapolsky",
     "Jak Zmienić Wspomnienie — Steve Ramirez",
-    "Przeciążony mózg — Romie Mushtaq"
+    "Przeciążony mózg — Romie Mushtaq",
+    "Siła Prionów — Michel Brahic"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -43,7 +44,8 @@
     "Tom Ford Beauty",
     "Biologique Recherche",
     "Shiseido",
-    "Lush (company)"
+    "Lush (company)",
+    "Dior"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -118,7 +120,11 @@
     "<cite index=\"10-26\">Rząd USA zniesie blokadę Fable 5. Model Anthropica wraca do użytkowników na całym świecie</cite>",
     "<cite index=\"12-2,12-3\">Meta przyznaje: agenci AI nie przyspeszyli research jak obiecywano</cite>",
     "<cite index=\"18-10,18-11\">Sen, stres i relacje społeczne mogą odmłodzić mózg nawet o osiem lat</cite>",
-    "Memy przejmują kontrolę nad rzeczywistością. Internet znowu pokonał swoją logikę"
+    "Memy przejmują kontrolę nad rzeczywistością. Internet znowu pokonał swoją logikę",
+    "Anthropic wyprzedził OpenAI — po raz pierwszy w przychody",
+    "Pierwsza całkowicie autonomiczna atak ransomware'u napędzany przez AI",
+    "Terapia komórkami macierzystymi odwróciła kruchość u pacjentów geriatrycznych",
+    "Sklepowe półki zamieniły się w tereny wellness — koniec kategorii, początek misji"
   ],
   "rynek": [
     "IPO",
@@ -138,7 +144,8 @@
     "Złotemporium - kiedy osłabnienie rynku pracy wzmacnia pozycję pożyczkobiorców",
     "szok cenowy i transmisja inflacji",
     "Bańka pamięci — monopol na potrzebę",
-    "polityka czekaj i patrz"
+    "polityka czekaj i patrz",
+    "Rotacja między sektorami"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -149,6 +156,7 @@
     "Andrej Karpathy",
     "Yoshua Bengio",
     "Yann LeCun",
-    "Andrew Ng"
+    "Andrew Ng",
+    "Ilya Sutskever"
   ]
 }
