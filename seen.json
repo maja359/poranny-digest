@@ -25,7 +25,8 @@
     "Mózg za przepięciami — Robert M. Sapolsky",
     "Jak Zmienić Wspomnienie — Steve Ramirez",
     "Przeciążony mózg — Romie Mushtaq",
-    "Siła Prionów — Michel Brahic"
+    "Siła Prionów — Michel Brahic",
+    "Dlaczego umieramy. Nowa nauka starzenia się i poszukiwania nieśmiertelności — Venki Ramakrishnan"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -124,7 +125,11 @@
     "Anthropic wyprzedził OpenAI — po raz pierwszy w przychody",
     "Pierwsza całkowicie autonomiczna atak ransomware'u napędzany przez AI",
     "Terapia komórkami macierzystymi odwróciła kruchość u pacjentów geriatrycznych",
-    "Sklepowe półki zamieniły się w tereny wellness — koniec kategorii, początek misji"
+    "Sklepowe półki zamieniły się w tereny wellness — koniec kategorii, początek misji",
+    "Illinois podpisał ustawę o bezpieczeństwie AI, teraz będą nowe regulacje w całych USA",
+    "Anthropic rozszerza dostęp do Claude Fable 5 do 12 lipca. Zbieg okoliczności?",
+    "Witamina C w krwi wzmacnia strukturę mózgu. Badanie na 2000+ Japończyków to potwierdza",
+    "Głos się zmienia: jak AI wchodzi w twojej tonalności. OpenAI pokazała GPT-Live"
   ],
   "rynek": [
     "IPO",
@@ -145,7 +150,8 @@
     "szok cenowy i transmisja inflacji",
     "Bańka pamięci — monopol na potrzebę",
     "polityka czekaj i patrz",
-    "Rotacja między sektorami"
+    "Rotacja między sektorami",
+    "Infrastruktura ponad sentiment"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -157,6 +163,7 @@
     "Yoshua Bengio",
     "Yann LeCun",
     "Andrew Ng",
-    "Ilya Sutskever"
+    "Ilya Sutskever",
+    "Demis Hassabis"
   ]
 }
