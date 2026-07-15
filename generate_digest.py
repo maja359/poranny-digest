@@ -15,7 +15,8 @@ Env: ANTHROPIC_API_KEY (required). Run from the repo root.
 import os, sys, json, re, datetime, urllib.parse
 import anthropic
 
-MODEL = "claude-haiku-4-5"
+MODEL = "claude-haiku-4-5"          # researcher: cheap, web tools, gathers the facts
+MODEL_WRITER = "claude-sonnet-5"    # writer: one no-tools pass, rewrites everything into natural Polish
 
 # Hard cost controls (the 2026-07 blowup: Sonnet + unlimited adaptive thinking +
 # uncapped web_fetch = ~$25/run). Every knob below exists to keep one run in cents.
@@ -26,6 +27,8 @@ FETCH_TOKEN_CAP = 5000         # truncate every fetched page
 COST_GUARD_USD = 1.00          # abort the run outright if estimate crosses this
 # Haiku 4.5 pricing per MTok
 PRICE_IN, PRICE_OUT, PRICE_CACHE_W, PRICE_CACHE_R = 1.00, 5.00, 1.25, 0.10
+# Sonnet 5 pricing per MTok (writer pass: small token volume, no tools)
+PRICE_IN_W, PRICE_OUT_W = 3.00, 15.00
 PAGES = "https://maja359.github.io/poranny-digest/"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -64,7 +67,7 @@ You have web_search and web_fetch. Use them to research everything fresh. Today'
 RESEARCH BUDGET (hard): you have at most 8 searches and 8 fetches for the WHOLE digest. Plan them: ~1 search per news section, reserve fetches for the book's Polish-translation check. Images cost you NOTHING — they are resolved automatically after you answer; never spend searches or fetches on photos or covers. Never fetch a page when the search snippet already tells you enough. If the budget runs out, finish with what you have rather than skipping the JSON.
 
 ## ANTI-REPEAT (hard rules)
-Do NOT repeat anything already used. Already used:
+Do NOT repeat anything already used. Match by SUBSTANCE, not wording: if the freshest item in a section is the same underlying study, launch, deal or finding as something below, it counts as a repeat even if you phrase the headline differently. Reworded duplicates are the most common failure here, so a story like "protein tau and memory" that already ran must not come back under a new headline. When the top news in a section is just a re-report of something below, pick a genuinely different item or drop the section. Already used:
 - Books: %(books)s
 - Beauty brands: %(beauty)s
 - AI personalities: %(osoby)s
@@ -102,7 +105,7 @@ Images for osoba/beauty/ksiazka are resolved automatically from wiki_title/isbn1
     "beauty": "; ".join(seen["beauty"]) or "(none)",
     "osoby": "; ".join(seen["osoby"]) or "(none)",
     "rynek": "; ".join(seen["rynek"]) or "(none)",
-    "topics": "; ".join(seen["topics"][-60:]) or "(none)",
+    "topics": "; ".join(seen["topics"][-80:]) or "(none)",
 }
 
 # ---------------------------------------------------------------- API call
@@ -131,6 +134,13 @@ def add_usage(u):
         + (getattr(u, "cache_creation_input_tokens", 0) or 0) * PRICE_CACHE_W
         + (getattr(u, "cache_read_input_tokens", 0) or 0) * PRICE_CACHE_R
     ) / 1_000_000 + ws * 0.01
+
+def add_usage_writer(u):
+    global cost
+    cost += (
+        (getattr(u, "input_tokens", 0) or 0) * PRICE_IN_W
+        + (getattr(u, "output_tokens", 0) or 0) * PRICE_OUT_W
+    ) / 1_000_000
 
 resp = None
 container_id = None
@@ -182,6 +192,115 @@ if not isinstance(c, dict):
     print("NO_DIGEST_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
 c.setdefault("date_pl", date_pl)
 c.setdefault("date_file", date_file)
+
+# ------------------------------------------------- writer pass (Sonnet, no tools)
+# Haiku is a solid researcher but writes stiff, translated-from-English Polish and
+# leaks em dashes / anglicisms. One cheap Sonnet call rewrites ONLY the human-text
+# fields into natural Polish. It never sees URLs/images/sources, so it cannot corrupt
+# links even if it hallucinates. On any failure we keep Haiku's text and ship anyway.
+WRITER_SYSTEM = """Jesteś redaktorem "Porannego digestu", polskiego newslettera, który Maja czyta rano na telefonie przy kawie. Dostajesz surowe teksty sekcji (fakty zebrane przez researchera) i przepisujesz KAŻDY na żywy, naturalny polski. Zwracasz dokładnie tę samą strukturę JSON, tylko z lepszym tekstem.
+
+To redakcja i przekład na ludzki polski, NIE research. Nie dodawaj faktów, nie zmyślaj liczb ani nazwisk. Pracuj z tym, co dostałeś.
+
+GŁOS:
+- Piszesz jak bystra, oczytana znajoma, która opowiada coś ciekawego, nie jak raport prasowy ani korpo-mail. Zdania jak w rozmowie.
+- ZERO kalek z angielskiego. Jeśli fraza brzmi jak przetłumaczona z angielskiego, przepisz ją od zera po polsku. Żadnych "stake", "best-in-class", "game-changer", "zmienia grę", "robi pieniądze". Angielskie nazwy, które Maja zna (OpenAI, ChatGPT, startup, Google), zostają; resztę tłumacz naturalnie na polski.
+- Każda sekcja MUSI mieć hak: zacznij od najbardziej zaskakującej, zapamiętywalnej rzeczy. Test: czy Maja opowie to znajomej jednym zdaniem. Wytnij CV, chronologie, listy tytułów i suchą rekapitulację.
+- Więcej smaczku i ciekawostki, mniej sprawozdania. Konkret i obraz zamiast ogólników.
+
+TWARDE ZAKAZY:
+- NIGDY nie używaj myślnika ani półpauzy. Zamiast nich przecinek, kropka, dwukropek albo nawias. Zero tolerancji.
+- Zero słów-wytrychów: przełomowy, rewolucyjny, game-changer, "zmienia grę".
+- Nie zaczynaj sekcji od komplementu ani od powtórzenia nagłówka.
+
+ZACHOWAJ dokładnie:
+- Markdown: **pogrubienia** i [tekst](adres) zostają, nie ruszaj adresów w linkach.
+- Akapity oddzielone podwójnym enterem.
+- Tę samą liczbę elementów w listach i te same klucze co na wejściu.
+
+Sekcja rynek to lekcja finansowa prostym językiem, w trzech częściach bez etykiet: (1) news w 1-2 zdaniach, (2) jedno pojęcie wyjaśnione codzienną analogią, (3) "więc ta wiadomość oznacza, że...". Bez żargonu giełdowego bez wyjaśnienia.
+
+WYJŚCIE: dokładnie jeden obiekt JSON o tej samej strukturze co wejście, nic poza nim, bez znaczników code fence."""
+
+def _decode_digest_json(txt):
+    txt = re.sub(r'</?cite[^>]*>', '', txt)
+    dec = json.JSONDecoder()
+    pos = txt.find("{")
+    while pos != -1:
+        try:
+            cand, _ = dec.raw_decode(txt, pos)
+            if isinstance(cand, dict):
+                return cand
+        except json.JSONDecodeError:
+            pass
+        pos = txt.find("{", pos + 1)
+    return None
+
+# Build a text-only payload (no URLs/images/sources reach the writer).
+tp = {"rynek": c.get("rynek", "")}
+tp["ai"] = [{"headline": s.get("headline",""), "body": s.get("body","")} for s in (c.get("ai") or [])]
+tp["nauka"] = [{"headline": s.get("headline",""), "body": s.get("body","")} for s in (c.get("nauka") or [])]
+if isinstance(c.get("osoba"), dict):
+    tp["osoba"] = {k: c["osoba"].get(k,"") for k in ("name","rola","body")}
+if isinstance(c.get("ksiazka"), dict):
+    tp["ksiazka"] = {k: c["ksiazka"].get(k,"") for k in ("title","body")}
+if isinstance(c.get("beauty"), dict):
+    tp["beauty"] = {k: c["beauty"].get(k,"") for k in ("name","styl","body")}
+if isinstance(c.get("inn"), dict):
+    tp["inn"] = {k: c["inn"].get(k,"") for k in ("headline","body")}
+
+try:
+    w = client.messages.create(
+        model=MODEL_WRITER, max_tokens=4000,
+        system=[{"type": "text", "text": WRITER_SYSTEM}],
+        messages=[{"role": "user", "content": json.dumps(tp, ensure_ascii=False)}],
+    )
+    add_usage_writer(w.usage)
+    if cost > COST_GUARD_USD:
+        print("COST_GUARD_TRIPPED est=$%.2f — aborting" % cost); sys.exit(1)
+    wtext = "".join(b.text for b in w.content if b.type == "text").strip()
+    wj = _decode_digest_json(wtext)
+    if not isinstance(wj, dict):
+        raise ValueError("writer returned no JSON")
+
+    def _take(dst, src, keys):
+        for k in keys:
+            v = src.get(k)
+            if isinstance(v, str) and v.strip():
+                dst[k] = v
+    if isinstance(wj.get("rynek"), str) and wj["rynek"].strip():
+        c["rynek"] = wj["rynek"]
+    for arr in ("ai", "nauka"):
+        src, dst = wj.get(arr) or [], c.get(arr) or []
+        for i in range(min(len(src), len(dst))):
+            if isinstance(src[i], dict) and isinstance(dst[i], dict):
+                _take(dst[i], src[i], ("headline", "body"))
+    for sec, keys in (("osoba",("name","rola","body")), ("ksiazka",("title","body")),
+                      ("beauty",("name","styl","body")), ("inn",("headline","body"))):
+        if isinstance(c.get(sec), dict) and isinstance(wj.get(sec), dict):
+            _take(c[sec], wj[sec], keys)
+    print("WRITER_OK model=%s est=$%.3f" % (MODEL_WRITER, cost))
+except Exception as e:
+    print("WRITER_FAILED, keeping researcher text:", repr(e)[:200])
+
+# --------------------------------------- deterministic em/en dash killer (hard rule #1)
+# Maja's #1 zero-tolerance rule: no — or – ever reaches the page. The writer is told
+# to avoid them, this guarantees it regardless of what any model emits.
+def strip_dashes(s):
+    if not isinstance(s, str):
+        return s
+    s = re.sub(r'(\d)\s*[—–]\s*(\d)', r'\1-\2', s)   # number ranges: 8—10 -> 8-10
+    s = re.sub(r'\s*[—–]\s*', ', ', s)                # everything else -> comma
+    s = re.sub(r'\s+,', ',', s)
+    s = re.sub(r',\s*,', ',', s)
+    s = re.sub(r',\s*\.', '.', s)
+    return s
+def _walk(x):
+    if isinstance(x, str):  return strip_dashes(x)
+    if isinstance(x, list): return [_walk(i) for i in x]
+    if isinstance(x, dict): return {k: _walk(v) for k, v in x.items()}
+    return x
+c = _walk(c)
 
 # ------------------------------------------------- resolve images server-side
 # The Actions runner has full network access (unlike the old cloud sandbox), so
