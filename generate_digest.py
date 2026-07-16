@@ -95,7 +95,7 @@ Respond with EXACTLY ONE JSON object and NOTHING else (no prose before or after,
   "ai": [{"headline":"...","body":"para\\n\\npara","sources":[["Name","https://..."]],"image_url":null}],
   "nauka": [{"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}],
   "osoba": {"name":"...","wiki_title":"Exact_Wikipedia_Title","rola":"...","body":"...","sources":[["Name","https://..."]]},
-  "ksiazka": {"title":"Polski tytuł — Autor","body":"...","isbn13":"9780000000000","orig_title":"English Title","author":"Author Name"},
+  "ksiazka": {"title":"Polski tytuł, Autor","body":"...","isbn13":"9780000000000","orig_title":"English Title","author":"Author Name"},
   "beauty": {"name":"...","wiki_title":"Exact_Wikipedia_Title","styl":"k · k · k","body":"..."},
   "inn": {"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}
 }
@@ -251,7 +251,7 @@ if isinstance(c.get("inn"), dict):
 
 try:
     w = client.messages.create(
-        model=MODEL_WRITER, max_tokens=4000,
+        model=MODEL_WRITER, max_tokens=8000,   # Polish rewrite of every field needs headroom; 4000 truncated the JSON
         system=[{"type": "text", "text": WRITER_SYSTEM}],
         messages=[{"role": "user", "content": json.dumps(tp, ensure_ascii=False)}],
     )
@@ -259,6 +259,7 @@ try:
     if cost > COST_GUARD_USD:
         print("COST_GUARD_TRIPPED est=$%.2f — aborting" % cost); sys.exit(1)
     wtext = "".join(b.text for b in w.content if b.type == "text").strip()
+    print("WRITER_RAW stop=%s len=%d head=%r" % (w.stop_reason, len(wtext), wtext[:160]))
     wj = _decode_digest_json(wtext)
     if not isinstance(wj, dict):
         raise ValueError("writer returned no JSON")
@@ -440,11 +441,11 @@ if n_sections < 3:
 
 CSS = "*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;max-width:680px;margin:0 auto;padding:28px 20px 80px;color:#1d1d1f;line-height:1.62;font-size:17px;background:#fafaf8}header{margin:8px 0 28px}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9b8d7a;font-weight:700}h1{font-size:30px;margin:.15em 0 0;font-weight:700}section{padding:26px 0;border-top:1px solid #ece8e1}.tag{display:inline-block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:#fff;background:#b59a7d;padding:3px 9px;border-radius:99px;margin-bottom:10px}h2{font-size:21px;margin:.1em 0 .45em;line-height:1.3}h3{font-size:17px;margin:1.1em 0 .3em}p{margin:.55em 0}a{color:#9a6f3f;text-decoration:underline;text-underline-offset:2px}.src{font-size:14px;color:#8a8278;margin-top:.7em}.styl{font-style:italic;color:#8a8278;margin-top:-.2em}.gallery{display:flex;flex-direction:column;gap:12px;margin:14px 0}img{max-width:100%;max-height:340px;width:auto;height:auto;border-radius:14px;display:block;background:#efece6;margin:14px auto}.gallery img{margin:0 auto}footer{margin-top:40px;font-size:13px;color:#b3a89a;text-align:center}"
 
-html_doc = '<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Poranny digest — %s</title><style>%s</style></head><body>%s<footer>Poranny digest · generowany automatycznie</footer></body></html>' % (esc(c["date_pl"]), CSS, "\n".join(P))
+html_doc = '<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Poranny digest, %s</title><style>%s</style></head><body>%s<footer>Poranny digest · generowany automatycznie</footer></body></html>' % (esc(c["date_pl"]), CSS, "\n".join(P))
 
 page = c["date_file"] + ".html"
 open(os.path.join(ROOT, page), "w", encoding="utf-8").write(html_doc)
-redirect = '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=%s"><title>Poranny digest</title><a href="%s">Poranny digest — %s</a>' % (page, page, esc(c["date_pl"]))
+redirect = '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=%s"><title>Poranny digest</title><a href="%s">Poranny digest, %s</a>' % (page, page, esc(c["date_pl"]))
 open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(redirect)
 
 # ---------------------------------------------------------------- update seen.json
@@ -465,10 +466,10 @@ url = PAGES + page
 
 # Write the Slack payload to a temp file; the workflow posts it after push.
 slack = {
-    "text": "<@ULYLZE1KQ> Poranny digest — %s → %s" % (date_pl, url),
+    "text": "<@ULYLZE1KQ> Poranny digest, %s → %s" % (date_pl, url),
     "blocks": [
         {"type": "section", "text": {"type": "mrkdwn",
-            "text": "<@ULYLZE1KQ>\n*Poranny digest — %s*\nPełne wydanie z obrazkami:" % date_pl}},
+            "text": "<@ULYLZE1KQ>\n*Poranny digest, %s*\nPełne wydanie z obrazkami:" % date_pl}},
         {"type": "actions", "elements": [
             {"type": "button", "text": {"type": "plain_text", "text": "☕ Otwórz digest"},
              "url": url, "style": "primary"}]},
