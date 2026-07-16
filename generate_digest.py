@@ -54,7 +54,7 @@ if os.path.exists(seen_path):
         seen = json.load(open(seen_path, encoding="utf-8"))
     except Exception:
         seen = {}
-for k in ("books","beauty","topics","rynek","osoby"):
+for k in ("books","beauty","topics","rynek","osoby","ciekawostki"):
     seen.setdefault(k, [])
 
 # ---------------------------------------------------------------- prompt
@@ -73,15 +73,17 @@ Do NOT repeat anything already used. Match by SUBSTANCE, not wording: if the fre
 - AI personalities: %(osoby)s
 - Financial concepts: %(rynek)s
 - News topics: %(topics)s
+- Ciekawostki (daily facts): %(ciekawostki)s
 
 ## Sections to produce
-1. **rynek** — daily financial-literacy mini-lesson (NOT a market report). Search the most-talked-about financial story of the last 24h (IPO, acquisition, earnings, central-bank decision, USD/PLN or EUR/PLN move, inflation). Flowing prose, three parts no labels: (1) the news in 1-2 plain sentences; (2) the ONE concept inside it explained in 2-4 sentences with an everyday analogy; (3) "więc ta wiadomość oznacza, że..." what follows for the company / ordinary people / Poland. 5-8 sentences, one concept. Also output rynek_concept (short label). Plain language ("giełda w USA mocno spadła", not "S&P 500 odnotowało korektę").
+1. **rynek** — daily financial-literacy mini-lesson (NOT a market report). Search the most-talked-about financial story of the last 24h (IPO, acquisition, earnings, central-bank decision, USD/PLN or EUR/PLN move, inflation). SHORT and punchy: about 5 sentences, and open with a strong hook, the single most surprising or concrete thing (a number, a move, a "wait, what"), NOT a slow setup. Then keep the three parts, no labels: (1) the news in one plain sentence; (2) the ONE concept inside it in 1-2 sentences with an everyday analogy; (3) "więc ta wiadomość oznacza, że..." what follows for ordinary people. One concept only. Also output rynek_concept (short label). Plain language ("giełda w USA mocno spadła", not "S&P 500 odnotowało korektę").
 2. **ai** — 1-3 AI stories from the last 24h (`newer_than:1d`): launches, big company moves, what's going viral / debated. Lead with what happened, then needed context, then why it matters. 1-2 source links each.
 3. **nauka** — 1-2 longevity/neuroscience stories from the last 24h: human clinical results, aging/brain/Alzheimer's, evidence-based sleep/exercise/diet. Skip supplement marketing and weak single studies.
-4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT pick someone who is a main subject of one of today's AI news items above; the Twarz AI person must be different so the edition does not feature the same person twice. Do NOT research their photo, just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, wrap it in a story/quote/quirk so it sticks. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
+4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT pick someone who is a main subject of one of today's AI news items above; the Twarz AI person must be different so the edition does not feature the same person twice. Do NOT research their photo, just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, and build it around a real ANECDOTE or quirk (a specific thing they did/said/believe) so it sticks. Prefer an anecdote over a quote; use a direct quote only if the exact words genuinely add something a paraphrase cannot. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
 5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** If you cannot confirm a Polish edition exists, pick a DIFFERENT book. The `title` field must be the POLISH title, never an English-only title (original in parentheses only if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only, null if unknown) PLUS orig_title (English original title) and author — the cover is fetched automatically from these.
 6. **beauty** (Beauty Brand) — ONE beauty brand, picked from this photo-verified pool ONLY (skip seen); wiki_title must be copied EXACTLY as written here: "Glossier", "Fenty Beauty", "Rare Beauty", "Le Labo", "Aesop (brand)", "Lush (company)", "Estée Lauder Companies", "Shiseido", "NARS Cosmetics", "Kiehl's", "Tom Ford (brand)", "CeraVe", "Byredo", "The Body Shop", "Guerlain", "Weleda", "Dior", "Chanel". Do NOT research its photo — output wiki_title verbatim from the pool; the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
 7. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
+8. **ciekawostka** (Ciekawostka dnia) — ONE genuinely surprising standalone fact, NOT tied to any news. A closing little delight for the coffee: the odd origin of a brand or everyday object, a strange experiment, the etymology of a word, a counterintuitive bit of history or science, an unexpected design/typography story. It does NOT need to be timely. Pick something with a "no way, really?" flavour that Maja would immediately retell. It is not required to have a source; add one only if it helps. 2-4 sentences, one fact, land the surprise early. Output headline = a short intriguing title. Do NOT reuse anything under "Ciekawostki" already used below.
 
 ## STYLE (all sections)
 Polish, like a smart well-read friend — natural, not corporate, not AI-polished. Editorial rule for EVERY section: only the most interesting, memorable facts wrapped in a small story/hook; cut CVs, chronologies, lists of titles, dates unless the date is the point; lead with the most surprising thing. Maja's test: could she retell it to a friend in one sentence. NO em dashes anywhere — use commas or periods. Never use przełomowy / rewolucyjny / game-changer as hype. Body fields may use **bold** and [text](url) markdown links. 1-2 source links per news story.
@@ -97,7 +99,8 @@ Respond with EXACTLY ONE JSON object and NOTHING else (no prose before or after,
   "osoba": {"name":"...","wiki_title":"Exact_Wikipedia_Title","rola":"...","body":"...","sources":[["Name","https://..."]]},
   "ksiazka": {"title":"Polski tytuł, Autor","body":"...","isbn13":"9780000000000","orig_title":"English Title","author":"Author Name"},
   "beauty": {"name":"...","wiki_title":"Exact_Wikipedia_Title","styl":"k · k · k","body":"..."},
-  "inn": {"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}
+  "inn": {"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null},
+  "ciekawostka": {"headline":"...","body":"...","sources":[]}
 }
 Images for osoba/beauty/ksiazka are resolved automatically from wiki_title/isbn13 — never spend searches or fetches on them. news image_url: only if you happened to see a direct image URL, else null. A quiet news day (1 item each) is fine — do not pad.""" % {
     "date_pl": date_pl, "date_file": date_file,
@@ -106,6 +109,7 @@ Images for osoba/beauty/ksiazka are resolved automatically from wiki_title/isbn1
     "osoby": "; ".join(seen["osoby"]) or "(none)",
     "rynek": "; ".join(seen["rynek"]) or "(none)",
     "topics": "; ".join(seen["topics"][-80:]) or "(none)",
+    "ciekawostki": "; ".join(seen["ciekawostki"][-40:]) or "(none)",
 }
 
 # ---------------------------------------------------------------- API call
@@ -226,7 +230,9 @@ ZACHOWAJ dokładnie:
 - Akapity oddzielone podwójnym enterem.
 - Tę samą liczbę elementów w listach i te same klucze co na wejściu.
 
-Sekcja rynek to lekcja finansowa prostym językiem, w trzech częściach bez etykiet: (1) news w 1-2 zdaniach, (2) jedno pojęcie wyjaśnione codzienną analogią, (3) "więc ta wiadomość oznacza, że...". Bez żargonu giełdowego bez wyjaśnienia.
+Sekcja rynek: krótka lekcja finansowa, około 5 zdań, ma się szybko czytać. Zacznij od mocnego haka (najbardziej konkretna albo zaskakująca rzecz, liczba, ruch), nie od rozbiegu. Potem trzy części bez etykiet: (1) news w jednym zdaniu, (2) jedno pojęcie wyjaśnione codzienną analogią, (3) "więc ta wiadomość oznacza, że...". Bez żargonu giełdowego bez wyjaśnienia. Nie rozwlekaj.
+
+Sekcja ciekawostka to zamykający smaczek dnia: napisz ją tak, żeby Maja od razu chciała ją komuś powtórzyć. Sam fakt, lekko, bez suchego tonu.
 
 WYJŚCIE: odpowiedz samym obiektem JSON o tej samej strukturze co wejście. Bez znaczników code fence, bez żadnego tekstu przed ani po. Zakończ od razu po ostatnim zamykającym nawiasie."""
 
@@ -256,6 +262,8 @@ if isinstance(c.get("beauty"), dict):
     tp["beauty"] = {k: c["beauty"].get(k,"") for k in ("name","styl","body")}
 if isinstance(c.get("inn"), dict):
     tp["inn"] = {k: c["inn"].get(k,"") for k in ("headline","body")}
+if isinstance(c.get("ciekawostka"), dict):
+    tp["ciekawostka"] = {k: c["ciekawostka"].get(k,"") for k in ("headline","body")}
 
 try:
     w = client.messages.create(
@@ -285,7 +293,8 @@ try:
             if isinstance(src[i], dict) and isinstance(dst[i], dict):
                 _take(dst[i], src[i], ("headline", "body"))
     for sec, keys in (("osoba",("name","rola","body")), ("ksiazka",("title","body")),
-                      ("beauty",("name","styl","body")), ("inn",("headline","body"))):
+                      ("beauty",("name","styl","body")), ("inn",("headline","body")),
+                      ("ciekawostka",("headline","body"))):
         if isinstance(c.get(sec), dict) and isinstance(wj.get(sec), dict):
             _take(c[sec], wj[sec], keys)
     print("WRITER_OK model=%s est=$%.3f" % (MODEL_WRITER, cost))
@@ -440,6 +449,9 @@ if b:
 i = c.get("inn")
 if i:
     P.append('<section><div class="tag">Inn</div><h2>%s</h2>%s%s%s</section>' % (esc(i["headline"]), img(i.get("image_url"), i["headline"]), md(i.get("body","")), sources(i.get("sources"))))
+cw = c.get("ciekawostka")
+if cw and cw.get("body"):
+    P.append('<section><div class="tag">Ciekawostka dnia</div><h2>%s</h2>%s%s</section>' % (esc(cw.get("headline","")), md(cw.get("body","")), sources(cw.get("sources"))))
 
 # Never ship a hollow page as success: header-only output means the model's
 # answer was lost upstream — fail loudly so the workflow alert fires.
@@ -467,6 +479,7 @@ remember("osoby", o.get("name") if o else None)
 remember("rynek", c.get("rynek_concept"))
 for s in (c.get("ai") or []) + (c.get("nauka") or []): remember("topics", s.get("headline"))
 if i: remember("topics", i.get("headline"))
+if cw: remember("ciekawostki", cw.get("headline"))
 seen["_note"] = "Persistent anti-repeat memory for Poranny Digest. Appended automatically each day by the GitHub Action."
 json.dump(seen, open(seen_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
