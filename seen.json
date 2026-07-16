@@ -32,7 +32,8 @@
     "Neurogeneza — Regeneracja mózgu — Brant Cortright",
     "Nexus, Krótka historia sieci informacyjnych od epoki kamienia do AI, Yuval Noah Harari",
     "Patrzenie na Umysł. Spektakularne Obrazy Neuronalnych Maszyn (Seeing the Mind)",
-    "Aging as a Loss of Biological Coordination: New Framework for Longevity Medicine"
+    "Aging as a Loss of Biological Coordination: New Framework for Longevity Medicine",
+    "Księga Pamięci: Jak żyć wiecznie (The Book of Memory: Or, How to Live Forever)"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -170,7 +171,11 @@
     "Anthropic zbiera najlepsze talenty świata. Karpathy wybrał ich zamiast OpenAI",
     "Bezpieczeństwo AI: najlepsza ocena to C+, i to dostał Anthropic",
     "To, co myślisz o starości, decyduje o tym, jak się zestarzejesz. Yale to udowodniło",
-    "Cellness zmienia myślenie o pięknie: dbanie o komórki staje się osobną kategorią"
+    "Cellness zmienia myślenie o pięknie: dbanie o komórki staje się osobną kategorią",
+    "Jensen Huang w Tokio ogłosił физический AI dla Japonii. Sega co roku to ratowała, teraz rządzi ekosystemem.",
+    "Alibaba weszła do Apple Intelligence w Chinach. Qwen bije zachodnie modele na własnym terenie.",
+    "Mózg starzeje się w swoim tempie. Biały mózg, marker Alzheimera wyraźniejszy niż czarne pudełko.",
+    "Trendem jest biorą pieniądze do kieszeni nienowe rzeczy w nowych opakowaniach. Nie wstyd, to ekonomia pamięci."
   ],
   "rynek": [
     "IPO",
@@ -200,7 +205,8 @@
     "inflacja spada, giełda rosnie",
     "Umocnienie złotego, kiedy inwestorzy chcą twojej waluty",
     "Chipowa paryżanka przy inflacji ponad progiem",
-    "Inflacja słabsza = słabszy dolar = umocnienie złotego"
+    "Inflacja słabsza = słabszy dolar = umocnienie złotego",
+    "Debiut zagranicznej spółki na giełdzie USA"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -216,5 +222,8 @@
     "Demis Hassabis",
     "Mira Murati",
     "Max Tegmark"
+  ],
+  "ciekawostki": [
+    "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują."
   ]
 }
