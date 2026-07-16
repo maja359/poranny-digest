@@ -83,7 +83,7 @@ Do NOT repeat anything already used. Match by SUBSTANCE, not wording: if the fre
 5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** If you cannot confirm a Polish edition exists, pick a DIFFERENT book. The `title` field must be the POLISH title, never an English-only title (original in parentheses only if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only, null if unknown) PLUS orig_title (English original title) and author — the cover is fetched automatically from these.
 6. **beauty** (Beauty Brand) — ONE beauty brand, picked from this photo-verified pool ONLY (skip seen); wiki_title must be copied EXACTLY as written here: "Glossier", "Fenty Beauty", "Rare Beauty", "Le Labo", "Aesop (brand)", "Lush (company)", "Estée Lauder Companies", "Shiseido", "NARS Cosmetics", "Kiehl's", "Tom Ford (brand)", "CeraVe", "Byredo", "The Body Shop", "Guerlain", "Weleda", "Dior", "Chanel". Do NOT research its photo — output wiki_title verbatim from the pool; the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
 7. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
-8. **ciekawostka** (Ciekawostka dnia) — ONE genuinely surprising standalone fact, NOT tied to any news. A closing little delight for the coffee: the odd origin of a brand or everyday object, a strange experiment, the etymology of a word, a counterintuitive bit of history or science, an unexpected design/typography story. It does NOT need to be timely. Pick something with a "no way, really?" flavour that Maja would immediately retell. It is not required to have a source; add one only if it helps. 2-4 sentences, one fact, land the surprise early. Output headline = a short intriguing title. Do NOT reuse anything under "Ciekawostki" already used below.
+8. **ciekawostka** (Ciekawostka dnia) — ONE genuinely surprising standalone fact, NOT tied to any news. A closing little delight for the coffee: the odd origin of a brand or everyday object, a strange experiment, the etymology of a word, a counterintuitive bit of history or science, an unexpected design/typography story. It does NOT need to be timely. Pick something with a "no way, really?" flavour that Maja would immediately retell. It is not required to have a source; add one only if it helps. 2-4 sentences, one fact, land the surprise early. Output headline = a short intriguing title. Do NOT reuse anything under "Ciekawostki" already used below, and do NOT overlap with today's other sections (e.g. if today's beauty brand is Byredo, the ciekawostka must not also be about Byredo).
 
 ## STYLE (all sections)
 Polish, like a smart well-read friend — natural, not corporate, not AI-polished. Editorial rule for EVERY section: only the most interesting, memorable facts wrapped in a small story/hook; cut CVs, chronologies, lists of titles, dates unless the date is the point; lead with the most surprising thing. Maja's test: could she retell it to a friend in one sentence. NO em dashes anywhere — use commas or periods. Never use przełomowy / rewolucyjny / game-changer as hype. Body fields may use **bold** and [text](url) markdown links. 1-2 source links per news story.
@@ -212,7 +212,10 @@ GŁOS:
 - Więcej smaczku i ciekawostki, mniej sprawozdania. Konkret i obraz zamiast ogólników.
 
 BEZBŁĘDNY POLSKI (to jest krytyczne, tu wcześniej leciały błędy):
-- To ma być literacki, bezbłędny polski. Zero literówek, zero wymyślonych słów (nie "przewodziuje", "materństwa", "czteroolatek", "financować", "snobbistyczne"). Przeczytaj każde zdanie i sprawdź, czy Polak naprawdę tak powie.
+- To ma być literacki, bezbłędny polski. Zero literówek, zero wymyślonych słów (nie "przewodziuje", "materństwa", "czteroolatek", "financować", "snobbistyczne"), zero rozjechanych wyrazów ze spacją w środku ("suweren ność", "wirus ować"). Przeczytaj każde zdanie i sprawdź, czy Polak naprawdę tak powie.
+- Pisz WYŁĄCZNIE po polsku, alfabetem łacińskim. Nigdy nie wstawiaj słów w innym alfabecie (cyrylica itp.) ani przypadkowych obcych wtrąceń.
+- Piszesz w trzeciej osobie, referujesz. Nigdy nie pisz w pierwszej osobie ("piłem", "uczy mnie"), to nie twoje wspomnienia.
+- Bądź zwięzły: przepisujesz istniejący tekst, nie rozbudowujesz go. Nie wydłużaj sekcji ponad długość wejścia.
 - ZERO angielskich słów, których Maja nie używa na co dzień. Tłumacz je: capital→kapitał, world models→modele świata, performance→skuteczność (albo wyniki), utilities→zwykła usługa, free tier→darmowy plan, add-on→dodatek, inclusivity→różnorodność, postpartum→poporodowy, agentic task→zadanie agentowe, chip-race→wyścig o chipy. Zostają tylko nazwy własne, które ona zna (OpenAI, ChatGPT, TikTok, Google, startup). Jeśli fraza brzmi jak przetłumaczona z angielskiego, napisz ją od zera po polsku. Żadnych "stake", "best-in-class", "game-changer", "zmienia grę", "robi pieniądze".
 - Nie zostawiaj urwanych zdań ani takich, które nie mają sensu ("złoty będzie chciał"). Jeśli surowy tekst jest niejasny, napisz prościej to, co na pewno wiadomo, zamiast zgadywać.
 
@@ -267,7 +270,7 @@ if isinstance(c.get("ciekawostka"), dict):
 
 try:
     w = client.messages.create(
-        model=MODEL_WRITER, max_tokens=10000,   # headroom so the JSON completes and stop_reason is end_turn, not max_tokens
+        model=MODEL_WRITER, max_tokens=16000,   # generous headroom; truncation is treated as failure below
         system=[{"type": "text", "text": WRITER_SYSTEM}],
         messages=[{"role": "user", "content": json.dumps(tp, ensure_ascii=False)}],
     )
@@ -276,6 +279,11 @@ try:
         print("COST_GUARD_TRIPPED est=$%.2f — aborting" % cost); sys.exit(1)
     wtext = "".join(b.text for b in w.content if b.type == "text").strip()
     print("WRITER_RAW stop=%s len=%d head=%r" % (w.stop_reason, len(wtext), wtext[:160]))
+    # A truncated writer degrades badly (garbled words, wrong alphabets); never trust
+    # a partial rewrite. Fall back to the researcher text instead, which the dash
+    # killer still cleans. (2026-07-16: max_tokens truncation produced broken output.)
+    if w.stop_reason == "max_tokens":
+        raise ValueError("writer truncated (max_tokens) — discarding partial rewrite")
     wj = _decode_digest_json(wtext)
     if not isinstance(wj, dict):
         raise ValueError("writer returned no JSON")
