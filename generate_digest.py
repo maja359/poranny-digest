@@ -204,9 +204,17 @@ To redakcja i przekład na ludzki polski, NIE research. Nie dodawaj faktów, nie
 
 GŁOS:
 - Piszesz jak bystra, oczytana znajoma, która opowiada coś ciekawego, nie jak raport prasowy ani korpo-mail. Zdania jak w rozmowie.
-- ZERO kalek z angielskiego. Jeśli fraza brzmi jak przetłumaczona z angielskiego, przepisz ją od zera po polsku. Żadnych "stake", "best-in-class", "game-changer", "zmienia grę", "robi pieniądze". Angielskie nazwy, które Maja zna (OpenAI, ChatGPT, startup, Google), zostają; resztę tłumacz naturalnie na polski.
 - Każda sekcja MUSI mieć hak: zacznij od najbardziej zaskakującej, zapamiętywalnej rzeczy. Test: czy Maja opowie to znajomej jednym zdaniem. Wytnij CV, chronologie, listy tytułów i suchą rekapitulację.
 - Więcej smaczku i ciekawostki, mniej sprawozdania. Konkret i obraz zamiast ogólników.
+
+BEZBŁĘDNY POLSKI (to jest krytyczne, tu wcześniej leciały błędy):
+- To ma być literacki, bezbłędny polski. Zero literówek, zero wymyślonych słów (nie "przewodziuje", "materństwa", "czteroolatek", "financować", "snobbistyczne"). Przeczytaj każde zdanie i sprawdź, czy Polak naprawdę tak powie.
+- ZERO angielskich słów, których Maja nie używa na co dzień. Tłumacz je: capital→kapitał, world models→modele świata, performance→skuteczność (albo wyniki), utilities→zwykła usługa, free tier→darmowy plan, add-on→dodatek, inclusivity→różnorodność, postpartum→poporodowy, agentic task→zadanie agentowe, chip-race→wyścig o chipy. Zostają tylko nazwy własne, które ona zna (OpenAI, ChatGPT, TikTok, Google, startup). Jeśli fraza brzmi jak przetłumaczona z angielskiego, napisz ją od zera po polsku. Żadnych "stake", "best-in-class", "game-changer", "zmienia grę", "robi pieniądze".
+- Nie zostawiaj urwanych zdań ani takich, które nie mają sensu ("złoty będzie chciał"). Jeśli surowy tekst jest niejasny, napisz prościej to, co na pewno wiadomo, zamiast zgadywać.
+
+WIERNOŚĆ FAKTOM (ważniejsza niż błyskotliwość):
+- Nie dodawaj żadnych liczb, nazwisk, krajów, podatków ani przykładów, których NIE MA w surowym tekście. Zwłaszcza w sekcjach rynek i nauka.
+- Sekcja rynek część (3) "więc ta wiadomość oznacza, że...": pisz ogólnie, co to znaczy dla zwykłych ludzi. NIE wymyślaj polskich szczegółów (podatek Belki, kurs złotego), jeśli wejście ich nie podało. Ta sekcja wcześniej się rozjeżdżała, bo dopowiadałeś fakty. Nie rób tego.
 
 TWARDE ZAKAZY:
 - NIGDY nie używaj myślnika ani półpauzy. Zamiast nich przecinek, kropka, dwukropek albo nawias. Zero tolerancji.
@@ -220,7 +228,7 @@ ZACHOWAJ dokładnie:
 
 Sekcja rynek to lekcja finansowa prostym językiem, w trzech częściach bez etykiet: (1) news w 1-2 zdaniach, (2) jedno pojęcie wyjaśnione codzienną analogią, (3) "więc ta wiadomość oznacza, że...". Bez żargonu giełdowego bez wyjaśnienia.
 
-WYJŚCIE: dokładnie jeden obiekt JSON o tej samej strukturze co wejście, nic poza nim, bez znaczników code fence."""
+WYJŚCIE: odpowiedz samym obiektem JSON o tej samej strukturze co wejście. Bez znaczników code fence, bez żadnego tekstu przed ani po. Zakończ od razu po ostatnim zamykającym nawiasie."""
 
 def _decode_digest_json(txt):
     txt = re.sub(r'</?cite[^>]*>', '', txt)
@@ -251,7 +259,7 @@ if isinstance(c.get("inn"), dict):
 
 try:
     w = client.messages.create(
-        model=MODEL_WRITER, max_tokens=8000,   # Polish rewrite of every field needs headroom; 4000 truncated the JSON
+        model=MODEL_WRITER, max_tokens=10000,   # headroom so the JSON completes and stop_reason is end_turn, not max_tokens
         system=[{"type": "text", "text": WRITER_SYSTEM}],
         messages=[{"role": "user", "content": json.dumps(tp, ensure_ascii=False)}],
     )
