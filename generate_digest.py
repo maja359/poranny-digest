@@ -180,20 +180,42 @@ text = re.sub(r'</?cite[^>]*>', '', text)
 # tolerate stray prose / fences / trailing junk: decode the first valid JSON object
 # that actually looks like a digest (a bare inner fragment must not pass)
 DIGEST_KEYS = {"rynek", "ai", "nauka", "osoba", "ksiazka", "beauty", "inn"}
-c = None
-dec = json.JSONDecoder()
-pos = text.find("{")
-while pos != -1:
+
+def find_digest_json(t):
+    # strict=False: Haiku sometimes puts literal newlines/control chars inside
+    # JSON strings (2026-07-18/19: two runs in a row died on this)
+    dec = json.JSONDecoder(strict=False)
+    pos = t.find("{")
+    while pos != -1:
+        try:
+            cand, _ = dec.raw_decode(t, pos)
+            if isinstance(cand, dict) and DIGEST_KEYS & set(cand):
+                return cand
+        except json.JSONDecodeError:
+            pass
+        pos = t.find("{", pos + 1)
+    return None
+
+c = find_digest_json(text)
+if c is None:
+    # salvage pass: the content exists but the JSON is malformed (unescaped quote,
+    # truncated tail, stray junk). One no-tools call re-emits it as valid JSON.
+    # A slightly repaired digest beats no digest.
+    print("JSON_PARSE_FAILED — trying salvage pass; tail of response:\n" + text[-1500:])
     try:
-        cand, _ = dec.raw_decode(text, pos)
-        if isinstance(cand, dict) and DIGEST_KEYS & set(cand):
-            c = cand
-            break
-    except json.JSONDecodeError:
-        pass
-    pos = text.find("{", pos + 1)
+        fix = client.messages.create(
+            model=MODEL, max_tokens=10000,
+            system="You repair malformed JSON. The user message contains a newsletter response whose JSON object is broken (unescaped quotes, control characters, truncation, surrounding prose). Output ONLY the corrected valid JSON object, preserving all content exactly. If the JSON is truncated, close it cleanly without inventing new content. No prose, no code fences.",
+            messages=[{"role": "user", "content": text[-30000:]}],
+        )
+        add_usage(fix.usage)
+        c = find_digest_json("".join(b.text for b in fix.content if b.type == "text"))
+        if c is not None:
+            print("SALVAGE_OK est_cost_now=$%.3f" % cost)
+    except Exception as e:
+        print("SALVAGE_CALL_FAILED %r" % (e,))
 if not isinstance(c, dict):
-    print("NO_DIGEST_JSON_IN_RESPONSE\n" + text[:1000]); sys.exit(1)
+    print("NO_DIGEST_JSON_IN_RESPONSE\nHEAD:\n" + text[:1200] + "\n...\nTAIL:\n" + text[-2500:]); sys.exit(1)
 c.setdefault("date_pl", date_pl)
 c.setdefault("date_file", date_file)
 
