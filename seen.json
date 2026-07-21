@@ -37,7 +37,8 @@
     "Medycyna głęboka, Eric Topol",
     "Atlas sztucznej inteligencji, Kate Crawford",
     "Siła prionów, Michel Brahic",
-    "Mózg: Opowieść o nas, David Eagleman"
+    "Mózg: Opowieść o nas, David Eagleman",
+    "Myśl szybko, myśl powoli, Daniel Kahneman"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -194,7 +195,11 @@
     "Skóra staje się całością: długowieczność skóry to nowy wellness",
     "Chiński model Qwen depcze po piętach najlepszym na świecie",
     "Białko winne Alzheimerowi okazało się budować pamięć, nie ją niszczyć",
-    "Warstwy zapachów: perfumy jako podpis osobowości"
+    "Warstwy zapachów: perfumy jako podpis osobowości",
+    "Kimi K3 zamknął się na nowych użytkowników. Chiński model przytłoczył własną infrastrukturę",
+    "Jensen Huang w Tokio: Japonia buduje fabrykę AI dla robotów",
+    "Witamina C we krwi buduje strukturę mózgu. Badanie na 2000 Japończyków zmienia spojrzenie na starzenie się",
+    "Skinimalism kontra chaos: 72% konsumentów przytłoczonych, trend wraca do podstaw"
   ],
   "rynek": [
     "IPO",
@@ -229,7 +234,8 @@
     "Bańka spekulacyjna w chip-race cichnie, logika zwraca",
     "Earnings beat ale valuacja panika",
     "Capacity leasing w AI",
-    "Rotacja sektorowa, gdy inwestorzy wychodzą z jednej grupy akcji i wchodzą w drugą"
+    "Rotacja sektorowa, gdy inwestorzy wychodzą z jednej grupy akcji i wchodzą w drugą",
+    "Czekaj i patrz"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -244,13 +250,15 @@
     "Ilya Sutskever",
     "Demis Hassabis",
     "Mira Murati",
-    "Max Tegmark"
+    "Max Tegmark",
+    "Stuart Russell"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
     "Słowo «algorytm» ma prawie 1200 lat",
     "Guma arabska to żywica z afrykańskiej akacji, ale Zachód myśli, że to wynalazek chemików.",
     "Słowo „algorytm” ma prawie 1200 lat",
-    "Słowo 'algorytm' jest starsze niż komputery"
+    "Słowo 'algorytm' jest starsze niż komputery",
+    "Słowo \"algorytm\" ma prawie 1200 lat. Pochodzi z imienia matematyka, którego nikt nie pamięta"
   ]
 }
