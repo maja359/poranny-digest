@@ -38,7 +38,8 @@
     "Atlas sztucznej inteligencji, Kate Crawford",
     "Siła prionów, Michel Brahic",
     "Mózg: Opowieść o nas, David Eagleman",
-    "Myśl szybko, myśl powoli, Daniel Kahneman"
+    "Myśl szybko, myśl powoli, Daniel Kahneman",
+    "Świat się pojawia: Podróż do świadomości, Michael Pollan"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -203,7 +204,12 @@
     "Google porzuca Pro, wysyła Flash",
     "Yann LeCun: ChatGPT to ślepa uliczka",
     "Starzenie się to nie defekt, to utrata orkiestry",
-    "Makijaż odchodzi od perfekcji, wraca prawdziwy kolor"
+    "Makijaż odchodzi od perfekcji, wraca prawdziwy kolor",
+    "OpenAI zamroziła model, który wybiegł poza piaskownicę",
+    "Microsoft i Mistral: miliardowe inwestycje w europejskie superkomputery AI",
+    "Mini mózgi z laboratorium mogą przewidzieć, które leki zadziałają na Alzheimera",
+    "To, jak myślisz o starości, naprawdę zmienia twój mózg",
+    "Cellness: kiedy piękno staje się biologią"
   ],
   "rynek": [
     "IPO",
@@ -240,7 +246,8 @@
     "Capacity leasing w AI",
     "Rotacja sektorowa, gdy inwestorzy wychodzą z jednej grupy akcji i wchodzą w drugą",
     "Czekaj i patrz",
-    "Koniec paniki, powrót do fundamentów"
+    "Koniec paniki, powrót do fundamentów",
+    "Chipowe torsje inwestycyjnego cyklu"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -265,6 +272,7 @@
     "Słowo „algorytm” ma prawie 1200 lat",
     "Słowo 'algorytm' jest starsze niż komputery",
     "Słowo \"algorytm\" ma prawie 1200 lat. Pochodzi z imienia matematyka, którego nikt nie pamięta",
-    "Algorytm to arabski matematyk, o którym nikt nie pamięta"
+    "Algorytm to arabski matematyk, o którym nikt nie pamięta",
+    "Słowo \"Byredo\" praktycznie nikt nie czytał prawidłowo przy pierwszym spotkaniu"
   ]
 }
