@@ -40,7 +40,8 @@
     "Mózg: Opowieść o nas, David Eagleman",
     "Myśl szybko, myśl powoli, Daniel Kahneman",
     "Świat się pojawia: Podróż do świadomości, Michael Pollan",
-    "Neurobiologia stawiania granic, Juliane Taylor Shore"
+    "Neurobiologia stawiania granic, Juliane Taylor Shore",
+    "Dopamine Nation. Znajdowanie równowagi w erze nadmiaru"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -64,7 +65,8 @@
     "Estée Lauder Companies",
     "Kiehl's",
     "NARS Cosmetics",
-    "Lush"
+    "Lush",
+    "Augustinus Bader"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -213,7 +215,15 @@
     "Cellness: kiedy piękno staje się biologią",
     "DeepSeek zamyka drzwi dla starego kodu: migracja do nowych modeli zaczyna się dziś",
     "Mózg nie kończy się zmieniać w dzieciństwie: przebudowuje się przez całe życie",
-    "\"2026 to nowy 2016\": internet ma dość treści generowanych przez AI"
+    "\"2026 to nowy 2016\": internet ma dość treści generowanych przez AI",
+    "Google trzeci raz opóźnia Gemini Pro: klientom wysyła tańszy Flash zamiast czekać",
+    "Komisja Europejska zmusza Google do otwarcia Androida na konkurencyjne AI",
+    "Claude Sonnet 5 ma już agentów: Anthropic kusi ceną 2 dolarów za milion tokenów do końca sierpnia",
+    "APOE2 chroni mózg przed uszkodzeniami DNA: nowe odkrycie w genetyce starzenia",
+    "Zastępniki cukru przyspieszają starzenie mózgu",
+    "Bezsenność nadmiernie pobudza mikroglię, co łączy się z Alzheimerem",
+    "Miniaturowe mózgi z laboratorium testują leki na Alzheimera, zanim trafią do ludzi",
+    "Autentyczność wygrywa w lipcu 2026: media społecznościowe odwracają się od wypolerowanych treści"
   ],
   "rynek": [
     "IPO",
@@ -252,7 +262,8 @@
     "Czekaj i patrz",
     "Koniec paniki, powrót do fundamentów",
     "Chipowe torsje inwestycyjnego cyklu",
-    "Umocnienie waluty = apetyt na bezpieczeństwo i dochód"
+    "Umocnienie waluty = apetyt na bezpieczeństwo i dochód",
+    "Inwestorzy obawiają się stagnacji dochodów tech-gigantów mimo hype'u AI, podczas gdy ryzyko geopolityczne podnosi koszty energii i zmienia alokacje kapitału ku stability/energy stocks."
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -279,6 +290,7 @@
     "Słowo \"algorytm\" ma prawie 1200 lat. Pochodzi z imienia matematyka, którego nikt nie pamięta",
     "Algorytm to arabski matematyk, o którym nikt nie pamięta",
     "Słowo \"Byredo\" praktycznie nikt nie czytał prawidłowo przy pierwszym spotkaniu",
-    "Angielskie słowo \"cube\" pochodzi od arabskiej kostki do gry"
+    "Angielskie słowo \"cube\" pochodzi od arabskiej kostki do gry",
+    "Dwa miliardy ludzi fotografuje się codziennie na zawołanie"
   ]
 }
