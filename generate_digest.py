@@ -25,6 +25,12 @@ MAX_SEARCHES = 8               # web_search $10/1000
 MAX_FETCHES = 8                # web_fetch is free per-call but its content bills as input tokens
 FETCH_TOKEN_CAP = 5000         # truncate every fetched page
 COST_GUARD_USD = 1.00          # abort the run outright if estimate crosses this
+# 2026-07-27: researcher hit stop_reason=max_tokens on EVERY run for a week at 10000
+# (the digest grew: Ciekawostka dnia + longer sections). A truncated tail either
+# breaks the JSON outright (25.07 needed a salvage call) or silently drops the last
+# section. Output is billed per token produced, so a higher cap costs nothing unless
+# the model actually uses it: ~$0.03 worst case, cheaper than one salvage round-trip.
+RESEARCH_MAX_TOKENS = 16000
 # Haiku 4.5 pricing per MTok
 PRICE_IN, PRICE_OUT, PRICE_CACHE_W, PRICE_CACHE_R = 1.00, 5.00, 1.25, 0.10
 # Sonnet 5 pricing per MTok (writer pass: small token volume, no tools)
@@ -150,7 +156,7 @@ resp = None
 container_id = None
 for _ in range(MAX_ROUNDS):  # server-tool loop: re-send on pause_turn
     kwargs = dict(
-        model=MODEL, max_tokens=10000,
+        model=MODEL, max_tokens=RESEARCH_MAX_TOKENS,
         system=system_blocks, tools=tools, messages=messages,
     )
     if container_id:  # web_search/web_fetch run in a code-exec container; reuse it on continuation
@@ -168,6 +174,10 @@ for _ in range(MAX_ROUNDS):  # server-tool loop: re-send on pause_turn
         continue
     break
 print("RUN_COST_EST=$%.3f searches=%d stop_reason=%s" % (cost, searches_used, resp.stop_reason))
+if resp.stop_reason == "max_tokens":
+    # not fatal (salvage may still recover the object) but it means the tail was cut,
+    # so raise RESEARCH_MAX_TOKENS rather than letting it become the daily normal
+    print("WARN_RESEARCHER_TRUNCATED cap=%d — the last section may be missing" % RESEARCH_MAX_TOKENS)
 
 if resp.stop_reason == "refusal":
     print("REFUSAL", getattr(resp, "stop_details", None)); sys.exit(1)
@@ -204,7 +214,7 @@ if c is None:
     print("JSON_PARSE_FAILED — trying salvage pass; tail of response:\n" + text[-1500:])
     try:
         fix = client.messages.create(
-            model=MODEL, max_tokens=10000,
+            model=MODEL, max_tokens=RESEARCH_MAX_TOKENS,
             system="You repair malformed JSON. The user message contains a newsletter response whose JSON object is broken (unescaped quotes, control characters, truncation, surrounding prose). Output ONLY the corrected valid JSON object, preserving all content exactly. If the JSON is truncated, close it cleanly without inventing new content. No prose, no code fences.",
             messages=[{"role": "user", "content": text[-30000:]}],
         )
