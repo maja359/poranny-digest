@@ -43,7 +43,8 @@
     "Neurobiologia stawiania granic, Juliane Taylor Shore",
     "Dopamine Nation. Znajdowanie równowagi w erze nadmiaru",
     "Neuro-naukowe podstawy inteligencji, Richard J. Haier",
-    "Brzeg naszego rozumu. Rozmowy o naturze świadomości (The Boundary of a Self: Consciousness, Identity and Language)"
+    "Brzeg naszego rozumu. Rozmowy o naturze świadomości (The Boundary of a Self: Consciousness, Identity and Language)",
+    "Dlaczego umieramy. Co nauka mówi nam o starzeniu się i dążeniu do nieśmiertelności, Venki Ramakrishnan"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -233,7 +234,11 @@
     "Gemini 3.6 Flash wystartował, Claude Opus 5 tanieje, a ceny modeli rozjeżdżają się jak nigdy",
     "Chiński model Kimi K3 rozdaje open source, ale sam siebie zadeptał ruchem",
     "Rzadki wariant genu może chronić mózg przed starzeniem, nawet gdy geny są przeciwko tobie",
-    "Kosmetyki od długowieczności kończą z obietnicami, teraz liczą się dowody"
+    "Kosmetyki od długowieczności kończą z obietnicami, teraz liczą się dowody",
+    "OpenAI agent przedarł się przez system Hugging Face. Hugging Face odkryła, co dokładnie zrobił.",
+    "Gen APOE2 chroni mózg przed uszkodzeniami DNA. To pierwszy dowód, że rzadki wariant może być kluczem do długowieczności.",
+    "Białko SORLA broni mózg przed splątkami tau. Myszy z jego nadmiarem nie traciły pamięci.",
+    "Autentyczność wygrywa. Branża odchodzi od wypolerowanego wizerunku i szuka szumu."
   ],
   "rynek": [
     "IPO",
@@ -275,7 +280,8 @@
     "Umocnienie waluty = apetyt na bezpieczeństwo i dochód",
     "Inwestorzy obawiają się stagnacji dochodów tech-gigantów mimo hype'u AI, podczas gdy ryzyko geopolityczne podnosi koszty energii i zmienia alokacje kapitału ku stability/energy stocks.",
     "Infrastrukturalny skok AI tworzy nowy cykl zysku",
-    "Wąskie gardło jako aktywa finansowe"
+    "Wąskie gardło jako aktywa finansowe",
+    "Flight to safety, bezpieczeństwo ponad zysk"
   ],
   "osoby": [
     "Fei-Fei Li",
@@ -291,7 +297,8 @@
     "Demis Hassabis",
     "Mira Murati",
     "Max Tegmark",
-    "Stuart Russell"
+    "Stuart Russell",
+    "Mustafa Suleyman"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -305,6 +312,7 @@
     "Angielskie słowo \"cube\" pochodzi od arabskiej kostki do gry",
     "Dwa miliardy ludzi fotografuje się codziennie na zawołanie",
     "Słowo 'algorytm' pochodzi z imienia arabskiego matematyka, którego nikt nie pamięta",
-    "Szampan nie wziął się od bąbelków, tylko od nazwy regionu"
+    "Szampan nie wziął się od bąbelków, tylko od nazwy regionu",
+    "Zegar słoneczny wymyślono w Egipcie. Tylko że w nocy kompletnie zawodził."
   ]
 }
