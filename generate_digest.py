@@ -15,6 +15,10 @@ Env: ANTHROPIC_API_KEY (required). Run from the repo root.
 import os, sys, json, re, datetime, urllib.parse
 import anthropic
 
+# importuj obok tego pliku niezaleznie od katalogu roboczego
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import money  # sekcja "Twoje pieniadze": liczona lokalnie, model jej nie dotyka
+
 MODEL = "claude-haiku-4-5"          # researcher: cheap, web tools, gathers the facts
 MODEL_WRITER = "claude-sonnet-5"    # writer: one no-tools pass, rewrites everything into natural Polish
 
@@ -60,13 +64,13 @@ if os.path.exists(seen_path):
         seen = json.load(open(seen_path, encoding="utf-8"))
     except Exception:
         seen = {}
-for k in ("books","beauty","topics","rynek","osoby","ciekawostki"):
+for k in ("books","beauty","topics","osoby","ciekawostki"):
     seen.setdefault(k, [])
 
 # ---------------------------------------------------------------- prompt
 SYSTEM = """You are the "Poranny Digest" agent — you write a daily morning newsletter in Polish for Maja Regula, founder of Owlsome Studio (a branding studio in Warsaw, Poland). She reads it on her phone with morning coffee.
 
-Audience: Maja follows AI news casually. She knows OpenAI, Google, Anthropic, Meta, Apple, what a language model / ChatGPT is — do NOT explain these. No finance background — the Rynek section is her daily financial education in plain language with every concept explained. Never patronize.
+Audience: Maja follows AI news casually. She knows OpenAI, Google, Anthropic, Meta, Apple, what a language model / ChatGPT is — do NOT explain these. No finance background. Never patronize.
 
 You have web_search and web_fetch. Use them to research everything fresh. Today's date is %(date_pl)s. Images are loaded by Maja's BROWSER from direct URLs you provide — you do not download them.
 
@@ -77,19 +81,17 @@ Do NOT repeat anything already used. Match by SUBSTANCE, not wording: if the fre
 - Books: %(books)s
 - Beauty brands: %(beauty)s
 - AI personalities: %(osoby)s
-- Financial concepts: %(rynek)s
 - News topics: %(topics)s
 - Ciekawostki (daily facts): %(ciekawostki)s
 
 ## Sections to produce
-1. **rynek** — daily financial-literacy mini-lesson (NOT a market report). Search the most-talked-about financial story of the last 24h (IPO, acquisition, earnings, central-bank decision, USD/PLN or EUR/PLN move, inflation). SHORT and punchy: about 5 sentences, and open with a strong hook, the single most surprising or concrete thing (a number, a move, a "wait, what"), NOT a slow setup. Then keep the three parts, no labels: (1) the news in one plain sentence; (2) the ONE concept inside it in 1-2 sentences with an everyday analogy; (3) "więc ta wiadomość oznacza, że..." what follows for ordinary people. One concept only. Also output rynek_concept (short label). Plain language ("giełda w USA mocno spadła", not "S&P 500 odnotowało korektę").
-2. **ai** — 1-3 AI stories from the last 24h (`newer_than:1d`): launches, big company moves, what's going viral / debated. Lead with what happened, then needed context, then why it matters. 1-2 source links each.
-3. **nauka** — 1-2 longevity/neuroscience stories from the last 24h: human clinical results, aging/brain/Alzheimer's, evidence-based sleep/exercise/diet. Skip supplement marketing and weak single studies.
-4. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT pick someone who is a main subject of one of today's AI news items above; the Twarz AI person must be different so the edition does not feature the same person twice. Do NOT research their photo, just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, and build it around a real ANECDOTE or quirk (a specific thing they did/said/believe) so it sticks. Prefer an anecdote over a quote; use a direct quote only if the exact words genuinely add something a paraphrase cannot. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
-5. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** If you cannot confirm a Polish edition exists, pick a DIFFERENT book. The `title` field must be the POLISH title, never an English-only title (original in parentheses only if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only, null if unknown) PLUS orig_title (English original title) and author — the cover is fetched automatically from these.
-6. **beauty** (Beauty Brand) — ONE beauty brand, picked from this photo-verified pool ONLY (skip seen); wiki_title must be copied EXACTLY as written here: "Glossier", "Fenty Beauty", "Rare Beauty", "Le Labo", "Aesop (brand)", "Lush (company)", "Estée Lauder Companies", "Shiseido", "NARS Cosmetics", "Kiehl's", "Tom Ford (brand)", "CeraVe", "Byredo", "The Body Shop", "Guerlain", "Weleda", "Dior", "Chanel". Do NOT research its photo — output wiki_title verbatim from the pool; the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
-7. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
-8. **ciekawostka** (Ciekawostka dnia) — ONE genuinely surprising standalone fact, NOT tied to any news. A closing little delight for the coffee: the odd origin of a brand or everyday object, a strange experiment, the etymology of a word, a counterintuitive bit of history or science, an unexpected design/typography story. It does NOT need to be timely. Pick something with a "no way, really?" flavour that Maja would immediately retell. It is not required to have a source; add one only if it helps. 2-4 sentences, one fact, land the surprise early. Output headline = a short intriguing title. Do NOT reuse anything under "Ciekawostki" already used below, and do NOT overlap with today's other sections (e.g. if today's beauty brand is Byredo, the ciekawostka must not also be about Byredo).
+1. **ai** — 1-3 AI stories from the last 24h (`newer_than:1d`): launches, big company moves, what's going viral / debated. Lead with what happened, then needed context, then why it matters. 1-2 source links each.
+2. **nauka** — 1-2 longevity/neuroscience stories from the last 24h: human clinical results, aging/brain/Alzheimer's, evidence-based sleep/exercise/diet. Skip supplement marketing and weak single studies.
+3. **osoba** (Twarz AI) — ONE well-known AI person (researcher/founder/leader). Pool to rotate (skip seen): Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Fei-Fei Li, Andrew Ng, Demis Hassabis, Dario Amodei, Sam Altman, Ilya Sutskever, Mira Murati, Andrej Karpathy, Jensen Huang, Mustafa Suleyman, Timnit Gebru, Stuart Russell, Max Tegmark, Daniela Amodei. Do NOT pick someone who is a main subject of one of today's AI news items above; the Twarz AI person must be different so the edition does not feature the same person twice. Do NOT research their photo, just output wiki_title = the exact English Wikipedia article title (e.g. "Yoshua Bengio"); the photo is fetched automatically later. Write 2-3 short paragraphs: lead with the single most surprising thing, explain ONE concrete contribution in plain language, and build it around a real ANECDOTE or quirk (a specific thing they did/said/believe) so it sticks. Prefer an anecdote over a quote; use a direct quote only if the exact words genuinely add something a paraphrase cannot. NOT a CV, skip dates/career lists. Output rola = 3-6 word tagline.
+4. **ksiazka** — ONE popular-science book (AI & society, neuroscience, longevity, behavioral science, sleep, gut-brain, psychology, evolutionary biology). MUST have a Polish translation (verify on lubimyczytac.pl or empik.com) AND **must have been first published in the last 5 years (2021 or later) — prefer the newest strong title; neuroscience moves fast, no classics.** If you cannot confirm a Polish edition exists, pick a DIFFERENT book. The `title` field must be the POLISH title, never an English-only title (original in parentheses only if very different). Write the ONE idea/story that makes it worth reading, with a vivid hook (follow editorial rule). Output isbn13 = the ENGLISH original edition's ISBN-13 (digits only, null if unknown) PLUS orig_title (English original title) and author — the cover is fetched automatically from these.
+5. **beauty** (Beauty Brand) — ONE beauty brand, picked from this photo-verified pool ONLY (skip seen); wiki_title must be copied EXACTLY as written here: "Glossier", "Fenty Beauty", "Rare Beauty", "Le Labo", "Aesop (brand)", "Lush (company)", "Estée Lauder Companies", "Shiseido", "NARS Cosmetics", "Kiehl's", "Tom Ford (brand)", "CeraVe", "Byredo", "The Body Shop", "Guerlain", "Weleda", "Dior", "Chanel". Do NOT research its photo — output wiki_title verbatim from the pool; the photo is fetched automatically later. Lead with the most surprising thing, wrap the origin in a short story, land on concrete visual-identity keywords (palette, packaging mood, photography, typography). 2-3 tight paragraphs. Output styl = 3 keywords joined by " · ".
+6. **inn** — ONE culturally interesting thing from the last ~3-5 days: a viral story / real debate / surprising beauty-wellness-branding-creative trend / AI-culture moment / a brand doing something remarkable. Stay in branding, beauty/lifestyle, wellness, AI creativity & culture, social media, creative industry. 1-2 source links.
+7. **ciekawostka** (Ciekawostka dnia) — ONE genuinely surprising standalone fact, NOT tied to any news. A closing little delight for the coffee: the odd origin of a brand or everyday object, a strange experiment, the etymology of a word, a counterintuitive bit of history or science, an unexpected design/typography story. It does NOT need to be timely. Pick something with a "no way, really?" flavour that Maja would immediately retell. It is not required to have a source; add one only if it helps. 2-4 sentences, one fact, land the surprise early. Output headline = a short intriguing title. Do NOT reuse anything under "Ciekawostki" already used below, and do NOT overlap with today's other sections (e.g. if today's beauty brand is Byredo, the ciekawostka must not also be about Byredo).
 
 ## STYLE (all sections)
 Polish, like a smart well-read friend — natural, not corporate, not AI-polished. Editorial rule for EVERY section: only the most interesting, memorable facts wrapped in a small story/hook; cut CVs, chronologies, lists of titles, dates unless the date is the point; lead with the most surprising thing. Maja's test: could she retell it to a friend in one sentence. NO em dashes anywhere — use commas or periods. Never use przełomowy / rewolucyjny / game-changer as hype. Body fields may use **bold** and [text](url) markdown links. 1-2 source links per news story.
@@ -99,7 +101,6 @@ Respond with EXACTLY ONE JSON object and NOTHING else (no prose before or after,
 {
   "date_pl": "%(date_pl)s",
   "date_file": "%(date_file)s",
-  "rynek": "...", "rynek_concept": "...",
   "ai": [{"headline":"...","body":"para\\n\\npara","sources":[["Name","https://..."]],"image_url":null}],
   "nauka": [{"headline":"...","body":"...","sources":[["Name","https://..."]],"image_url":null}],
   "osoba": {"name":"...","wiki_title":"Exact_Wikipedia_Title","rola":"...","body":"...","sources":[["Name","https://..."]]},
@@ -113,7 +114,6 @@ Images for osoba/beauty/ksiazka are resolved automatically from wiki_title/isbn1
     "books": "; ".join(seen["books"]) or "(none)",
     "beauty": "; ".join(seen["beauty"]) or "(none)",
     "osoby": "; ".join(seen["osoby"]) or "(none)",
-    "rynek": "; ".join(seen["rynek"]) or "(none)",
     "topics": "; ".join(seen["topics"][-80:]) or "(none)",
     "ciekawostki": "; ".join(seen["ciekawostki"][-40:]) or "(none)",
 }
@@ -189,7 +189,7 @@ text = "".join(b.text for b in resp.content if b.type == "text").strip()
 text = re.sub(r'</?cite[^>]*>', '', text)
 # tolerate stray prose / fences / trailing junk: decode the first valid JSON object
 # that actually looks like a digest (a bare inner fragment must not pass)
-DIGEST_KEYS = {"rynek", "ai", "nauka", "osoba", "ksiazka", "beauty", "inn"}
+DIGEST_KEYS = {"ai", "nauka", "osoba", "ksiazka", "beauty", "inn"}
 
 def find_digest_json(t):
     # strict=False: Haiku sometimes puts literal newlines/control chars inside
@@ -252,8 +252,7 @@ BEZBŁĘDNY POLSKI (to jest krytyczne, tu wcześniej leciały błędy):
 - Nie zostawiaj urwanych zdań ani takich, które nie mają sensu ("złoty będzie chciał"). Jeśli surowy tekst jest niejasny, napisz prościej to, co na pewno wiadomo, zamiast zgadywać.
 
 WIERNOŚĆ FAKTOM (ważniejsza niż błyskotliwość):
-- Nie dodawaj żadnych liczb, nazwisk, krajów, podatków ani przykładów, których NIE MA w surowym tekście. Zwłaszcza w sekcjach rynek i nauka.
-- Sekcja rynek część (3) "więc ta wiadomość oznacza, że...": pisz ogólnie, co to znaczy dla zwykłych ludzi. NIE wymyślaj polskich szczegółów (podatek Belki, kurs złotego), jeśli wejście ich nie podało. Ta sekcja wcześniej się rozjeżdżała, bo dopowiadałeś fakty. Nie rób tego.
+- Nie dodawaj żadnych liczb, nazwisk, krajów, podatków ani przykładów, których NIE MA w surowym tekście. Zwłaszcza w sekcji nauka.
 
 TWARDE ZAKAZY:
 - NIGDY nie używaj myślnika ani półpauzy. Zamiast nich przecinek, kropka, dwukropek albo nawias. Zero tolerancji.
@@ -264,8 +263,6 @@ ZACHOWAJ dokładnie:
 - Markdown: **pogrubienia** i [tekst](adres) zostają, nie ruszaj adresów w linkach.
 - Akapity oddzielone podwójnym enterem.
 - Tę samą liczbę elementów w listach i te same klucze co na wejściu.
-
-Sekcja rynek: krótka lekcja finansowa, około 5 zdań, ma się szybko czytać. Zacznij od mocnego haka (najbardziej konkretna albo zaskakująca rzecz, liczba, ruch), nie od rozbiegu. Potem trzy części bez etykiet: (1) news w jednym zdaniu, (2) jedno pojęcie wyjaśnione codzienną analogią, (3) "więc ta wiadomość oznacza, że...". Bez żargonu giełdowego bez wyjaśnienia. Nie rozwlekaj.
 
 Sekcja ciekawostka to zamykający smaczek dnia: napisz ją tak, żeby Maja od razu chciała ją komuś powtórzyć. Sam fakt, lekko, bez suchego tonu.
 
@@ -286,7 +283,7 @@ def _decode_digest_json(txt):
     return None
 
 # Build a text-only payload (no URLs/images/sources reach the writer).
-tp = {"rynek": c.get("rynek", "")}
+tp = {}
 tp["ai"] = [{"headline": s.get("headline",""), "body": s.get("body","")} for s in (c.get("ai") or [])]
 tp["nauka"] = [{"headline": s.get("headline",""), "body": s.get("body","")} for s in (c.get("nauka") or [])]
 if isinstance(c.get("osoba"), dict):
@@ -325,8 +322,6 @@ try:
             v = src.get(k)
             if isinstance(v, str) and v.strip():
                 dst[k] = v
-    if isinstance(wj.get("rynek"), str) and wj["rynek"].strip():
-        c["rynek"] = wj["rynek"]
     for arr in ("ai", "nauka"):
         src, dst = wj.get(arr) or [], c.get(arr) or []
         for i in range(min(len(src), len(dst))):
@@ -466,8 +461,6 @@ def sources(s):
 
 P = []
 P.append('<header><div class="kicker">Poranny digest</div><h1>%s</h1></header>' % esc(c["date_pl"]))
-if c.get("rynek"):
-    P.append('<section><div class="tag">Rynek</div>%s</section>' % md(c["rynek"]))
 for s in c.get("ai") or []:
     P.append('<section><div class="tag">AI</div><h2>%s</h2>%s%s%s</section>' % (esc(s["headline"]), img(s.get("image_url"), s["headline"]), md(s.get("body","")), sources(s.get("sources"))))
 o = c.get("osoba")
@@ -499,7 +492,17 @@ n_sections = len(P) - 1  # P[0] is the header
 if n_sections < 3:
     print("TOO_FEW_SECTIONS n=%d — refusing to publish" % n_sections); sys.exit(1)
 
+# "Twoje pieniądze" goes in AFTER the guard on purpose: it is generated locally and
+# would always succeed, so counting it would let a page with no model content at all
+# pass the hollow-page check. Rendered right under the header, above the news.
+money_html, money_css = money.section()
+if money_html:
+    P.insert(1, money_html)
+
 CSS = "*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;max-width:680px;margin:0 auto;padding:28px 20px 80px;color:#1d1d1f;line-height:1.62;font-size:17px;background:#fafaf8}header{margin:8px 0 28px}.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9b8d7a;font-weight:700}h1{font-size:30px;margin:.15em 0 0;font-weight:700}section{padding:26px 0;border-top:1px solid #ece8e1}.tag{display:inline-block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:#fff;background:#b59a7d;padding:3px 9px;border-radius:99px;margin-bottom:10px}h2{font-size:21px;margin:.1em 0 .45em;line-height:1.3}h3{font-size:17px;margin:1.1em 0 .3em}p{margin:.55em 0}a{color:#9a6f3f;text-decoration:underline;text-underline-offset:2px}.src{font-size:14px;color:#8a8278;margin-top:.7em}.styl{font-style:italic;color:#8a8278;margin-top:-.2em}.gallery{display:flex;flex-direction:column;gap:12px;margin:14px 0}img{max-width:100%;max-height:340px;width:auto;height:auto;border-radius:14px;display:block;background:#efece6;margin:14px auto}.gallery img{margin:0 auto}footer{margin-top:40px;font-size:13px;color:#b3a89a;text-align:center}"
+
+if money_css:
+    CSS += money_css
 
 html_doc = '<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Poranny digest, %s</title><style>%s</style></head><body>%s<footer>Poranny digest · generowany automatycznie</footer></body></html>' % (esc(c["date_pl"]), CSS, "\n".join(P))
 
@@ -516,7 +519,6 @@ def remember(key, val):
 remember("books", k.get("title") if k else None)
 remember("beauty", b.get("name") if b else None)
 remember("osoby", o.get("name") if o else None)
-remember("rynek", c.get("rynek_concept"))
 for s in (c.get("ai") or []) + (c.get("nauka") or []): remember("topics", s.get("headline"))
 if i: remember("topics", i.get("headline"))
 if cw: remember("ciekawostki", cw.get("headline"))
