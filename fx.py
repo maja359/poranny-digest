@@ -36,9 +36,10 @@ CURRENCIES = [
 PCT_HIGH = 80.0
 PCT_LOW = 20.0
 
-# Kwota referencyjna w sygnale. Rząd wielkości typowej transzy od klienta,
-# żeby różnica kursowa była podana w złotówkach, a nie w procentach.
-REF_AMOUNT = 10000
+# Kwota referencyjna w sygnale: typowa transza, którą Maja realnie wymienia
+# (potwierdzone 2026-08-10). Chodzi o to, żeby różnica kursowa była podana
+# w złotówkach na jej skali, a nie w procentach oderwanych od życia.
+REF_AMOUNT = 3000
 
 
 def _get(url):
@@ -171,7 +172,8 @@ def _signal(quotes):
         # Kwota liczona ZAWSZE per waluta. Jedna liczba na dwie waluty myli, bo
         # euro i dolar rozjeżdżają się względem złotego o kilkaset złotych na transzy.
         hot = [q for q in quotes if q["pct"] >= PCT_HIGH]
-        gains = ", ".join("na 10 000 %s jakieś %s więcej" % (q["sym"], _zl(q["vs_avg"]))
+        gains = ", ".join("na %s %s jakieś %s więcej"
+                          % (format(REF_AMOUNT, ",d").replace(",", " "), q["sym"], _zl(q["vs_avg"]))
                           for q in hot)
         if len(hot) > 1:
             head = "%s stoją wyżej niż przez większość roku" % " i ".join(q["label"].lower() for q in hot)
@@ -188,6 +190,15 @@ def _signal(quotes):
     else:
         line = ("Kursy w środku rocznego zakresu. Nic się nie dzieje, wymieniaj tyle, "
                 "ile potrzebujesz na bieżąco.")
+
+    # Weekend dokłada się do KAŻDEJ z gałęzi, bo to jedyny koszt, który da się zbić
+    # do zera samym czekaniem. Rynek walutowy stoi od piątku wieczorem, więc kantory
+    # i Revolut podnoszą wtedy spread mniej więcej dwukrotnie (Alior 0,7% do 1,3-1,5%,
+    # Revolut dokłada 1%). Na typowej transzy to kilkadziesiąt złotych za nic.
+    if datetime.date.today().weekday() >= 5:
+        line += ('<br><span class="limit">Dziś weekend, a rynek walutowy stoi. Kantory '
+                 'i Revolut podnoszą wtedy spread mniej więcej dwukrotnie, więc jeśli '
+                 'wymiana może poczekać do poniedziałku, niech poczeka.</span>')
     return '<p class="signal">%s</p>' % line
 
 
@@ -204,6 +215,7 @@ CSS = (".money-grid{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}"
        ".chart svg{width:100%;height:auto;display:block;margin:6px 0 2px}"
        ".chart-legend{font-size:12px;color:#8a8278;margin:.2em 0 0}"
        ".signal{background:#f4f1ea;border-radius:12px;padding:12px 14px;font-size:15px;margin:12px 0 0}"
+       ".limit{display:inline-block;margin-top:.5em;font-size:13px;color:#8a8278}"
        ".fx-note{font-size:12px;color:#b3a89a;margin:.6em 0 0}")
 
 
