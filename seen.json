@@ -51,7 +51,8 @@
     "Dlaczego śpimy. Nauka o zdrowym śnie i jego mocy, Matthew Walker",
     "Nexus. Krótka historia sieci informacyjnych od epoki kamienia do AI, Yuval Noah Harari",
     "Jak zmienić swój umysł? Czego nowe badania nad psychodelikami uczą nas o świadomości, umieraniu, uzależnieniu, depresji i transcendencji, Michael Pollan",
-    "Bycie tobą. Nowa nauka świadomości, Anil Seth"
+    "Bycie tobą. Nowa nauka świadomości, Anil Seth",
+    "Searches: Selfhood in the Digital Age, Vauhini Vara"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -81,7 +82,8 @@
     "Tom Ford",
     "Weleda",
     "Floris London",
-    "Yves Saint Laurent Beauté"
+    "Yves Saint Laurent Beauté",
+    "Kylie Cosmetics"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -294,7 +296,10 @@
     "Marki uciekają od perfekcji. \"Wonky design\" zmienia zasady po dekadzie cyfrowego laku",
     "Databricks robi furorę wyceny. Rynek czeka na ROI z AI",
     "Połowa psychologicznych badań się nie replikuje. Co to znaczy dla nauki?",
-    "Czerwony przycisk nie działa wszędzie. Czemu branża wciąż w to wierzy"
+    "Czerwony przycisk nie działa wszędzie. Czemu branża wciąż w to wierzy",
+    "Energia, nie chipy: co według Jensena Huanga naprawdę ogranicza rozwój AI",
+    "FDA zmienia podejście do terapii menopauzalnej: to zmiana paradygmatu dla milionów kobiet",
+    "Rzemiosło opakowania beauty: jak hot stamping i tektura FSC stały się językiem luksusu"
   ],
   "rynek": [
     "IPO",
@@ -360,7 +365,8 @@
     "Mustafa Suleyman",
     "Timnit Gebru",
     "Shoshana Zuboff",
-    "Mario Klingemann"
+    "Mario Klingemann",
+    "Sundar Pichai"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -387,25 +393,31 @@
     "Algorytm, którego imienia nikt nie umie wymówić",
     "Słowo „algorytm” pochodzi od imienia arabskiego matematyka sprzed tysiąca lat",
     "zmysł węchu i rozróżnianie zapachów Twoja nos czuje trylion zapachów, choć ma ich tylko 400 receptorów",
-    "historia loga i nazwy marki Nike prawie wyrzucił swoje słynne logo. Zmiana nie musi być gwałtowna"
+    "historia loga i nazwy marki Nike prawie wyrzucił swoje słynne logo. Zmiana nie musi być gwałtowna",
+    "etymologia słowa awokado Awokado = jądra. Naprawdę."
   ],
   "cieka_cats": [
     "cialo czlowieka",
-    "reklama i marka"
+    "reklama i marka",
+    "jezyk i slowa"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
-    "psychologia i zachowanie, badania z powtarzalnym wynikiem"
+    "psychologia i zachowanie, badania z powtarzalnym wynikiem",
+    "zdrowie kobiet, hormony, cykl, menopauza"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
-    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa"
+    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
+    "sprzet, chipy, energia i infrastruktura"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
-    "swiadomosc i psychodeliki"
+    "swiadomosc i psychodeliki",
+    "uwaga, technologia i zycie cyfrowe"
   ],
   "authors": [
-    "Anil Seth"
+    "Anil Seth",
+    "Vauhini Vara"
   ]
 }
