@@ -83,7 +83,8 @@
     "Weleda",
     "Floris London",
     "Yves Saint Laurent Beauté",
-    "Kylie Cosmetics"
+    "Kylie Cosmetics",
+    "Nivea"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -299,7 +300,10 @@
     "Czerwony przycisk nie działa wszędzie. Czemu branża wciąż w to wierzy",
     "Energia, nie chipy: co według Jensena Huanga naprawdę ogranicza rozwój AI",
     "FDA zmienia podejście do terapii menopauzalnej: to zmiana paradygmatu dla milionów kobiet",
-    "Rzemiosło opakowania beauty: jak hot stamping i tektura FSC stały się językiem luksusu"
+    "Rzemiosło opakowania beauty: jak hot stamping i tektura FSC stały się językiem luksusu",
+    "Sierpień 2026 przyniósł dziesięć nowych modeli, Google znów stawia na prędkość",
+    "Twój tłuszcz pamięta, ile jadłeś, dzięki jednemu aminokwasowi",
+    "Figma Buzz: projektant blokuje markę raz, marketing robi resztę"
   ],
   "rynek": [
     "IPO",
@@ -366,7 +370,8 @@
     "Timnit Gebru",
     "Shoshana Zuboff",
     "Mario Klingemann",
-    "Sundar Pichai"
+    "Sundar Pichai",
+    "Norbert Wiener"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -394,27 +399,32 @@
     "Słowo „algorytm” pochodzi od imienia arabskiego matematyka sprzed tysiąca lat",
     "zmysł węchu i rozróżnianie zapachów Twoja nos czuje trylion zapachów, choć ma ich tylko 400 receptorów",
     "historia loga i nazwy marki Nike prawie wyrzucił swoje słynne logo. Zmiana nie musi być gwałtowna",
-    "etymologia słowa awokado Awokado = jądra. Naprawdę."
+    "etymologia słowa awokado Awokado = jądra. Naprawdę.",
+    "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny"
   ],
   "cieka_cats": [
     "cialo czlowieka",
     "reklama i marka",
-    "jezyk i slowa"
+    "jezyk i slowa",
+    "moda i ubior"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
     "psychologia i zachowanie, badania z powtarzalnym wynikiem",
-    "zdrowie kobiet, hormony, cykl, menopauza"
+    "zdrowie kobiet, hormony, cykl, menopauza",
+    "metabolizm, odzywianie i realne dane z badan na ludziach"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
-    "sprzet, chipy, energia i infrastruktura"
+    "sprzet, chipy, energia i infrastruktura",
+    "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
     "swiadomosc i psychodeliki",
-    "uwaga, technologia i zycie cyfrowe"
+    "uwaga, technologia i zycie cyfrowe",
+    "socjologia pracy i tego, jak zyjemy"
   ],
   "authors": [
     "Anil Seth",
