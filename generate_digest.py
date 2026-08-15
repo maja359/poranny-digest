@@ -668,9 +668,37 @@ def md(text):
         else: out.append("<p>%s</p>" % p.replace("\n","<br>"))
     return "\n".join(out)
 
+def src_host(u):
+    try: return urllib.parse.urlsplit(u).netloc.replace("www.", "") or u
+    except Exception: return u
+
+def src_pair(item):
+    # Model oddaje zrodla w roznych ksztaltach (para, dict, sam URL, plaska lista
+    # stringow). Czego kod moze pilnowac sam, tego nie zostawiamy modelowi:
+    # nieznany ksztalt = pominiete zrodlo, nigdy wywalony run po oplaconym researchu.
+    if isinstance(item, str):
+        u = item.strip()
+        return (src_host(u), u) if u.startswith("http") else None
+    if isinstance(item, dict):
+        u = item.get("url") or item.get("href") or item.get("link")
+        n = item.get("name") or item.get("title") or item.get("source")
+        if isinstance(u, str) and u.startswith("http"):
+            return (n if isinstance(n, str) and n.strip() else src_host(u), u)
+        return None
+    if isinstance(item, (list, tuple)):
+        parts = [x for x in item if isinstance(x, str)]
+        u = next((x for x in parts if x.startswith("http")), None)
+        if not u: return None
+        n = next((x for x in parts if not x.startswith("http") and x.strip()), None)
+        return (n or src_host(u), u)
+    return None
+
 def sources(s):
-    if not s: return ""
-    links = " · ".join('<a href="%s">%s</a>' % (esc(u), esc(n)) for n,u in s)
+    if isinstance(s, (str, dict)): s = [s]
+    if not s or not isinstance(s, (list, tuple)): return ""
+    pairs = [p for p in (src_pair(i) for i in s) if p]
+    if not pairs: return ""
+    links = " · ".join('<a href="%s">%s</a>' % (esc(u), esc(n)) for n, u in pairs)
     return '<p class="src">Źródła: %s</p>' % links
 
 P = []
