@@ -5,10 +5,16 @@ on:
     # 05:45 UTC = 07:45 Europe/Warsaw (summer). Off the full hour on purpose:
     # the old "0 7" cron queued behind everyone else's and fired 2-4.5h late.
     - cron: "45 5 * * *"
-  workflow_dispatch: {}    # lets you run it manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      resume_run_id:
+        description: "Numer padnietego runu: sklada wydanie z jego snapshotu, bez platnego researchu. Puste = normalny przebieg."
+        required: false
+        default: ""
 
 permissions:
   contents: write          # GITHUB_TOKEN can commit to this repo — no PAT needed
+  actions: read            # pobranie snapshotu z artefaktow padnietego runu
 
 concurrency:
   group: digest
@@ -17,6 +23,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RESUME_RUN_ID: ${{ github.event.inputs.resume_run_id }}
     steps:
       - uses: actions/checkout@v4
 
@@ -27,9 +35,38 @@ jobs:
       - run: pip install anthropic
 
       - name: Generate + render digest
+        if: ${{ github.event.inputs.resume_run_id == '' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python generate_digest.py
+
+      # Tryb wznowienia. Research i pisanie sa juz oplacone w tamtym runie, wiec
+      # tu nie ma ANI JEDNEGO wywolania API: bierzemy gotowa tresc z artefaktu
+      # i skladamy z niej strone tym samym renderem co normalny przebieg.
+      - name: Pobierz snapshot z padnietego runu
+        if: ${{ github.event.inputs.resume_run_id != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: digest-snapshot
+          run-id: ${{ github.event.inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/resume
+
+      - name: Zloz wydanie ze snapshotu
+        if: ${{ github.event.inputs.resume_run_id != '' }}
+        run: python resume_digest.py "$RUNNER_TEMP/resume/content.json"
+
+      # Siatka bezpieczenstwa: tresc jest zapisywana PRZED renderem, wiec gdy run
+      # padnie na skladaniu strony, oplacony material zostaje do odzyskania.
+      # Bez tego jedyna droga do wydania jest zaplacic za research drugi raz.
+      - name: Zachowaj snapshot tresci po porazce
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-snapshot
+          path: ${{ runner.temp }}/content.json
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Commit & push
         run: |
@@ -59,4 +96,4 @@ jobs:
         run: |
           curl -fsS -X POST "$SLACK_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
-            --data "{\"text\":\"<@ULYLZE1KQ> ⚠️ Poranny digest NIE wygenerował się dziś. Logi: https://github.com/maja359/poranny-digest/actions/runs/${{ github.run_id }}\"}"
+            --data "{\"text\":\"<@ULYLZE1KQ> ⚠️ Poranny digest NIE wygenerował się dziś. Logi: https://github.com/maja359/poranny-digest/actions/runs/${{ github.run_id }}\nJeśli w logach jest SNAPSHOT_SAVED, treść jest już opłacona: odpal workflow ręcznie i wpisz ${{ github.run_id }} w pole resume_run_id.\"}"
