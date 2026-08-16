@@ -84,7 +84,8 @@
     "Floris London",
     "Yves Saint Laurent Beauté",
     "Kylie Cosmetics",
-    "Nivea"
+    "Nivea",
+    "Origins"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -303,7 +304,10 @@
     "Rzemiosło opakowania beauty: jak hot stamping i tektura FSC stały się językiem luksusu",
     "Sierpień 2026 przyniósł dziesięć nowych modeli, Google znów stawia na prędkość",
     "Twój tłuszcz pamięta, ile jadłeś, dzięki jednemu aminokwasowi",
-    "Figma Buzz: projektant blokuje markę raz, marketing robi resztę"
+    "Figma Buzz: projektant blokuje markę raz, marketing robi resztę",
+    "Cała infrastruktura AI stoi na jednym słabym ogniwie",
+    "79 procent Amerykanów z nadciśnieniem nie osiąga nowych celów. Medycyna się zmienia, a pacjenci zostają w tyle",
+    "Autentyczność wygrywa z polerem. Sierpień 2026 karze fałsz"
   ],
   "rynek": [
     "IPO",
@@ -371,7 +375,8 @@
     "Shoshana Zuboff",
     "Mario Klingemann",
     "Sundar Pichai",
-    "Norbert Wiener"
+    "Norbert Wiener",
+    "Peter Norvig"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -400,31 +405,36 @@
     "zmysł węchu i rozróżnianie zapachów Twoja nos czuje trylion zapachów, choć ma ich tylko 400 receptorów",
     "historia loga i nazwy marki Nike prawie wyrzucił swoje słynne logo. Zmiana nie musi być gwałtowna",
     "etymologia słowa awokado Awokado = jądra. Naprawdę.",
-    "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny"
+    "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny",
+    "historia słowa i składnika Kiedy ketchup nie był ketchupem"
   ],
   "cieka_cats": [
     "cialo czlowieka",
     "reklama i marka",
     "jezyk i slowa",
-    "moda i ubior"
+    "moda i ubior",
+    "jedzenie i kuchnia"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
     "psychologia i zachowanie, badania z powtarzalnym wynikiem",
     "zdrowie kobiet, hormony, cykl, menopauza",
-    "metabolizm, odzywianie i realne dane z badan na ludziach"
+    "metabolizm, odzywianie i realne dane z badan na ludziach",
+    "serce, krazenie i cisnienie"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "sprzet, chipy, energia i infrastruktura",
-    "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj"
+    "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj",
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
     "swiadomosc i psychodeliki",
     "uwaga, technologia i zycie cyfrowe",
-    "socjologia pracy i tego, jak zyjemy"
+    "socjologia pracy i tego, jak zyjemy",
+    "dlugowiecznosc i starzenie"
   ],
   "authors": [
     "Anil Seth",
