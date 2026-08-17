@@ -85,7 +85,8 @@
     "Yves Saint Laurent Beauté",
     "Kylie Cosmetics",
     "Nivea",
-    "Origins"
+    "Origins",
+    "L'Artisan Parfumeur"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -307,7 +308,11 @@
     "Figma Buzz: projektant blokuje markę raz, marketing robi resztę",
     "Cała infrastruktura AI stoi na jednym słabym ogniwie",
     "79 procent Amerykanów z nadciśnieniem nie osiąga nowych celów. Medycyna się zmienia, a pacjenci zostają w tyle",
-    "Autentyczność wygrywa z polerem. Sierpień 2026 karze fałsz"
+    "Autentyczność wygrywa z polerem. Sierpień 2026 karze fałsz",
+    "OpenAI Astra rozwiązała dziesięć nierozwiązanych problemów matematycznych. Sztuczna inteligencja przestaje tylko wykonywać zadania",
+    "Alibaba Qwen 3.8 27B: chińska alternatywa, która kosztuje mniej",
+    "Sekret węchu: zapach dociera do emocji, zanim znajdziemy na niego słowa",
+    "Anthropic zatrudnia pierwszego szefa do spraw globalnych. To coś więcej niż PR"
   ],
   "rynek": [
     "IPO",
@@ -376,7 +381,8 @@
     "Mario Klingemann",
     "Sundar Pichai",
     "Norbert Wiener",
-    "Peter Norvig"
+    "Peter Norvig",
+    "Nick Bostrom"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -406,35 +412,40 @@
     "historia loga i nazwy marki Nike prawie wyrzucił swoje słynne logo. Zmiana nie musi być gwałtowna",
     "etymologia słowa awokado Awokado = jądra. Naprawdę.",
     "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny",
-    "historia słowa i składnika Kiedy ketchup nie był ketchupem"
+    "historia słowa i składnika Kiedy ketchup nie był ketchupem",
+    "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy"
   ],
   "cieka_cats": [
     "cialo czlowieka",
     "reklama i marka",
     "jezyk i slowa",
     "moda i ubior",
-    "jedzenie i kuchnia"
+    "jedzenie i kuchnia",
+    "kolor i pigment"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
     "psychologia i zachowanie, badania z powtarzalnym wynikiem",
     "zdrowie kobiet, hormony, cykl, menopauza",
     "metabolizm, odzywianie i realne dane z badan na ludziach",
-    "serce, krazenie i cisnienie"
+    "serce, krazenie i cisnienie",
+    "zmysly: wzrok, sluch, wech, dotyk"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "sprzet, chipy, energia i infrastruktura",
     "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj",
-    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
+    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
     "swiadomosc i psychodeliki",
     "uwaga, technologia i zycie cyfrowe",
     "socjologia pracy i tego, jak zyjemy",
-    "dlugowiecznosc i starzenie"
+    "dlugowiecznosc i starzenie",
+    "mozg i neurobiologia"
   ],
   "authors": [
     "Anil Seth",
