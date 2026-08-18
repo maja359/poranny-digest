@@ -52,7 +52,8 @@
     "Nexus. Krótka historia sieci informacyjnych od epoki kamienia do AI, Yuval Noah Harari",
     "Jak zmienić swój umysł? Czego nowe badania nad psychodelikami uczą nas o świadomości, umieraniu, uzależnieniu, depresji i transcendencji, Michael Pollan",
     "Bycie tobą. Nowa nauka świadomości, Anil Seth",
-    "Searches: Selfhood in the Digital Age, Vauhini Vara"
+    "Searches: Selfhood in the Digital Age, Vauhini Vara",
+    "Myśl jak naukowiec: jak odkrywcy rozwiązują problemy"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -86,7 +87,8 @@
     "Kylie Cosmetics",
     "Nivea",
     "Origins",
-    "L'Artisan Parfumeur"
+    "L'Artisan Parfumeur",
+    "Clarins"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -312,7 +314,11 @@
     "OpenAI Astra rozwiązała dziesięć nierozwiązanych problemów matematycznych. Sztuczna inteligencja przestaje tylko wykonywać zadania",
     "Alibaba Qwen 3.8 27B: chińska alternatywa, która kosztuje mniej",
     "Sekret węchu: zapach dociera do emocji, zanim znajdziemy na niego słowa",
-    "Anthropic zatrudnia pierwszego szefa do spraw globalnych. To coś więcej niż PR"
+    "Anthropic zatrudnia pierwszego szefa do spraw globalnych. To coś więcej niż PR",
+    "Grok 4.6: xAI spada w cenie, rozszerza kontekst do pół miliona tokenów",
+    "Anthropic z przychodami $10,9 mld: dwa lata do zysku szybciej, niż planowała",
+    "Bakterie jelitowe wstrzykują białka: ciche manipulanty naszej odporności",
+    "Heritage branding wygrywa: marka wraca do korzeni, by przetrwać szum"
   ],
   "rynek": [
     "IPO",
@@ -382,7 +388,8 @@
     "Sundar Pichai",
     "Norbert Wiener",
     "Peter Norvig",
-    "Nick Bostrom"
+    "Nick Bostrom",
+    "Sougwen Chung"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -413,7 +420,8 @@
     "etymologia słowa awokado Awokado = jądra. Naprawdę.",
     "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny",
     "historia słowa i składnika Kiedy ketchup nie był ketchupem",
-    "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy"
+    "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy",
+    "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -421,7 +429,8 @@
     "jezyk i slowa",
     "moda i ubior",
     "jedzenie i kuchnia",
-    "kolor i pigment"
+    "kolor i pigment",
+    "liczby i miary"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -429,7 +438,8 @@
     "zdrowie kobiet, hormony, cykl, menopauza",
     "metabolizm, odzywianie i realne dane z badan na ludziach",
     "serce, krazenie i cisnienie",
-    "zmysly: wzrok, sluch, wech, dotyk"
+    "zmysly: wzrok, sluch, wech, dotyk",
+    "mikrobiom i uklad odpornosciowy"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -437,7 +447,8 @@
     "sprzet, chipy, energia i infrastruktura",
     "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj",
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
-    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja"
+    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
+    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -445,10 +456,12 @@
     "uwaga, technologia i zycie cyfrowe",
     "socjologia pracy i tego, jak zyjemy",
     "dlugowiecznosc i starzenie",
-    "mozg i neurobiologia"
+    "mozg i neurobiologia",
+    "psychologia i podejmowanie decyzji"
   ],
   "authors": [
     "Anil Seth",
-    "Vauhini Vara"
+    "Vauhini Vara",
+    "Ozan Varol"
   ]
 }
