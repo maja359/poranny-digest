@@ -53,7 +53,8 @@
     "Jak zmienić swój umysł? Czego nowe badania nad psychodelikami uczą nas o świadomości, umieraniu, uzależnieniu, depresji i transcendencji, Michael Pollan",
     "Bycie tobą. Nowa nauka świadomości, Anil Seth",
     "Searches: Selfhood in the Digital Age, Vauhini Vara",
-    "Myśl jak naukowiec: jak odkrywcy rozwiązują problemy"
+    "Myśl jak naukowiec: jak odkrywcy rozwiązują problemy",
+    "Impuls. Jak poprawiać decyzje o zdrowiu, bogactwie i szczęściu, Richard H. Thaler i Cass R. Sunstein"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -88,7 +89,8 @@
     "Nivea",
     "Origins",
     "L'Artisan Parfumeur",
-    "Clarins"
+    "Clarins",
+    "NYX Cosmetics"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -318,7 +320,10 @@
     "Grok 4.6: xAI spada w cenie, rozszerza kontekst do pół miliona tokenów",
     "Anthropic z przychodami $10,9 mld: dwa lata do zysku szybciej, niż planowała",
     "Bakterie jelitowe wstrzykują białka: ciche manipulanty naszej odporności",
-    "Heritage branding wygrywa: marka wraca do korzeni, by przetrwać szum"
+    "Heritage branding wygrywa: marka wraca do korzeni, by przetrwać szum",
+    "AI robi kariery w okulistyce. Nowe narzędzia wspierają lekarzy w diagnostyce siatkówki",
+    "Piłka nożna zmienia mózg. Zawodnicy mają mniej szarych komórek w rejonach odpowiadających za pamięć",
+    "Wszyscy wierzą w transparent AI. Może to być błąd. Oto czemu."
   ],
   "rynek": [
     "IPO",
@@ -389,7 +394,8 @@
     "Norbert Wiener",
     "Peter Norvig",
     "Nick Bostrom",
-    "Sougwen Chung"
+    "Sougwen Chung",
+    "Morris Chang"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -421,7 +427,8 @@
     "rimski odziez i obywatelstwo Toga to nie był strój na co dzień, tylko cały język społeczny",
     "historia słowa i składnika Kiedy ketchup nie był ketchupem",
     "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy",
-    "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu"
+    "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu",
+    "granica, błąd kartograficzny Północny Kąt, amerykańska enklawa dostępna tylko przez Kanadę"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -430,7 +437,8 @@
     "moda i ubior",
     "jedzenie i kuchnia",
     "kolor i pigment",
-    "liczby i miary"
+    "liczby i miary",
+    "mapy i podroze"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -439,7 +447,8 @@
     "metabolizm, odzywianie i realne dane z badan na ludziach",
     "serce, krazenie i cisnienie",
     "zmysly: wzrok, sluch, wech, dotyk",
-    "mikrobiom i uklad odpornosciowy"
+    "mikrobiom i uklad odpornosciowy",
+    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -448,7 +457,8 @@
     "premiery produktow i modeli, co realnie umieja inaczej niz wczoraj",
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
     "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
-    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa"
+    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
+    "AI w zdrowiu, nauce i medycynie"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -457,11 +467,13 @@
     "socjologia pracy i tego, jak zyjemy",
     "dlugowiecznosc i starzenie",
     "mozg i neurobiologia",
-    "psychologia i podejmowanie decyzji"
+    "psychologia i podejmowanie decyzji",
+    "ekonomia behawioralna i pieniadze"
   ],
   "authors": [
     "Anil Seth",
     "Vauhini Vara",
-    "Ozan Varol"
+    "Ozan Varol",
+    "Richard H. Thaler & Cass R. Sunstein"
   ]
 }
