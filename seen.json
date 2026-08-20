@@ -54,7 +54,8 @@
     "Bycie tobą. Nowa nauka świadomości, Anil Seth",
     "Searches: Selfhood in the Digital Age, Vauhini Vara",
     "Myśl jak naukowiec: jak odkrywcy rozwiązują problemy",
-    "Impuls. Jak poprawiać decyzje o zdrowiu, bogactwie i szczęściu, Richard H. Thaler i Cass R. Sunstein"
+    "Impuls. Jak poprawiać decyzje o zdrowiu, bogactwie i szczęściu, Richard H. Thaler i Cass R. Sunstein",
+    "Za pięć dwunasta koniec świata. Kryzys klimatyczno-ekologiczny głosem wielu nauk, red. K. Jasikowska, M. Pałasz"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -90,7 +91,8 @@
     "Origins",
     "L'Artisan Parfumeur",
     "Clarins",
-    "NYX Cosmetics"
+    "NYX Cosmetics",
+    "SK-II"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -323,7 +325,10 @@
     "Heritage branding wygrywa: marka wraca do korzeni, by przetrwać szum",
     "AI robi kariery w okulistyce. Nowe narzędzia wspierają lekarzy w diagnostyce siatkówki",
     "Piłka nożna zmienia mózg. Zawodnicy mają mniej szarych komórek w rejonach odpowiadających za pamięć",
-    "Wszyscy wierzą w transparent AI. Może to być błąd. Oto czemu."
+    "Wszyscy wierzą w transparent AI. Może to być błąd. Oto czemu.",
+    "Hinton ostrzega: AI bierze pracę biurowców szybciej niż fabryk",
+    "Barzolvolimab pokonuje pokrzywkę w ostatnim teście przed zatwierdzeniem",
+    "Kapturek, nie butelka: jak marki beauty oszczędzają na toolingu bez straty na prestiżu"
   ],
   "rynek": [
     "IPO",
@@ -395,7 +400,8 @@
     "Peter Norvig",
     "Nick Bostrom",
     "Sougwen Chung",
-    "Morris Chang"
+    "Morris Chang",
+    "Aidan Gomez"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -428,7 +434,8 @@
     "historia słowa i składnika Kiedy ketchup nie był ketchupem",
     "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy",
     "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu",
-    "granica, błąd kartograficzny Północny Kąt, amerykańska enklawa dostępna tylko przez Kanadę"
+    "granica, błąd kartograficzny Północny Kąt, amerykańska enklawa dostępna tylko przez Kanadę",
+    "opakowanie i materiały błyszczące Papier powlekany mica: jak blask stał się materialem"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -438,7 +445,8 @@
     "jedzenie i kuchnia",
     "kolor i pigment",
     "liczby i miary",
-    "mapy i podroze"
+    "mapy i podroze",
+    "rzemioslo i material"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -448,7 +456,8 @@
     "serce, krazenie i cisnienie",
     "zmysly: wzrok, sluch, wech, dotyk",
     "mikrobiom i uklad odpornosciowy",
-    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)"
+    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
+    "leki i terapie, ktore wlasnie przechodza probe kliniczna"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -458,7 +467,8 @@
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
     "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
-    "AI w zdrowiu, nauce i medycynie"
+    "AI w zdrowiu, nauce i medycynie",
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -468,12 +478,14 @@
     "dlugowiecznosc i starzenie",
     "mozg i neurobiologia",
     "psychologia i podejmowanie decyzji",
-    "ekonomia behawioralna i pieniadze"
+    "ekonomia behawioralna i pieniadze",
+    "klimat i przyszlosc planety"
   ],
   "authors": [
     "Anil Seth",
     "Vauhini Vara",
     "Ozan Varol",
-    "Richard H. Thaler & Cass R. Sunstein"
+    "Richard H. Thaler & Cass R. Sunstein",
+    "K. Jasikowska, M. Pałasz (red.)"
   ]
 }
