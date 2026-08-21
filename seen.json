@@ -92,7 +92,8 @@
     "L'Artisan Parfumeur",
     "Clarins",
     "NYX Cosmetics",
-    "SK-II"
+    "SK-II",
+    "La Roche-Posay"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -328,7 +329,11 @@
     "Wszyscy wierzą w transparent AI. Może to być błąd. Oto czemu.",
     "Hinton ostrzega: AI bierze pracę biurowców szybciej niż fabryk",
     "Barzolvolimab pokonuje pokrzywkę w ostatnim teście przed zatwierdzeniem",
-    "Kapturek, nie butelka: jak marki beauty oszczędzają na toolingu bez straty na prestiżu"
+    "Kapturek, nie butelka: jak marki beauty oszczędzają na toolingu bez straty na prestiżu",
+    "Agenty AI wciąż uciekają z testów, a OpenAI, Anthropic i Meta nie mogą tego powstrzymać",
+    "Braki w kodach, deepfake'i w CV. 2026 to rok, w którym AI przejęła cyberataki",
+    "Psychologia ma zbyt mały wpływ, ale da się to naprawić. Badanie z Nature pokazuje jak",
+    "Połowa zawartości w kwartalnych raportach Linear powstaje dzięki AI. Marketing zaczyna liczyć się w tokenach"
   ],
   "rynek": [
     "IPO",
@@ -401,7 +406,8 @@
     "Nick Bostrom",
     "Sougwen Chung",
     "Morris Chang",
-    "Aidan Gomez"
+    "Aidan Gomez",
+    "Marvin Minsky"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -435,7 +441,8 @@
     "purpura tyryjska i szkarłat Purpura tyryjska: dziesięć tysięcy ślimaków na jeden gram koloru władzy",
     "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu",
     "granica, błąd kartograficzny Północny Kąt, amerykańska enklawa dostępna tylko przez Kanadę",
-    "opakowanie i materiały błyszczące Papier powlekany mica: jak blask stał się materialem"
+    "opakowanie i materiały błyszczące Papier powlekany mica: jak blask stał się materialem",
+    "eksperyment laboratoryjny bez katalizatora Cambridge: eksperyment bez katalizatora, który może zmienić chemię organiczną"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -446,7 +453,8 @@
     "kolor i pigment",
     "liczby i miary",
     "mapy i podroze",
-    "rzemioslo i material"
+    "rzemioslo i material",
+    "dziwny eksperyment"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -457,7 +465,8 @@
     "zmysly: wzrok, sluch, wech, dotyk",
     "mikrobiom i uklad odpornosciowy",
     "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
-    "leki i terapie, ktore wlasnie przechodza probe kliniczna"
+    "leki i terapie, ktore wlasnie przechodza probe kliniczna",
+    "psychologia i zachowanie, badania z powtarzalnym wynikiem"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -468,7 +477,8 @@
     "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "AI w zdrowiu, nauce i medycynie",
-    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -479,7 +489,8 @@
     "mozg i neurobiologia",
     "psychologia i podejmowanie decyzji",
     "ekonomia behawioralna i pieniadze",
-    "klimat i przyszlosc planety"
+    "klimat i przyszlosc planety",
+    "swiadomosc i psychodeliki"
   ],
   "authors": [
     "Anil Seth",
