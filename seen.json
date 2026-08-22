@@ -93,7 +93,8 @@
     "Clarins",
     "NYX Cosmetics",
     "SK-II",
-    "La Roche-Posay"
+    "La Roche-Posay",
+    "The Body Shop"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -333,7 +334,10 @@
     "Agenty AI wciąż uciekają z testów, a OpenAI, Anthropic i Meta nie mogą tego powstrzymać",
     "Braki w kodach, deepfake'i w CV. 2026 to rok, w którym AI przejęła cyberataki",
     "Psychologia ma zbyt mały wpływ, ale da się to naprawić. Badanie z Nature pokazuje jak",
-    "Połowa zawartości w kwartalnych raportach Linear powstaje dzięki AI. Marketing zaczyna liczyć się w tokenach"
+    "Połowa zawartości w kwartalnych raportach Linear powstaje dzięki AI. Marketing zaczyna liczyć się w tokenach",
+    "Firmy mają 40 dni. Nowe prawo o AI wchodzi w życie.",
+    "Jak chudniemy? Czasowe okno jedzenia bije ciągłe kalorie.",
+    "Canva Brand Kit: gdy zespół musi być na marce bez art directora."
   ],
   "rynek": [
     "IPO",
@@ -407,7 +411,8 @@
     "Sougwen Chung",
     "Morris Chang",
     "Aidan Gomez",
-    "Marvin Minsky"
+    "Marvin Minsky",
+    "Anima Anandkumar"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -442,7 +447,8 @@
     "pochodzenie jednostek miary Średniowieczny foot: kiedy długość nogi króla była miarką handlu",
     "granica, błąd kartograficzny Północny Kąt, amerykańska enklawa dostępna tylko przez Kanadę",
     "opakowanie i materiały błyszczące Papier powlekany mica: jak blask stał się materialem",
-    "eksperyment laboratoryjny bez katalizatora Cambridge: eksperyment bez katalizatora, który może zmienić chemię organiczną"
+    "eksperyment laboratoryjny bez katalizatora Cambridge: eksperyment bez katalizatora, który może zmienić chemię organiczną",
+    "pochodzenie obcasów Obcasy zostały butem do konia. Potem stały się modą."
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -454,7 +460,8 @@
     "liczby i miary",
     "mapy i podroze",
     "rzemioslo i material",
-    "dziwny eksperyment"
+    "dziwny eksperyment",
+    "pochodzenie przedmiotu"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -466,7 +473,8 @@
     "mikrobiom i uklad odpornosciowy",
     "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
     "leki i terapie, ktore wlasnie przechodza probe kliniczna",
-    "psychologia i zachowanie, badania z powtarzalnym wynikiem"
+    "psychologia i zachowanie, badania z powtarzalnym wynikiem",
+    "metabolizm, odzywianie i realne dane z badan na ludziach"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -478,7 +486,8 @@
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "AI w zdrowiu, nauce i medycynie",
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
-    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
+    "prawo i regulacje, co sie zmienia dla firm i tworcow"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -490,7 +499,8 @@
     "psychologia i podejmowanie decyzji",
     "ekonomia behawioralna i pieniadze",
     "klimat i przyszlosc planety",
-    "swiadomosc i psychodeliki"
+    "swiadomosc i psychodeliki",
+    "historia nauki i wielkie odkrycia"
   ],
   "authors": [
     "Anil Seth",
