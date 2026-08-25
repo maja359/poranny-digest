@@ -56,7 +56,8 @@
     "Myśl jak naukowiec: jak odkrywcy rozwiązują problemy",
     "Impuls. Jak poprawiać decyzje o zdrowiu, bogactwie i szczęściu, Richard H. Thaler i Cass R. Sunstein",
     "Za pięć dwunasta koniec świata. Kryzys klimatyczno-ekologiczny głosem wielu nauk, red. K. Jasikowska, M. Pałasz",
-    "Estetyka projektowania, Mads Nygaard Folkmann"
+    "Estetyka projektowania, Mads Nygaard Folkmann",
+    "Skradzione skupienie, Johann Hari"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -97,7 +98,8 @@
     "La Roche-Posay",
     "The Body Shop",
     "Santa Maria Novella",
-    "L'Oréal"
+    "L'Oréal",
+    "Bobbi Brown"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -347,7 +349,10 @@
     "Piękno odwraca się od sztuczności. Algorytmy upadają, kiedy każdy widzi to samo",
     "Infrastruktura AI przyciąga pieniądze. Firmus bierze 2,85 miliarda dolarów na centra danych",
     "Zmysły, które nie znamy. Ludzie mogą mieć nawet 33 zmysły, nie pięć",
-    "Jacquemus po raz pierwszy ma ambasadora marki. To babcia założyciela"
+    "Jacquemus po raz pierwszy ma ambasadora marki. To babcia założyciela",
+    "CRISPR-GPT przyspieszy eksperymenty genetyczne. Z trzech lat na miesiące",
+    "Rytm dobowy mózgu to kod regeneracji. Światło rano działa bardziej niż druga godzina snu",
+    "Caslon i kontrast: kiedy jedna litera zmieniła druk na zawsze"
   ],
   "rynek": [
     "IPO",
@@ -424,7 +429,8 @@
     "Marvin Minsky",
     "Anima Anandkumar",
     "Gary Marcus",
-    "Casey Reas"
+    "Casey Reas",
+    "Marc Benioff"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -462,7 +468,8 @@
     "eksperyment laboratoryjny bez katalizatora Cambridge: eksperyment bez katalizatora, który może zmienić chemię organiczną",
     "pochodzenie obcasów Obcasy zostały butem do konia. Potem stały się modą.",
     "historia nagrania dźwięku Najprawdopodobniej najstarsza ludzka wiadomość głosowa czekała 150 lat, żeby była słyszalna",
-    "samomedykacja zwierząt Motyle leczą się same. I same sobie dobierają lek"
+    "samomedykacja zwierząt Motyle leczą się same. I same sobie dobierają lek",
+    "typografia historia druku Czcionka rzymska ma sekret z 1465 roku. Nie była tym, co drukarze chcieli"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -477,7 +484,8 @@
     "dziwny eksperyment",
     "pochodzenie przedmiotu",
     "muzyka i dzwiek",
-    "zwierzeta i natura"
+    "zwierzeta i natura",
+    "typografia i druk"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -492,7 +500,8 @@
     "psychologia i zachowanie, badania z powtarzalnym wynikiem",
     "metabolizm, odzywianie i realne dane z badan na ludziach",
     "genetyka i biologia starzenia",
-    "zmysly: wzrok, sluch, wech, dotyk"
+    "zmysly: wzrok, sluch, wech, dotyk",
+    "sen, rytm dobowy i regeneracja"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -507,7 +516,8 @@
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
     "prawo i regulacje, co sie zmienia dla firm i tworcow",
     "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
-    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa"
+    "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
+    "AI w zdrowiu, nauce i medycynie"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -522,7 +532,8 @@
     "swiadomosc i psychodeliki",
     "historia nauki i wielkie odkrycia",
     "projektowanie, estetyka i kultura wizualna",
-    "sen i regeneracja"
+    "sen i regeneracja",
+    "uwaga, technologia i zycie cyfrowe"
   ],
   "authors": [
     "Anil Seth",
@@ -530,6 +541,7 @@
     "Ozan Varol",
     "Richard H. Thaler & Cass R. Sunstein",
     "K. Jasikowska, M. Pałasz (red.)",
-    "Mads Nygaard Folkmann"
+    "Mads Nygaard Folkmann",
+    "Johann Hari"
   ]
 }
