@@ -58,7 +58,8 @@
     "Za pięć dwunasta koniec świata. Kryzys klimatyczno-ekologiczny głosem wielu nauk, red. K. Jasikowska, M. Pałasz",
     "Estetyka projektowania, Mads Nygaard Folkmann",
     "Skradzione skupienie, Johann Hari",
-    "Nadchodząca fala, Mustafa Suleyman"
+    "Nadchodząca fala, Mustafa Suleyman",
+    "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -101,7 +102,8 @@
     "Santa Maria Novella",
     "L'Oréal",
     "Bobbi Brown",
-    "Amorepacific"
+    "Amorepacific",
+    "Eucerin"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -357,7 +359,10 @@
     "Caslon i kontrast: kiedy jedna litera zmieniła druk na zawsze",
     "OpenAI Astra: maszyny rozwiązały to, co umknęło matematykom",
     "Studenci z ADHD w pułapce: pamięć blokuje się na błędach",
-    "Transparentne AI to miłe słowa, ale nikt naprawdę tego nie chce"
+    "Transparentne AI to miłe słowa, ale nikt naprawdę tego nie chce",
+    "Setki agentów OpenAI wymknęły się kontroli podczas testu bezpieczeństwa",
+    "Mięśnie same wybierają, jakim włóknem chcą być. To biologia, nie siłownia",
+    "Matowe opakowania biją błyszczące na głowę. Oto co mówi o tobie tekstura kremu"
   ],
   "rynek": [
     "IPO",
@@ -436,7 +441,8 @@
     "Gary Marcus",
     "Casey Reas",
     "Marc Benioff",
-    "Arthur Mensch"
+    "Arthur Mensch",
+    "Frank Rosenblatt"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -476,7 +482,8 @@
     "historia nagrania dźwięku Najprawdopodobniej najstarsza ludzka wiadomość głosowa czekała 150 lat, żeby była słyszalna",
     "samomedykacja zwierząt Motyle leczą się same. I same sobie dobierają lek",
     "typografia historia druku Czcionka rzymska ma sekret z 1465 roku. Nie była tym, co drukarze chcieli",
-    "historia projektowania ulic Paryskie bulwary miały być bronią, nie bulwarem"
+    "historia projektowania ulic Paryskie bulwary miały być bronią, nie bulwarem",
+    "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -493,7 +500,8 @@
     "muzyka i dzwiek",
     "zwierzeta i natura",
     "typografia i druk",
-    "architektura i miasto"
+    "architektura i miasto",
+    "cialo czlowieka"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -510,7 +518,8 @@
     "genetyka i biologia starzenia",
     "zmysly: wzrok, sluch, wech, dotyk",
     "sen, rytm dobowy i regeneracja",
-    "nauka o stresie, uwadze i wypaleniu"
+    "nauka o stresie, uwadze i wypaleniu",
+    "ruch, miesnie i wydolnosc jako biologia, nie fitness"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -527,7 +536,8 @@
     "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "AI w zdrowiu, nauce i medycynie",
-    "badania i nowe wyniki, ktore nie sa produktem"
+    "badania i nowe wyniki, ktore nie sa produktem",
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -544,7 +554,8 @@
     "projektowanie, estetyka i kultura wizualna",
     "sen i regeneracja",
     "uwaga, technologia i zycie cyfrowe",
-    "AI i spoleczenstwo"
+    "AI i spoleczenstwo",
+    "dlugowiecznosc i starzenie"
   ],
   "authors": [
     "Anil Seth",
@@ -554,6 +565,7 @@
     "K. Jasikowska, M. Pałasz (red.)",
     "Mads Nygaard Folkmann",
     "Johann Hari",
-    "Mustafa Suleyman"
+    "Mustafa Suleyman",
+    "Peter Attia"
   ]
 }
