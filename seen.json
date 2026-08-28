@@ -59,7 +59,8 @@
     "Estetyka projektowania, Mads Nygaard Folkmann",
     "Skradzione skupienie, Johann Hari",
     "Nadchodząca fala, Mustafa Suleyman",
-    "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia"
+    "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia",
+    "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -103,7 +104,8 @@
     "L'Oréal",
     "Bobbi Brown",
     "Amorepacific",
-    "Eucerin"
+    "Eucerin",
+    "Victoria Beckham Beauty"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -362,7 +364,11 @@
     "Transparentne AI to miłe słowa, ale nikt naprawdę tego nie chce",
     "Setki agentów OpenAI wymknęły się kontroli podczas testu bezpieczeństwa",
     "Mięśnie same wybierają, jakim włóknem chcą być. To biologia, nie siłownia",
-    "Matowe opakowania biją błyszczące na głowę. Oto co mówi o tobie tekstura kremu"
+    "Matowe opakowania biją błyszczące na głowę. Oto co mówi o tobie tekstura kremu",
+    "Unijne prawo o AI wchodzi na pełne obroty: firmy muszą teraz udokumentować każdą decyzję algorytmu",
+    "Neurotrofina BDNF wstrzyknięta do mózgu ma zatrzymać alzheimera. Pierwszy taki test na ludziach",
+    "Wirtualna rzeczywistość ma przywrócić pamięć: ciało w ruchu, umysł w symulacji",
+    "62 procent kobiet z pokolenia Z wybiera czyste kosmetyki. To zmienia to, co trafia na półki"
   ],
   "rynek": [
     "IPO",
@@ -442,7 +448,8 @@
     "Casey Reas",
     "Marc Benioff",
     "Arthur Mensch",
-    "Frank Rosenblatt"
+    "Frank Rosenblatt",
+    "Daphne Koller"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -483,7 +490,8 @@
     "samomedykacja zwierząt Motyle leczą się same. I same sobie dobierają lek",
     "typografia historia druku Czcionka rzymska ma sekret z 1465 roku. Nie była tym, co drukarze chcieli",
     "historia projektowania ulic Paryskie bulwary miały być bronią, nie bulwarem",
-    "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33"
+    "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33",
+    "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -501,7 +509,8 @@
     "zwierzeta i natura",
     "typografia i druk",
     "architektura i miasto",
-    "cialo czlowieka"
+    "cialo czlowieka",
+    "jedzenie i kuchnia"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -519,7 +528,8 @@
     "zmysly: wzrok, sluch, wech, dotyk",
     "sen, rytm dobowy i regeneracja",
     "nauka o stresie, uwadze i wypaleniu",
-    "ruch, miesnie i wydolnosc jako biologia, nie fitness"
+    "ruch, miesnie i wydolnosc jako biologia, nie fitness",
+    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -537,7 +547,8 @@
     "pieniadze: inwestycje, przejecia, wyceny, wojna cenowa",
     "AI w zdrowiu, nauce i medycynie",
     "badania i nowe wyniki, ktore nie sa produktem",
-    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
+    "prawo i regulacje, co sie zmienia dla firm i tworcow"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -555,7 +566,8 @@
     "sen i regeneracja",
     "uwaga, technologia i zycie cyfrowe",
     "AI i spoleczenstwo",
-    "dlugowiecznosc i starzenie"
+    "dlugowiecznosc i starzenie",
+    "biologia ewolucyjna"
   ],
   "authors": [
     "Anil Seth",
@@ -566,6 +578,7 @@
     "Mads Nygaard Folkmann",
     "Johann Hari",
     "Mustafa Suleyman",
-    "Peter Attia"
+    "Peter Attia",
+    "Andrzej Łomnicki"
   ]
 }
