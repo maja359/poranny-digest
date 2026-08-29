@@ -60,7 +60,8 @@
     "Skradzione skupienie, Johann Hari",
     "Nadchodząca fala, Mustafa Suleyman",
     "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia",
-    "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki"
+    "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki",
+    "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -105,7 +106,8 @@
     "Bobbi Brown",
     "Amorepacific",
     "Eucerin",
-    "Victoria Beckham Beauty"
+    "Victoria Beckham Beauty",
+    "Diptyque"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -368,7 +370,9 @@
     "Unijne prawo o AI wchodzi na pełne obroty: firmy muszą teraz udokumentować każdą decyzję algorytmu",
     "Neurotrofina BDNF wstrzyknięta do mózgu ma zatrzymać alzheimera. Pierwszy taki test na ludziach",
     "Wirtualna rzeczywistość ma przywrócić pamięć: ciało w ruchu, umysł w symulacji",
-    "62 procent kobiet z pokolenia Z wybiera czyste kosmetyki. To zmienia to, co trafia na półki"
+    "62 procent kobiet z pokolenia Z wybiera czyste kosmetyki. To zmienia to, co trafia na półki",
+    "Deepfake'i podkopują zaufanie: nowy raport pokazuje skalę nadużyć AI",
+    "Bakterie jelitowe nie czekają grzecznie w kolejce, tylko wstrzykują białka prosto do naszych komórek"
   ],
   "rynek": [
     "IPO",
@@ -449,7 +453,8 @@
     "Marc Benioff",
     "Arthur Mensch",
     "Frank Rosenblatt",
-    "Daphne Koller"
+    "Daphne Koller",
+    "Joy Buolamwini"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -491,7 +496,8 @@
     "typografia historia druku Czcionka rzymska ma sekret z 1465 roku. Nie była tym, co drukarze chcieli",
     "historia projektowania ulic Paryskie bulwary miały być bronią, nie bulwarem",
     "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33",
-    "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę"
+    "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę",
+    "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -510,7 +516,8 @@
     "typografia i druk",
     "architektura i miasto",
     "cialo czlowieka",
-    "jedzenie i kuchnia"
+    "jedzenie i kuchnia",
+    "moda i ubior"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -529,7 +536,8 @@
     "sen, rytm dobowy i regeneracja",
     "nauka o stresie, uwadze i wypaleniu",
     "ruch, miesnie i wydolnosc jako biologia, nie fitness",
-    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)"
+    "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
+    "mikrobiom i uklad odpornosciowy"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -548,7 +556,8 @@
     "AI w zdrowiu, nauce i medycynie",
     "badania i nowe wyniki, ktore nie sa produktem",
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
-    "prawo i regulacje, co sie zmienia dla firm i tworcow"
+    "prawo i regulacje, co sie zmienia dla firm i tworcow",
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -567,7 +576,8 @@
     "uwaga, technologia i zycie cyfrowe",
     "AI i spoleczenstwo",
     "dlugowiecznosc i starzenie",
-    "biologia ewolucyjna"
+    "biologia ewolucyjna",
+    "socjologia pracy i tego, jak zyjemy"
   ],
   "authors": [
     "Anil Seth",
@@ -579,6 +589,7 @@
     "Johann Hari",
     "Mustafa Suleyman",
     "Peter Attia",
-    "Andrzej Łomnicki"
+    "Andrzej Łomnicki",
+    "David Graeber"
   ]
 }
