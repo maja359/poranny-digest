@@ -61,7 +61,8 @@
     "Nadchodząca fala, Mustafa Suleyman",
     "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia",
     "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki",
-    "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber"
+    "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber",
+    "Fascynujący mózg"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -107,7 +108,8 @@
     "Amorepacific",
     "Eucerin",
     "Victoria Beckham Beauty",
-    "Diptyque"
+    "Diptyque",
+    "Revlon"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -372,7 +374,11 @@
     "Wirtualna rzeczywistość ma przywrócić pamięć: ciało w ruchu, umysł w symulacji",
     "62 procent kobiet z pokolenia Z wybiera czyste kosmetyki. To zmienia to, co trafia na półki",
     "Deepfake'i podkopują zaufanie: nowy raport pokazuje skalę nadużyć AI",
-    "Bakterie jelitowe nie czekają grzecznie w kolejce, tylko wstrzykują białka prosto do naszych komórek"
+    "Bakterie jelitowe nie czekają grzecznie w kolejce, tylko wstrzykują białka prosto do naszych komórek",
+    "AI tworzy wideo do muzyki w cztery minuty. Nikt już nie musi jechać do studia",
+    "AWS wyłącza Mechanical Turk. Koniec sztucznej sztucznej inteligencji",
+    "Pół Ameryki ma nadciśnienie, które wcześniej ignorowaliśmy. Nowa definicja zmienia opowieść",
+    "Dupe culture: \"Czemu mam płacić 200 zł, skoro to serum za 15 zł robi to samo?\""
   ],
   "rynek": [
     "IPO",
@@ -454,7 +460,8 @@
     "Arthur Mensch",
     "Frank Rosenblatt",
     "Daphne Koller",
-    "Joy Buolamwini"
+    "Joy Buolamwini",
+    "Ian Goodfellow"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -497,7 +504,8 @@
     "historia projektowania ulic Paryskie bulwary miały być bronią, nie bulwarem",
     "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33",
     "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę",
-    "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze"
+    "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze",
+    "kolor i pigment Ultramaryna: pigment droższy od złota"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -517,7 +525,8 @@
     "architektura i miasto",
     "cialo czlowieka",
     "jedzenie i kuchnia",
-    "moda i ubior"
+    "moda i ubior",
+    "kolor i pigment"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -537,7 +546,8 @@
     "nauka o stresie, uwadze i wypaleniu",
     "ruch, miesnie i wydolnosc jako biologia, nie fitness",
     "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
-    "mikrobiom i uklad odpornosciowy"
+    "mikrobiom i uklad odpornosciowy",
+    "serce, krazenie i cisnienie"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -557,7 +567,8 @@
     "badania i nowe wyniki, ktore nie sa produktem",
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
     "prawo i regulacje, co sie zmienia dla firm i tworcow",
-    "bezpieczenstwo, naduzycia i to, co poszlo nie tak"
+    "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
+    "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -577,7 +588,8 @@
     "AI i spoleczenstwo",
     "dlugowiecznosc i starzenie",
     "biologia ewolucyjna",
-    "socjologia pracy i tego, jak zyjemy"
+    "socjologia pracy i tego, jak zyjemy",
+    "mozg i neurobiologia"
   ],
   "authors": [
     "Anil Seth",
@@ -590,6 +602,7 @@
     "Mustafa Suleyman",
     "Peter Attia",
     "Andrzej Łomnicki",
-    "David Graeber"
+    "David Graeber",
+    "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf"
   ]
 }
