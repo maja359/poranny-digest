@@ -62,7 +62,8 @@
     "Przeżyć. Nauka życia dłuższego i zdrowszego, Peter Attia",
     "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki",
     "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber",
-    "Fascynujący mózg"
+    "Fascynujący mózg",
+    "Seria fortunnych zdarzeń, Sean B. Carroll"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -109,7 +110,8 @@
     "Eucerin",
     "Victoria Beckham Beauty",
     "Diptyque",
-    "Revlon"
+    "Revlon",
+    "Milk Makeup"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -378,7 +380,10 @@
     "AI tworzy wideo do muzyki w cztery minuty. Nikt już nie musi jechać do studia",
     "AWS wyłącza Mechanical Turk. Koniec sztucznej sztucznej inteligencji",
     "Pół Ameryki ma nadciśnienie, które wcześniej ignorowaliśmy. Nowa definicja zmienia opowieść",
-    "Dupe culture: \"Czemu mam płacić 200 zł, skoro to serum za 15 zł robi to samo?\""
+    "Dupe culture: \"Czemu mam płacić 200 zł, skoro to serum za 15 zł robi to samo?\"",
+    "Energia, nie chipy. Huang pokazuje, gdzie naprawdę siedzi problem AI",
+    "Ludzie mają więcej zmysłów. Neuronaukowcy zmienili rachubę",
+    "Perplexity wprowadza reklamy do wyników wyszukiwania. A miało być inaczej"
   ],
   "rynek": [
     "IPO",
@@ -461,7 +466,8 @@
     "Frank Rosenblatt",
     "Daphne Koller",
     "Joy Buolamwini",
-    "Ian Goodfellow"
+    "Ian Goodfellow",
+    "Robin Li"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -505,7 +511,8 @@
     "zmysły i percepcja Masz więcej zmysłów niż Arystoteles. Około 33",
     "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę",
     "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze",
-    "kolor i pigment Ultramaryna: pigment droższy od złota"
+    "kolor i pigment Ultramaryna: pigment droższy od złota",
+    "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -526,7 +533,8 @@
     "cialo czlowieka",
     "jedzenie i kuchnia",
     "moda i ubior",
-    "kolor i pigment"
+    "kolor i pigment",
+    "liczby i miary"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -547,7 +555,8 @@
     "ruch, miesnie i wydolnosc jako biologia, nie fitness",
     "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
     "mikrobiom i uklad odpornosciowy",
-    "serce, krazenie i cisnienie"
+    "serce, krazenie i cisnienie",
+    "zmysly: wzrok, sluch, wech, dotyk"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -568,7 +577,8 @@
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
     "prawo i regulacje, co sie zmienia dla firm i tworcow",
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
-    "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama"
+    "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
+    "sprzet, chipy, energia i infrastruktura"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -589,7 +599,8 @@
     "dlugowiecznosc i starzenie",
     "biologia ewolucyjna",
     "socjologia pracy i tego, jak zyjemy",
-    "mozg i neurobiologia"
+    "mozg i neurobiologia",
+    "historia nauki i wielkie odkrycia"
   ],
   "authors": [
     "Anil Seth",
@@ -603,6 +614,7 @@
     "Peter Attia",
     "Andrzej Łomnicki",
     "David Graeber",
-    "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf"
+    "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf",
+    "Sean B. Carroll"
   ]
 }
