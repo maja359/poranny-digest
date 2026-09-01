@@ -63,7 +63,8 @@
     "Ewolucja. Proces fizyczny (Evolution as a Physical Process), Andrzej Łomnicki",
     "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber",
     "Fascynujący mózg",
-    "Seria fortunnych zdarzeń, Sean B. Carroll"
+    "Seria fortunnych zdarzeń, Sean B. Carroll",
+    "Psychologia. Przygody ludzkiego umysłu"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -111,7 +112,8 @@
     "Victoria Beckham Beauty",
     "Diptyque",
     "Revlon",
-    "Milk Makeup"
+    "Milk Makeup",
+    "Etude House"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -383,7 +385,9 @@
     "Dupe culture: \"Czemu mam płacić 200 zł, skoro to serum za 15 zł robi to samo?\"",
     "Energia, nie chipy. Huang pokazuje, gdzie naprawdę siedzi problem AI",
     "Ludzie mają więcej zmysłów. Neuronaukowcy zmienili rachubę",
-    "Perplexity wprowadza reklamy do wyników wyszukiwania. A miało być inaczej"
+    "Perplexity wprowadza reklamy do wyników wyszukiwania. A miało być inaczej",
+    "Hank Green przyznał się do AI i fani poczuli się zdradzeni",
+    "Neurodywersyjne kobiety w pułapce: ADHD i autyzm ujawniają się dopiero w menopauzie"
   ],
   "rynek": [
     "IPO",
@@ -467,7 +471,8 @@
     "Daphne Koller",
     "Joy Buolamwini",
     "Ian Goodfellow",
-    "Robin Li"
+    "Robin Li",
+    "Emad Mostaque"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -512,7 +517,8 @@
     "historia tłuszczu w kuchni Masło pojawiło się dzięki zimnu. Wcześniej świat jadł słoninę",
     "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze",
     "kolor i pigment Ultramaryna: pigment droższy od złota",
-    "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała"
+    "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała",
+    "błędy w markowaniu, literówka, przypadek Jak Chopin trafił na koreańskie kosmetyki"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -534,7 +540,8 @@
     "jedzenie i kuchnia",
     "moda i ubior",
     "kolor i pigment",
-    "liczby i miary"
+    "liczby i miary",
+    "bledy i wpadki"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -556,7 +563,8 @@
     "mozg i pamiec (twarde wyniki kliniczne, nie spekulacje)",
     "mikrobiom i uklad odpornosciowy",
     "serce, krazenie i cisnienie",
-    "zmysly: wzrok, sluch, wech, dotyk"
+    "zmysly: wzrok, sluch, wech, dotyk",
+    "zdrowie kobiet, hormony, cykl, menopauza"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -578,7 +586,8 @@
     "prawo i regulacje, co sie zmienia dla firm i tworcow",
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
-    "sprzet, chipy, energia i infrastruktura"
+    "sprzet, chipy, energia i infrastruktura",
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -600,7 +609,8 @@
     "biologia ewolucyjna",
     "socjologia pracy i tego, jak zyjemy",
     "mozg i neurobiologia",
-    "historia nauki i wielkie odkrycia"
+    "historia nauki i wielkie odkrycia",
+    "sen i regeneracja"
   ],
   "authors": [
     "Anil Seth",
@@ -615,6 +625,7 @@
     "Andrzej Łomnicki",
     "David Graeber",
     "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf",
-    "Sean B. Carroll"
+    "Sean B. Carroll",
+    "Christian Jarrett, Joannah Ginsburg"
   ]
 }
