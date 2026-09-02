@@ -64,7 +64,8 @@
     "Bullshit Jobs. Rzeczywista historia fałszywej pracy, David Graeber",
     "Fascynujący mózg",
     "Seria fortunnych zdarzeń, Sean B. Carroll",
-    "Psychologia. Przygody ludzkiego umysłu"
+    "Psychologia. Przygody ludzkiego umysłu",
+    "Leniwy umysł. Dlaczego warto ciągle weryfikować swoje poglądy i decyzje"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -113,7 +114,8 @@
     "Diptyque",
     "Revlon",
     "Milk Makeup",
-    "Etude House"
+    "Etude House",
+    "Paula's Choice"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -387,7 +389,10 @@
     "Ludzie mają więcej zmysłów. Neuronaukowcy zmienili rachubę",
     "Perplexity wprowadza reklamy do wyników wyszukiwania. A miało być inaczej",
     "Hank Green przyznał się do AI i fani poczuli się zdradzeni",
-    "Neurodywersyjne kobiety w pułapce: ADHD i autyzm ujawniają się dopiero w menopauzie"
+    "Neurodywersyjne kobiety w pułapce: ADHD i autyzm ujawniają się dopiero w menopauzie",
+    "Sztuczna inteligencja stawia diagnozy z precyzją specjalisty. Dokładność sięga 94 procent",
+    "Geny decydują o długości życia silniej, niż myśleliśmy. Naukowcy odkryli, że genetyka to aż połowa równania",
+    "AI oszczędza czas, ale zabija markę. Dlaczego firmy zaczynają się bać własnych narzędzi"
   ],
   "rynek": [
     "IPO",
@@ -472,7 +477,8 @@
     "Joy Buolamwini",
     "Ian Goodfellow",
     "Robin Li",
-    "Emad Mostaque"
+    "Emad Mostaque",
+    "Douglas Hofstadter"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -518,7 +524,8 @@
     "pochodzenie wysokich obcasów Obcasy wcale nie były wymysłem dla pań: wymyślili je konni żołnierze",
     "kolor i pigment Ultramaryna: pigment droższy od złota",
     "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała",
-    "błędy w markowaniu, literówka, przypadek Jak Chopin trafił na koreańskie kosmetyki"
+    "błędy w markowaniu, literówka, przypadek Jak Chopin trafił na koreańskie kosmetyki",
+    "pochodzenie przedmiotu Łyżka zamiast muszelki: dlaczego najbardziej naturalny sztuciec wcale nie jest naturalny"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -541,7 +548,8 @@
     "moda i ubior",
     "kolor i pigment",
     "liczby i miary",
-    "bledy i wpadki"
+    "bledy i wpadki",
+    "pochodzenie przedmiotu"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -564,7 +572,8 @@
     "mikrobiom i uklad odpornosciowy",
     "serce, krazenie i cisnienie",
     "zmysly: wzrok, sluch, wech, dotyk",
-    "zdrowie kobiet, hormony, cykl, menopauza"
+    "zdrowie kobiet, hormony, cykl, menopauza",
+    "genetyka i biologia starzenia"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -587,7 +596,8 @@
     "bezpieczenstwo, naduzycia i to, co poszlo nie tak",
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
     "sprzet, chipy, energia i infrastruktura",
-    "spor i krytyka: kto sie z czym nie zgadza i dlaczego"
+    "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
+    "AI w zdrowiu, nauce i medycynie"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -610,7 +620,8 @@
     "socjologia pracy i tego, jak zyjemy",
     "mozg i neurobiologia",
     "historia nauki i wielkie odkrycia",
-    "sen i regeneracja"
+    "sen i regeneracja",
+    "psychologia i podejmowanie decyzji"
   ],
   "authors": [
     "Anil Seth",
@@ -626,6 +637,7 @@
     "David Graeber",
     "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf",
     "Sean B. Carroll",
-    "Christian Jarrett, Joannah Ginsburg"
+    "Christian Jarrett, Joannah Ginsburg",
+    "Adam Grant"
   ]
 }
