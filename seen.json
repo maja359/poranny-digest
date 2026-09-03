@@ -65,7 +65,8 @@
     "Fascynujący mózg",
     "Seria fortunnych zdarzeń, Sean B. Carroll",
     "Psychologia. Przygody ludzkiego umysłu",
-    "Leniwy umysł. Dlaczego warto ciągle weryfikować swoje poglądy i decyzje"
+    "Leniwy umysł. Dlaczego warto ciągle weryfikować swoje poglądy i decyzje",
+    "Kod jelit: Zaskakujący związek między wagą, chorobami a naszymi bakteriami, David Perlmutter, Kristin Loberg"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -115,7 +116,8 @@
     "Revlon",
     "Milk Makeup",
     "Etude House",
-    "Paula's Choice"
+    "Paula's Choice",
+    "Aveda"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -392,7 +394,10 @@
     "Neurodywersyjne kobiety w pułapce: ADHD i autyzm ujawniają się dopiero w menopauzie",
     "Sztuczna inteligencja stawia diagnozy z precyzją specjalisty. Dokładność sięga 94 procent",
     "Geny decydują o długości życia silniej, niż myśleliśmy. Naukowcy odkryli, że genetyka to aż połowa równania",
-    "AI oszczędza czas, ale zabija markę. Dlaczego firmy zaczynają się bać własnych narzędzi"
+    "AI oszczędza czas, ale zabija markę. Dlaczego firmy zaczynają się bać własnych narzędzi",
+    "Unia stawia na przejrzystość AI. Prawo wchodzi na pełne obroty",
+    "Siedem dni bez jedzenia zmienia mózg. Białka we krwi zdradzają prawdę",
+    "Hot stamping: gdy metalowa folia robi z pudełka dzieło sztuki"
   ],
   "rynek": [
     "IPO",
@@ -478,7 +483,8 @@
     "Ian Goodfellow",
     "Robin Li",
     "Emad Mostaque",
-    "Douglas Hofstadter"
+    "Douglas Hofstadter",
+    "Sebastian Thrun"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -525,7 +531,8 @@
     "kolor i pigment Ultramaryna: pigment droższy od złota",
     "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała",
     "błędy w markowaniu, literówka, przypadek Jak Chopin trafił na koreańskie kosmetyki",
-    "pochodzenie przedmiotu Łyżka zamiast muszelki: dlaczego najbardziej naturalny sztuciec wcale nie jest naturalny"
+    "pochodzenie przedmiotu Łyżka zamiast muszelki: dlaczego najbardziej naturalny sztuciec wcale nie jest naturalny",
+    "eksperyment z paskami na zwierzętach Krowy z białymi pasami przyciągają mniej much niż czarne"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -549,7 +556,8 @@
     "kolor i pigment",
     "liczby i miary",
     "bledy i wpadki",
-    "pochodzenie przedmiotu"
+    "pochodzenie przedmiotu",
+    "dziwny eksperyment"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -573,7 +581,8 @@
     "serce, krazenie i cisnienie",
     "zmysly: wzrok, sluch, wech, dotyk",
     "zdrowie kobiet, hormony, cykl, menopauza",
-    "genetyka i biologia starzenia"
+    "genetyka i biologia starzenia",
+    "metabolizm, odzywianie i realne dane z badan na ludziach"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -597,7 +606,8 @@
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
     "sprzet, chipy, energia i infrastruktura",
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
-    "AI w zdrowiu, nauce i medycynie"
+    "AI w zdrowiu, nauce i medycynie",
+    "prawo i regulacje, co sie zmienia dla firm i tworcow"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -621,7 +631,8 @@
     "mozg i neurobiologia",
     "historia nauki i wielkie odkrycia",
     "sen i regeneracja",
-    "psychologia i podejmowanie decyzji"
+    "psychologia i podejmowanie decyzji",
+    "mikrobiom, jelita i odzywianie"
   ],
   "authors": [
     "Anil Seth",
@@ -638,6 +649,7 @@
     "Henning Beck, Sofia Anastasiadou, Christopher Meyer zu Reckendorf",
     "Sean B. Carroll",
     "Christian Jarrett, Joannah Ginsburg",
-    "Adam Grant"
+    "Adam Grant",
+    "David Perlmutter, Kristin Loberg"
   ]
 }
