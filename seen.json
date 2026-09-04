@@ -66,7 +66,8 @@
     "Seria fortunnych zdarzeń, Sean B. Carroll",
     "Psychologia. Przygody ludzkiego umysłu",
     "Leniwy umysł. Dlaczego warto ciągle weryfikować swoje poglądy i decyzje",
-    "Kod jelit: Zaskakujący związek między wagą, chorobami a naszymi bakteriami, David Perlmutter, Kristin Loberg"
+    "Kod jelit: Zaskakujący związek między wagą, chorobami a naszymi bakteriami, David Perlmutter, Kristin Loberg",
+    "Księga Klimatu, Greta Thunberg"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -117,7 +118,8 @@
     "Milk Makeup",
     "Etude House",
     "Paula's Choice",
-    "Aveda"
+    "Aveda",
+    "Amouage"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -397,7 +399,10 @@
     "AI oszczędza czas, ale zabija markę. Dlaczego firmy zaczynają się bać własnych narzędzi",
     "Unia stawia na przejrzystość AI. Prawo wchodzi na pełne obroty",
     "Siedem dni bez jedzenia zmienia mózg. Białka we krwi zdradzają prawdę",
-    "Hot stamping: gdy metalowa folia robi z pudełka dzieło sztuki"
+    "Hot stamping: gdy metalowa folia robi z pudełka dzieło sztuki",
+    "AI uciekła z okna czatbota. Teraz żyje wszędzie",
+    "Bariery skóry zmienią myśl dermatologów. Badania pokazują konkretne liczby",
+    "Liczba dnia: 14,8 procent"
   ],
   "rynek": [
     "IPO",
@@ -484,7 +489,8 @@
     "Robin Li",
     "Emad Mostaque",
     "Douglas Hofstadter",
-    "Sebastian Thrun"
+    "Sebastian Thrun",
+    "Eliezer Yudkowsky"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -557,7 +563,8 @@
     "liczby i miary",
     "bledy i wpadki",
     "pochodzenie przedmiotu",
-    "dziwny eksperyment"
+    "dziwny eksperyment",
+    "muzyka i dzwiek"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -582,7 +589,8 @@
     "zmysly: wzrok, sluch, wech, dotyk",
     "zdrowie kobiet, hormony, cykl, menopauza",
     "genetyka i biologia starzenia",
-    "metabolizm, odzywianie i realne dane z badan na ludziach"
+    "metabolizm, odzywianie i realne dane z badan na ludziach",
+    "skora jako narzad, dermatologia oparta na dowodach"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -607,7 +615,8 @@
     "sprzet, chipy, energia i infrastruktura",
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
     "AI w zdrowiu, nauce i medycynie",
-    "prawo i regulacje, co sie zmienia dla firm i tworcow"
+    "prawo i regulacje, co sie zmienia dla firm i tworcow",
+    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -632,7 +641,8 @@
     "historia nauki i wielkie odkrycia",
     "sen i regeneracja",
     "psychologia i podejmowanie decyzji",
-    "mikrobiom, jelita i odzywianie"
+    "mikrobiom, jelita i odzywianie",
+    "klimat i przyszlosc planety"
   ],
   "authors": [
     "Anil Seth",
@@ -650,6 +660,7 @@
     "Sean B. Carroll",
     "Christian Jarrett, Joannah Ginsburg",
     "Adam Grant",
-    "David Perlmutter, Kristin Loberg"
+    "David Perlmutter, Kristin Loberg",
+    "Greta Thunberg"
   ]
 }
