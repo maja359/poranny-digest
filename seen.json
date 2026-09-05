@@ -67,7 +67,8 @@
     "Psychologia. Przygody ludzkiego umysłu",
     "Leniwy umysł. Dlaczego warto ciągle weryfikować swoje poglądy i decyzje",
     "Kod jelit: Zaskakujący związek między wagą, chorobami a naszymi bakteriami, David Perlmutter, Kristin Loberg",
-    "Księga Klimatu, Greta Thunberg"
+    "Księga Klimatu, Greta Thunberg",
+    "Ageless. Naukowe odkrycia mające zatrzymać starzenie, Andrew Steele"
   ],
   "beauty": [
     "Charlotte Tilbury",
@@ -119,7 +120,8 @@
     "Etude House",
     "Paula's Choice",
     "Aveda",
-    "Amouage"
+    "Amouage",
+    "Helena Rubinstein"
   ],
   "topics": [
     "SpaceX IPO na Nasdaq",
@@ -402,7 +404,11 @@
     "Hot stamping: gdy metalowa folia robi z pudełka dzieło sztuki",
     "AI uciekła z okna czatbota. Teraz żyje wszędzie",
     "Bariery skóry zmienią myśl dermatologów. Badania pokazują konkretne liczby",
-    "Liczba dnia: 14,8 procent"
+    "Liczba dnia: 14,8 procent",
+    "Energia zamiast chipów. Gdzie rzeczywiście tkwi wąskie gardło AI",
+    "Claude udowodnił Wielkie Twierdzenie Fermata. Sam, bez człowieka",
+    "Cabamiquine pokonuje malarię w badaniach klinicznych. Nowy lek idzie dalej",
+    "Claude Design: gdy opis zamienia się w gotowy projekt bez reszty aplikacji"
   ],
   "rynek": [
     "IPO",
@@ -490,7 +496,8 @@
     "Emad Mostaque",
     "Douglas Hofstadter",
     "Sebastian Thrun",
-    "Eliezer Yudkowsky"
+    "Eliezer Yudkowsky",
+    "Refik Anadol"
   ],
   "ciekawostki": [
     "Byredo, słowo którego nikt nie czytał, ale wszyscy kupują.",
@@ -538,7 +545,8 @@
     "pochodzenie jednostek miary Metr na nogach króla. Dlaczego miara ma rozmiar ciała",
     "błędy w markowaniu, literówka, przypadek Jak Chopin trafił na koreańskie kosmetyki",
     "pochodzenie przedmiotu Łyżka zamiast muszelki: dlaczego najbardziej naturalny sztuciec wcale nie jest naturalny",
-    "eksperyment z paskami na zwierzętach Krowy z białymi pasami przyciągają mniej much niż czarne"
+    "eksperyment z paskami na zwierzętach Krowy z białymi pasami przyciągają mniej much niż czarne",
+    "garbarstwo, tannin, czas Skóra dębowa czeka 180 dni, chromowa: 40"
   ],
   "cieka_cats": [
     "cialo czlowieka",
@@ -564,7 +572,8 @@
     "bledy i wpadki",
     "pochodzenie przedmiotu",
     "dziwny eksperyment",
-    "muzyka i dzwiek"
+    "muzyka i dzwiek",
+    "rzemioslo i material"
   ],
   "nauka_themes": [
     "sen, rytm dobowy i regeneracja",
@@ -590,7 +599,8 @@
     "zdrowie kobiet, hormony, cykl, menopauza",
     "genetyka i biologia starzenia",
     "metabolizm, odzywianie i realne dane z badan na ludziach",
-    "skora jako narzad, dermatologia oparta na dowodach"
+    "skora jako narzad, dermatologia oparta na dowodach",
+    "leki i terapie, ktore wlasnie przechodza probe kliniczna"
   ],
   "ai_angles": [
     "AI w pracy kreatywnej: design, obraz, wideo, muzyka, reklama",
@@ -616,7 +626,8 @@
     "spor i krytyka: kto sie z czym nie zgadza i dlaczego",
     "AI w zdrowiu, nauce i medycynie",
     "prawo i regulacje, co sie zmienia dla firm i tworcow",
-    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja"
+    "kultura i obyczaje wokol AI: jak ludzie faktycznie tego uzywaja",
+    "sprzet, chipy, energia i infrastruktura"
   ],
   "book_themes": [
     "historia nauki i wielkie odkrycia",
@@ -642,7 +653,8 @@
     "sen i regeneracja",
     "psychologia i podejmowanie decyzji",
     "mikrobiom, jelita i odzywianie",
-    "klimat i przyszlosc planety"
+    "klimat i przyszlosc planety",
+    "dlugowiecznosc i starzenie"
   ],
   "authors": [
     "Anil Seth",
@@ -661,6 +673,7 @@
     "Christian Jarrett, Joannah Ginsburg",
     "Adam Grant",
     "David Perlmutter, Kristin Loberg",
-    "Greta Thunberg"
+    "Greta Thunberg",
+    "Andrew Steele"
   ]
 }
